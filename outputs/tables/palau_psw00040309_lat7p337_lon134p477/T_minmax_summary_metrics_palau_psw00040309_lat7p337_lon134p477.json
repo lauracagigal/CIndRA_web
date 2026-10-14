@@ -1,0 +1,32 @@
+{
+  "site_name": "palau_PSW00040309",
+  "ghcn_station_id": "PSW00040309",
+  "ghcn_station_name": "PW KOROR GSN 91408",
+  "country": "Palau",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1951,
+    "end": 2026
+  },
+  "tmin": {
+    "annual_mean_C": 24.4096970843879,
+    "trend_C_per_year": 0.015,
+    "trend_C_per_decade": 0.15,
+    "change_C_over_window": 1.14,
+    "p_value": 9.297667084997482e-14
+  },
+  "tmax": {
+    "annual_mean_C": 31.033677983557787,
+    "trend_C_per_year": 0.002,
+    "trend_C_per_decade": 0.02,
+    "change_C_over_window": 0.152,
+    "p_value": 0.4310526771551181
+  },
+  "diurnal_range": {
+    "annual_mean_C": 6.623980899169886,
+    "trend_C_per_year": -0.012,
+    "trend_C_per_decade": -0.12,
+    "change_C_over_window": -0.912,
+    "p_value": 0.001126646509322663
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "site_name": "marshall_islands_RMW00040710",
+  "ghcn_station_id": "RMW00040710",
+  "ghcn_station_name": "MH MAJURO WBAS AP GSN 91376",
+  "country": "Marshall Islands",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1955,
+    "end": 2026
+  },
+  "reference_period": {
+    "start": "1961",
+    "end": "1990"
+  },
+  "mean_ref_C": 27.263779736507225,
+  "trend_C_per_year": 0.02,
+  "trend_C_per_decade": 0.2,
+  "change_C_over_window": 1.44,
+  "top_10_warmest_years": [
+    {
+      "year": 2016,
+      "TMEAN_C": 28.71448087431694,
+      "anomaly_C": 1.450701137809716
+    },
+    {
+      "year": 2024,
+      "TMEAN_C": 28.676041666666666,
+      "anomaly_C": 1.412261930159442
+    },
+    {
+      "year": 2026,
+      "TMEAN_C": 28.611458333333335,
+      "anomaly_C": 1.3476785968261105
+    },
+    {
+      "year": 2012,
+      "TMEAN_C": 28.483879781420764,
+      "anomaly_C": 1.22010004491354
+    },
+    {
+      "year": 2014,
+      "TMEAN_C": 28.385342465753425,
+      "anomaly_C": 1.1215627292462003
+    },
+    {
+      "year": 2015,
+      "TMEAN_C": 28.383698630136983,
+      "anomaly_C": 1.1199188936297588
+    },
+    {
+      "year": 2020,
+      "TMEAN_C": 28.36898907103825,
+      "anomaly_C": 1.1052093345310254
+    },
+    {
+      "year": 2023,
+      "TMEAN_C": 28.34095890410959,
+      "anomaly_C": 1.0771791676023668
+    },
+    {
+      "year": 2019,
+      "TMEAN_C": 28.340384615384615,
+      "anomaly_C": 1.07660487887739
+    },
+    {
+      "year": 2025,
+      "TMEAN_C": 28.313424657534245,
+      "anomaly_C": 1.0496449210270207
+    }
+  ],
+  "enso": {
+    "slope_C_per_ONI": 0.15944019322701217,
+    "r": 0.20014370285014335,
+    "p_value": 0.09186215448290985,
+    "data_source": "NOAA ONI"
+  }
+}

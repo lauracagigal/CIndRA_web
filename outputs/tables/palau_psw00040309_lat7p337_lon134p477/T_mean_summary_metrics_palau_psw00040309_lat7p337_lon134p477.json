@@ -1,0 +1,77 @@
+{
+  "site_name": "palau_PSW00040309",
+  "ghcn_station_id": "PSW00040309",
+  "ghcn_station_name": "PW KOROR GSN 91408",
+  "country": "Palau",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1951,
+    "end": 2026
+  },
+  "reference_period": {
+    "start": "1961",
+    "end": "1990"
+  },
+  "mean_ref_C": 27.607182823065596,
+  "trend_C_per_year": 0.008,
+  "trend_C_per_decade": 0.08,
+  "change_C_over_window": 0.608,
+  "top_10_warmest_years": [
+    {
+      "year": 2004,
+      "TMEAN_C": 28.42158469945355,
+      "anomaly_C": 0.8144018763879544
+    },
+    {
+      "year": 2002,
+      "TMEAN_C": 28.406438356164383,
+      "anomaly_C": 0.7992555330987869
+    },
+    {
+      "year": 2016,
+      "TMEAN_C": 28.350136612021856,
+      "anomaly_C": 0.7429537889562603
+    },
+    {
+      "year": 2018,
+      "TMEAN_C": 28.344612794612797,
+      "anomaly_C": 0.7374299715472006
+    },
+    {
+      "year": 2007,
+      "TMEAN_C": 28.330958904109586,
+      "anomaly_C": 0.7237760810439902
+    },
+    {
+      "year": 2015,
+      "TMEAN_C": 28.29232876712329,
+      "anomaly_C": 0.6851459440576946
+    },
+    {
+      "year": 2006,
+      "TMEAN_C": 28.25027397260274,
+      "anomaly_C": 0.6430911495371454
+    },
+    {
+      "year": 2001,
+      "TMEAN_C": 28.226712328767125,
+      "anomaly_C": 0.6195295057015286
+    },
+    {
+      "year": 2017,
+      "TMEAN_C": 28.198630136986303,
+      "anomaly_C": 0.5914473139207068
+    },
+    {
+      "year": 2003,
+      "TMEAN_C": 28.139589041095892,
+      "anomaly_C": 0.532406218030296
+    }
+  ],
+  "enso": {
+    "slope_C_per_ONI": 0.07803680838294548,
+    "r": 0.14566943100873128,
+    "p_value": 0.21881313473885652,
+    "data_source": "NOAA ONI"
+  }
+}

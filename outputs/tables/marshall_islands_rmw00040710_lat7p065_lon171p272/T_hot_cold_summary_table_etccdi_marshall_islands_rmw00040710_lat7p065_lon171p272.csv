@@ -1,0 +1,20 @@
+,Metric,Value,Year
+0,Daily Maximum Temperature (°C),34.7,
+1,Daily Minimum Temperature (°C),20.0,
+2, ,,
+3,Average number of hot days,20.79922128444987,
+4,Change in Average Annual Number of Hot Days,1.249,
+5,Average Annual Number of Hot days: 1961-1971,-12.399404300131339,
+6,Average Annual Number of Hot days: 2001-2011,22.1707576342738,
+7,Average Annual Number of Hot days: 2011-2021,63.23593743538443,
+8,Maximum number of hot days,107.0,2016.0
+9,Minimum number of hot days,-18.0,1971.0
+10, ,,
+11,Average number of cold nights,-9.978844243655885,
+12,Change in Average Annual Number of Cold Nights,-0.391,
+13,Average Annual Number of Cold Nights: 1961-1971,-11.751544073113797,
+14,Average Annual Number of Cold Nights: 2001-2011,-21.749439923053213,
+15,Average Annual Number of Cold Nights: 2011-2021,-22.932568777692843,
+16,Maximum number of cold nights,51.0,1991.0
+17,Minimum number of cold nights,-23.0,2001.0
+18, ,,

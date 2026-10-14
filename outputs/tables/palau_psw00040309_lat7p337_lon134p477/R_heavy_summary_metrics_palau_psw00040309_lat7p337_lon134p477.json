@@ -1,0 +1,32 @@
+{
+  "site_name": "palau_PSW00040309",
+  "ghcn_station_id": "PSW00040309",
+  "ghcn_station_name": "PW KOROR GSN 91408",
+  "country": "Palau",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1951,
+    "end": 2026
+  },
+  "wet_day_threshold_mm": 1.0,
+  "heavy_rainfall_threshold_mm": 45.2,
+  "heavy_rainfall_percentile": 95,
+  "wet_days_per_year_stats": {
+    "n": 75,
+    "mean": 214.66666666666666,
+    "min": 90.0,
+    "max": 264.0,
+    "std": 28.01174142493925
+  },
+  "heavy_days_per_year_stats": {
+    "n": 75,
+    "mean": 17.76,
+    "min": 4.0,
+    "max": 34.0,
+    "std": 5.8352146258496544
+  },
+  "trend_wet_days_per_year": -0.186,
+  "trend_heavy_days_per_year": -0.028,
+  "p_value_wet_days": 0.21213320375845088,
+  "p_value_heavy_days": 0.36639354476778085
+}

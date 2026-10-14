@@ -1,0 +1,55 @@
+{
+  "site_name": "palau_PSW00040309",
+  "ghcn_station_id": "PSW00040309",
+  "ghcn_station_name": "PW KOROR GSN 91408",
+  "country": "Palau",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1951,
+    "end": 2026
+  },
+  "etccdi": {
+    "threshold_definition": "TX90p / TN10p (1961-1990 base period)",
+    "hot_days_per_year_stats": {
+      "n": 73,
+      "mean": 38.082191780821915,
+      "min": 0.0,
+      "max": 180.0,
+      "std": 43.151462388202866
+    },
+    "cold_nights_per_year_stats": {
+      "n": 73,
+      "mean": 19.45205479452055,
+      "min": 0.0,
+      "max": 61.0,
+      "std": 13.671788771743735
+    },
+    "slope_hot_days_per_year": 0.956,
+    "p_value_hot_days": 0.0013582763981472544,
+    "slope_cold_nights_per_year": -0.273,
+    "p_value_cold_nights": 0.0010972783485562103
+  },
+  "fixed_percentile": {
+    "threshold_definition": "TMAX > q90 and TMIN < q10 (1961-1991)",
+    "q90_TMAX_C": 32.2,
+    "q10_TMIN_C": 23.3,
+    "hot_days_per_year_stats": {
+      "n": 68,
+      "mean": 36.26470588235294,
+      "min": 1.0,
+      "max": 164.0,
+      "std": 38.067347094821
+    },
+    "cold_nights_per_year_stats": {
+      "n": 69,
+      "mean": 29.202898550724637,
+      "min": 2.0,
+      "max": 70.0,
+      "std": 16.56589312425571
+    },
+    "slope_hot_days_per_year": 1.126,
+    "p_value_hot_days": 9.078269771636386e-08,
+    "slope_cold_nights_per_year": -0.407,
+    "p_value_cold_nights": 1.587690141711178e-05
+  }
+}

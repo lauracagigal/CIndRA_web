@@ -1,0 +1,74 @@
+{
+  "site_name": "palau_PSW00040309",
+  "ghcn_station_id": "PSW00040309",
+  "ghcn_station_name": "PW KOROR GSN 91408",
+  "country": "Palau",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1951,
+    "end": 2026
+  },
+  "reference_period": {
+    "start": "1961",
+    "end": "1990"
+  },
+  "mean_ref_mm": 3757.347613843351,
+  "accumulated_trend_mm_per_year": 1.031,
+  "accumulated_trend_mm_per_decade": 10.309999999999999,
+  "accumulated_change_mm_over_window": 77.32499999999999,
+  "daily_trend": [
+    0.002
+  ],
+  "top_10_wettest_years": [
+    {
+      "year": 2011,
+      "PRCP_mm": 5483.1,
+      "anomaly_mm": 1725.7523861566492
+    },
+    {
+      "year": 2022,
+      "PRCP_mm": 5255.102459016393,
+      "anomaly_mm": 1497.7548451730422
+    },
+    {
+      "year": 1974,
+      "PRCP_mm": 4699.8,
+      "anomaly_mm": 942.452386156649
+    },
+    {
+      "year": 2021,
+      "PRCP_mm": 4576.813725490196,
+      "anomaly_mm": 819.4661116468446
+    },
+    {
+      "year": 1956,
+      "PRCP_mm": 4539.16393442623,
+      "anomaly_mm": 781.8163205828791
+    },
+    {
+      "year": 2003,
+      "PRCP_mm": 4503.1,
+      "anomaly_mm": 745.7523861566492
+    },
+    {
+      "year": 2017,
+      "PRCP_mm": 4491.3,
+      "anomaly_mm": 733.952386156649
+    },
+    {
+      "year": 2023,
+      "PRCP_mm": 4433.2406015037595,
+      "anomaly_mm": 675.8929876604084
+    },
+    {
+      "year": 1991,
+      "PRCP_mm": 4424.3,
+      "anomaly_mm": 666.952386156649
+    },
+    {
+      "year": 1962,
+      "PRCP_mm": 4376.6,
+      "anomaly_mm": 619.2523861566492
+    }
+  ]
+}

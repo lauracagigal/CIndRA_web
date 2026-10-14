@@ -1,0 +1,32 @@
+{
+  "site_name": "marshall_islands_RMW00040710",
+  "ghcn_station_id": "RMW00040710",
+  "ghcn_station_name": "MH MAJURO WBAS AP GSN 91376",
+  "country": "Marshall Islands",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1954,
+    "end": 2026
+  },
+  "wet_day_threshold_mm": 1.0,
+  "heavy_rainfall_threshold_mm": 42.4,
+  "heavy_rainfall_percentile": 95,
+  "wet_days_per_year_stats": {
+    "n": 73,
+    "mean": 207.1095890410959,
+    "min": 120.0,
+    "max": 247.0,
+    "std": 23.992221913127743
+  },
+  "heavy_days_per_year_stats": {
+    "n": 73,
+    "mean": 17.89041095890411,
+    "min": 6.0,
+    "max": 30.0,
+    "std": 5.020960631403164
+  },
+  "trend_wet_days_per_year": -0.136,
+  "trend_heavy_days_per_year": -0.031,
+  "p_value_wet_days": 0.3115847657802603,
+  "p_value_heavy_days": 0.26918438206600476
+}

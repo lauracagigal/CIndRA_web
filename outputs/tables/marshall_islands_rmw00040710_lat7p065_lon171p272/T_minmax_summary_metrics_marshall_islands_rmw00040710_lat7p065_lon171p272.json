@@ -1,0 +1,32 @@
+{
+  "site_name": "marshall_islands_RMW00040710",
+  "ghcn_station_id": "RMW00040710",
+  "ghcn_station_name": "MH MAJURO WBAS AP GSN 91376",
+  "country": "Marshall Islands",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1955,
+    "end": 2026
+  },
+  "tmin": {
+    "annual_mean_C": 25.276172926825826,
+    "trend_C_per_year": 0.029,
+    "trend_C_per_decade": 0.29000000000000004,
+    "change_C_over_window": 2.088,
+    "p_value": 4.867437954513431e-15
+  },
+  "tmax": {
+    "annual_mean_C": 30.007914250071494,
+    "trend_C_per_year": 0.01,
+    "trend_C_per_decade": 0.1,
+    "change_C_over_window": 0.72,
+    "p_value": 3.433906249317461e-09
+  },
+  "diurnal_range": {
+    "annual_mean_C": 4.731741323245667,
+    "trend_C_per_year": -0.019,
+    "trend_C_per_decade": -0.19,
+    "change_C_over_window": -1.3679999999999999,
+    "p_value": 1.2688954647027886e-06
+  }
+}

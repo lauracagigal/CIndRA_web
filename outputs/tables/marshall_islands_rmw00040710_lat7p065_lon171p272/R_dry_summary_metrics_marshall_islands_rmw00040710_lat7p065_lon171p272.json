@@ -1,0 +1,37 @@
+{
+  "site_name": "marshall_islands_RMW00040710",
+  "ghcn_station_id": "RMW00040710",
+  "ghcn_station_name": "MH MAJURO WBAS AP GSN 91376",
+  "country": "Marshall Islands",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1954,
+    "end": 2026
+  },
+  "dry_day_threshold_mm": 1.0,
+  "dry_days_per_year_stats": {
+    "n": 73,
+    "mean": 153.36986301369862,
+    "min": 57.0,
+    "max": 227.0,
+    "std": 24.48100559011407
+  },
+  "max_consecutive_dry_days_stats": {
+    "n": 73,
+    "mean": 10.931506849315069,
+    "min": 4.0,
+    "max": 43.0,
+    "std": 6.210047340853922
+  },
+  "mean_consecutive_dry_days_stats": {
+    "n": 73,
+    "mean": 1.016343176651922,
+    "min": 0.3719806763285024,
+    "max": 4.215846994535519,
+    "std": 0.554753889041932
+  },
+  "trend_dry_days_per_year": 0.102,
+  "trend_max_consecutive_dry_days": -0.032,
+  "p_value_dry_days": 0.45663886902194584,
+  "p_value_max_consecutive_dry_days": 0.3535406106999036
+}

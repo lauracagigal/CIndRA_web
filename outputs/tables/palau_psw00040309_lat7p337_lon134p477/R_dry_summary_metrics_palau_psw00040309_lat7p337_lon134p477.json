@@ -1,0 +1,37 @@
+{
+  "site_name": "palau_PSW00040309",
+  "ghcn_station_id": "PSW00040309",
+  "ghcn_station_name": "PW KOROR GSN 91408",
+  "country": "Palau",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1951,
+    "end": 2026
+  },
+  "dry_day_threshold_mm": 1.0,
+  "dry_days_per_year_stats": {
+    "n": 75,
+    "mean": 140.69333333333333,
+    "min": 58.0,
+    "max": 194.0,
+    "std": 24.248139150298776
+  },
+  "max_consecutive_dry_days_stats": {
+    "n": 75,
+    "mean": 9.973333333333333,
+    "min": 4.0,
+    "max": 24.0,
+    "std": 3.428707633502168
+  },
+  "mean_consecutive_dry_days_stats": {
+    "n": 75,
+    "mean": 0.8680553108495307,
+    "min": 0.40273972602739727,
+    "max": 1.7698630136986302,
+    "std": 0.28632756244262436
+  },
+  "trend_dry_days_per_year": -0.186,
+  "trend_max_consecutive_dry_days": -0.008,
+  "p_value_dry_days": 0.1494115030091527,
+  "p_value_max_consecutive_dry_days": 0.6452404692098082
+}

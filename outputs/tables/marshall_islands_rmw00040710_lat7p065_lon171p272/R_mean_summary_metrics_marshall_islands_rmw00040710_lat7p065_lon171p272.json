@@ -1,0 +1,74 @@
+{
+  "site_name": "marshall_islands_RMW00040710",
+  "ghcn_station_id": "RMW00040710",
+  "ghcn_station_name": "MH MAJURO WBAS AP GSN 91376",
+  "country": "Marshall Islands",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1954,
+    "end": 2026
+  },
+  "reference_period": {
+    "start": "1961",
+    "end": "1990"
+  },
+  "mean_ref_mm": 3334.8869125683054,
+  "accumulated_trend_mm_per_year": -3.759,
+  "accumulated_trend_mm_per_decade": -37.589999999999996,
+  "accumulated_change_mm_over_window": -274.407,
+  "daily_trend": [
+    -0.008
+  ],
+  "top_10_wettest_years": [
+    {
+      "year": 1954,
+      "PRCP_mm": 4663.183574879227,
+      "anomaly_mm": 1328.2966623109219
+    },
+    {
+      "year": 1991,
+      "PRCP_mm": 4519.0,
+      "anomaly_mm": 1184.1130874316946
+    },
+    {
+      "year": 1956,
+      "PRCP_mm": 4386.98087431694,
+      "anomaly_mm": 1052.0939617486342
+    },
+    {
+      "year": 2018,
+      "PRCP_mm": 4360.5,
+      "anomaly_mm": 1025.6130874316946
+    },
+    {
+      "year": 2017,
+      "PRCP_mm": 4140.7,
+      "anomaly_mm": 805.8130874316944
+    },
+    {
+      "year": 1971,
+      "PRCP_mm": 4125.9,
+      "anomaly_mm": 791.0130874316942
+    },
+    {
+      "year": 1964,
+      "PRCP_mm": 4122.206284153005,
+      "anomaly_mm": 787.3193715846996
+    },
+    {
+      "year": 1955,
+      "PRCP_mm": 4096.2,
+      "anomaly_mm": 761.3130874316944
+    },
+    {
+      "year": 1972,
+      "PRCP_mm": 3994.5560109289618,
+      "anomaly_mm": 659.6690983606563
+    },
+    {
+      "year": 2021,
+      "PRCP_mm": 3937.4,
+      "anomaly_mm": 602.5130874316947
+    }
+  ]
+}

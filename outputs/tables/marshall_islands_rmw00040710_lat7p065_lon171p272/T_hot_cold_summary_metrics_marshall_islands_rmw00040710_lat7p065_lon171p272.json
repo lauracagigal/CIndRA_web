@@ -1,0 +1,55 @@
+{
+  "site_name": "marshall_islands_RMW00040710",
+  "ghcn_station_id": "RMW00040710",
+  "ghcn_station_name": "MH MAJURO WBAS AP GSN 91376",
+  "country": "Marshall Islands",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1955,
+    "end": 2026
+  },
+  "etccdi": {
+    "threshold_definition": "TX90p / TN10p (1961-1990 base period)",
+    "hot_days_per_year_stats": {
+      "n": 72,
+      "mean": 35.05555555555556,
+      "min": 0.0,
+      "max": 126.0,
+      "std": 30.853077043745454
+    },
+    "cold_nights_per_year_stats": {
+      "n": 72,
+      "mean": 13.86111111111111,
+      "min": 0.0,
+      "max": 75.0,
+      "std": 16.54980154389804
+    },
+    "slope_hot_days_per_year": 1.249,
+    "p_value_hot_days": 3.758639784029596e-12,
+    "slope_cold_nights_per_year": -0.391,
+    "p_value_cold_nights": 0.0001459917155900799
+  },
+  "fixed_percentile": {
+    "threshold_definition": "TMAX > q90 and TMIN < q10 (1961-1991)",
+    "q90_TMAX_C": 31.1,
+    "q10_TMIN_C": 23.3,
+    "hot_days_per_year_stats": {
+      "n": 59,
+      "mean": 23.694915254237287,
+      "min": 1.0,
+      "max": 81.0,
+      "std": 20.766563175291765
+    },
+    "cold_nights_per_year_stats": {
+      "n": 58,
+      "mean": 18.29310344827586,
+      "min": 1.0,
+      "max": 78.0,
+      "std": 18.329353910082062
+    },
+    "slope_hot_days_per_year": 0.583,
+    "p_value_hot_days": 7.538030359469636e-06,
+    "slope_cold_nights_per_year": -0.247,
+    "p_value_cold_nights": 0.05323118465286595
+  }
+}
