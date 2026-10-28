@@ -1,0 +1,33 @@
+Region,Scenario,Warming level,Year,Models,Median,P10,P90,Min,Max
+North Pacific Subtropical Gyre,SSP126,+1.5°C,2032,18,201.9,92.4,270.2,34.0,293.1
+North Pacific Subtropical Gyre,SSP126,+2.0°C,,0,,,,,
+North Pacific Subtropical Gyre,SSP126,+2.5°C,,0,,,,,
+North Pacific Subtropical Gyre,SSP126,+3.0°C,,0,,,,,
+North Pacific Subtropical Gyre,SSP585,+1.5°C,2027,18,155.9,104.6,222.0,32.9,302.2
+North Pacific Subtropical Gyre,SSP585,+2.0°C,2041,18,302.4,220.9,352.9,156.7,356.7
+North Pacific Subtropical Gyre,SSP585,+2.5°C,2053,18,341.1,273.6,358.0,171.5,365.0
+North Pacific Subtropical Gyre,SSP585,+3.0°C,2064,18,361.7,341.5,365.7,102.3,366.0
+Equatorial Upwelling,SSP126,+1.5°C,2032,18,136.7,38.2,248.1,0.0,258.9
+Equatorial Upwelling,SSP126,+2.0°C,,0,,,,,
+Equatorial Upwelling,SSP126,+2.5°C,,0,,,,,
+Equatorial Upwelling,SSP126,+3.0°C,,0,,,,,
+Equatorial Upwelling,SSP585,+1.5°C,2027,18,112.1,13.5,310.4,0.0,355.0
+Equatorial Upwelling,SSP585,+2.0°C,2041,18,136.4,48.8,267.7,3.9,351.1
+Equatorial Upwelling,SSP585,+2.5°C,2053,18,273.6,80.4,340.6,0.0,350.3
+Equatorial Upwelling,SSP585,+3.0°C,2064,18,287.6,153.6,359.9,89.1,365.8
+Western Equatorial Pacific,SSP126,+1.5°C,2032,18,178.4,121.6,208.4,67.8,229.1
+Western Equatorial Pacific,SSP126,+2.0°C,,0,,,,,
+Western Equatorial Pacific,SSP126,+2.5°C,,0,,,,,
+Western Equatorial Pacific,SSP126,+3.0°C,,0,,,,,
+Western Equatorial Pacific,SSP585,+1.5°C,2027,18,137.4,67.0,182.2,49.3,220.2
+Western Equatorial Pacific,SSP585,+2.0°C,2041,18,240.4,158.9,322.1,125.2,348.2
+Western Equatorial Pacific,SSP585,+2.5°C,2053,18,312.4,201.5,355.8,132.2,361.3
+Western Equatorial Pacific,SSP585,+3.0°C,2064,18,351.1,287.1,359.8,242.2,364.4
+South Pacific Subtropical Gyre,SSP126,+1.5°C,2032,18,111.4,37.7,180.6,28.0,202.8
+South Pacific Subtropical Gyre,SSP126,+2.0°C,,0,,,,,
+South Pacific Subtropical Gyre,SSP126,+2.5°C,,0,,,,,
+South Pacific Subtropical Gyre,SSP126,+3.0°C,,0,,,,,
+South Pacific Subtropical Gyre,SSP585,+1.5°C,2027,18,108.8,44.3,147.7,13.7,161.0
+South Pacific Subtropical Gyre,SSP585,+2.0°C,2041,18,218.7,93.9,262.8,59.2,294.5
+South Pacific Subtropical Gyre,SSP585,+2.5°C,2053,18,238.0,150.9,325.1,81.9,341.7
+South Pacific Subtropical Gyre,SSP585,+3.0°C,2064,18,325.0,274.6,349.4,217.5,359.1

@@ -1,0 +1,65 @@
+Region,Scenario,Warming level,Year,Models,Median,P10,P90,Min,Max
+North Pacific Subtropical Gyre,SSP126,+1.5°C,2032,26,14.5,-12.6,26.4,-40.3,39.9
+North Pacific Subtropical Gyre,SSP126,+2.0°C,,0,,,,,
+North Pacific Subtropical Gyre,SSP126,+2.5°C,,0,,,,,
+North Pacific Subtropical Gyre,SSP126,+3.0°C,,0,,,,,
+North Pacific Subtropical Gyre,SSP245,+1.5°C,2030,27,13.5,-4.5,26.7,-35.7,45.3
+North Pacific Subtropical Gyre,SSP245,+2.0°C,2052,27,47.9,27.6,71.8,-9.1,114.4
+North Pacific Subtropical Gyre,SSP245,+2.5°C,2079,27,76.9,53.4,123.1,44.8,158.0
+North Pacific Subtropical Gyre,SSP245,+3.0°C,,0,,,,,
+North Pacific Subtropical Gyre,SSP370,+1.5°C,2030,27,5.7,-12.4,20.1,-54.7,38.6
+North Pacific Subtropical Gyre,SSP370,+2.0°C,2046,26,49.7,36.8,60.8,24.6,68.2
+North Pacific Subtropical Gyre,SSP370,+2.5°C,2061,27,76.9,62.1,102.6,54.7,126.1
+North Pacific Subtropical Gyre,SSP370,+3.0°C,2075,27,106.0,85.9,129.4,79.0,149.8
+North Pacific Subtropical Gyre,SSP585,+1.5°C,2027,27,8.1,-1.0,26.2,-56.2,29.9
+North Pacific Subtropical Gyre,SSP585,+2.0°C,2041,27,42.4,26.0,54.4,17.8,80.7
+North Pacific Subtropical Gyre,SSP585,+2.5°C,2053,27,72.3,50.0,88.8,42.8,99.1
+North Pacific Subtropical Gyre,SSP585,+3.0°C,2064,27,93.2,63.7,127.7,51.6,144.4
+Equatorial Upwelling,SSP126,+1.5°C,2032,26,-0.2,-80.2,124.9,-168.9,160.2
+Equatorial Upwelling,SSP126,+2.0°C,,0,,,,,
+Equatorial Upwelling,SSP126,+2.5°C,,0,,,,,
+Equatorial Upwelling,SSP126,+3.0°C,,0,,,,,
+Equatorial Upwelling,SSP245,+1.5°C,2030,27,-6.3,-113.9,105.5,-125.8,167.7
+Equatorial Upwelling,SSP245,+2.0°C,2052,27,102.1,28.3,153.1,-28.8,251.4
+Equatorial Upwelling,SSP245,+2.5°C,2079,27,108.5,29.2,183.4,-47.5,243.6
+Equatorial Upwelling,SSP245,+3.0°C,,0,,,,,
+Equatorial Upwelling,SSP370,+1.5°C,2030,27,-5.0,-111.1,98.9,-117.5,197.3
+Equatorial Upwelling,SSP370,+2.0°C,2046,26,104.0,17.0,170.7,-99.2,191.9
+Equatorial Upwelling,SSP370,+2.5°C,2061,27,134.9,26.2,209.7,-98.5,243.6
+Equatorial Upwelling,SSP370,+3.0°C,2075,27,157.2,76.9,225.7,-34.1,285.0
+Equatorial Upwelling,SSP585,+1.5°C,2027,27,23.5,-71.1,119.0,-101.9,149.4
+Equatorial Upwelling,SSP585,+2.0°C,2041,27,48.2,-54.8,148.1,-107.7,202.8
+Equatorial Upwelling,SSP585,+2.5°C,2053,27,122.5,3.0,179.1,-133.7,247.1
+Equatorial Upwelling,SSP585,+3.0°C,2064,27,149.4,61.2,197.8,-28.9,234.7
+Western Equatorial Pacific,SSP126,+1.5°C,2032,26,30.8,-18.4,49.3,-29.8,53.2
+Western Equatorial Pacific,SSP126,+2.0°C,,0,,,,,
+Western Equatorial Pacific,SSP126,+2.5°C,,0,,,,,
+Western Equatorial Pacific,SSP126,+3.0°C,,0,,,,,
+Western Equatorial Pacific,SSP245,+1.5°C,2030,27,19.1,-13.7,37.8,-64.2,61.7
+Western Equatorial Pacific,SSP245,+2.0°C,2052,27,79.1,56.3,95.6,28.7,138.0
+Western Equatorial Pacific,SSP245,+2.5°C,2079,27,117.0,75.2,148.4,53.9,159.5
+Western Equatorial Pacific,SSP245,+3.0°C,,0,,,,,
+Western Equatorial Pacific,SSP370,+1.5°C,2030,27,9.0,-18.4,30.5,-48.7,39.8
+Western Equatorial Pacific,SSP370,+2.0°C,2046,26,69.3,47.1,107.0,31.6,119.8
+Western Equatorial Pacific,SSP370,+2.5°C,2061,27,111.8,83.0,141.8,79.0,146.3
+Western Equatorial Pacific,SSP370,+3.0°C,2075,27,144.2,111.3,167.0,88.3,181.3
+Western Equatorial Pacific,SSP585,+1.5°C,2027,27,12.0,-6.3,33.2,-65.7,42.5
+Western Equatorial Pacific,SSP585,+2.0°C,2041,27,60.6,36.4,86.9,7.2,101.9
+Western Equatorial Pacific,SSP585,+2.5°C,2053,27,99.8,76.0,121.5,27.6,136.6
+Western Equatorial Pacific,SSP585,+3.0°C,2064,27,125.2,94.7,150.6,82.8,161.6
+South Pacific Subtropical Gyre,SSP126,+1.5°C,2032,26,6.0,-10.7,19.7,-15.8,26.8
+South Pacific Subtropical Gyre,SSP126,+2.0°C,,0,,,,,
+South Pacific Subtropical Gyre,SSP126,+2.5°C,,0,,,,,
+South Pacific Subtropical Gyre,SSP126,+3.0°C,,0,,,,,
+South Pacific Subtropical Gyre,SSP245,+1.5°C,2030,27,3.2,-10.2,15.4,-17.8,20.2
+South Pacific Subtropical Gyre,SSP245,+2.0°C,2052,27,26.0,8.8,50.9,-4.5,60.7
+South Pacific Subtropical Gyre,SSP245,+2.5°C,2079,27,46.3,25.3,67.2,20.0,73.9
+South Pacific Subtropical Gyre,SSP245,+3.0°C,,0,,,,,
+South Pacific Subtropical Gyre,SSP370,+1.5°C,2030,27,5.6,-7.0,13.7,-31.9,17.1
+South Pacific Subtropical Gyre,SSP370,+2.0°C,2046,26,27.0,12.6,38.2,2.4,41.8
+South Pacific Subtropical Gyre,SSP370,+2.5°C,2061,27,48.2,33.9,68.6,18.9,82.5
+South Pacific Subtropical Gyre,SSP370,+3.0°C,2075,27,67.5,45.3,89.7,33.2,112.2
+South Pacific Subtropical Gyre,SSP585,+1.5°C,2027,27,3.2,-12.3,15.4,-20.5,25.1
+South Pacific Subtropical Gyre,SSP585,+2.0°C,2041,27,21.7,7.3,38.7,-5.7,43.7
+South Pacific Subtropical Gyre,SSP585,+2.5°C,2053,27,40.2,27.9,58.5,18.3,80.5
+South Pacific Subtropical Gyre,SSP585,+3.0°C,2064,27,65.8,45.2,89.4,31.0,93.7

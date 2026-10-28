@@ -7,6 +7,9 @@
 //   {MHW}      outputs/mhw                  (national MHW notebook output)
 //   {station}  station slug of the selected national site
 //   {eez}      EEZ slug of the selected national site
+//   {natfig}   per-site subfolder of {FIG} for TC / SST / biochemistry products ('' = {FIG} itself)
+// An indicator may carry `projections: { notebook, products, tables }` (national and regional scales);
+// these are attached by indicator code at the end of this file.
 // A product whose path uses a token the selected site does not define is shown as "not available".
 // Missing files are detected at runtime and flagged as "not generated yet".
 
@@ -26,11 +29,11 @@ window.CINDRA = {
   sites: [
     {
       id: 'palau', label: 'Palau', station: 'Koror (GSN 91408)', eezName: 'Palau', lat: 7.337, lon: 134.477,
-      tokens: { station: 'palau_psw00040309_lat7p337_lon134p477', eez: 'palau', ocean: 'palau' },
+      tokens: { station: 'palau_psw00040309_lat7p337_lon134p477', eez: 'palau', ocean: 'palau', natfig: '' },
     },
     {
       id: 'marshall', label: 'Marshall Islands', station: 'Majuro (GSN 91376)', eezName: 'Marshall Islands', lat: 7.065, lon: 171.272,
-      tokens: { station: 'marshall_islands_rmw00040710_lat7p065_lon171p272' },
+      tokens: { station: 'marshall_islands_rmw00040710_lat7p065_lon171p272', eez: 'marshall_islands', natfig: 'marshall_islands_rmw00040710_lat7p065_lon171p272/' },
     },
   ],
 
@@ -171,15 +174,15 @@ window.CINDRA = {
           code: '3.1', name: 'All tropical cyclones',
           notebook: 'notebooks/historical/National/tropical_cyclones/a_tropical_cyclones',
           products: [
-            { kind: 'map', title: 'Historical TC tracks', path: '{FIG}/F8_TCs_Historical.png', sites: ['palau'],
+            { kind: 'map', title: 'Historical TC tracks', path: '{FIG}/{natfig}F8_TCs_Historical.png', sites: ['palau', 'marshall'],
               caption: 'Tropical cyclone tracks in the vicinity of the site since 1950, coloured by Saffir–Simpson category. Grey: no wind information.' },
-            { kind: 'plot', title: 'Annual counts by category', path: '{FIG}/F8_TCs_Historical_bars_category.png', sites: ['palau'],
+            { kind: 'plot', title: 'Annual counts by category', path: '{FIG}/{natfig}F8_TCs_Historical_bars_category.png', sites: ['palau', 'marshall'],
               caption: 'Annual storm count by category with linear trend.' },
-            { kind: 'map', title: 'El Niño years', path: '{FIG}/F9_TCs_El Niño.png', sites: ['palau'], enso: true,
+            { kind: 'map', title: 'El Niño years', path: '{FIG}/{natfig}F9_TCs_El Niño.png', sites: ['palau', 'marshall'], enso: true,
               caption: 'Historical TC tracks during El Niño years.' },
-            { kind: 'map', title: 'La Niña years', path: '{FIG}/F9_TCs_La Niña.png', sites: ['palau'], enso: true,
+            { kind: 'map', title: 'La Niña years', path: '{FIG}/{natfig}F9_TCs_La Niña.png', sites: ['palau', 'marshall'], enso: true,
               caption: 'Historical TC tracks during La Niña years.' },
-            { kind: 'map', title: 'Neutral years', path: '{FIG}/F9_TCs_Neutral.png', sites: ['palau'], enso: true,
+            { kind: 'map', title: 'Neutral years', path: '{FIG}/{natfig}F9_TCs_Neutral.png', sites: ['palau', 'marshall'], enso: true,
               caption: 'Historical TC tracks during ENSO-neutral years.' },
           ],
         },
@@ -187,19 +190,19 @@ window.CINDRA = {
           code: '3.2', name: 'Severe tropical cyclones',
           notebook: 'notebooks/historical/National/tropical_cyclones/b_severe_tropical_cyclones',
           products: [
-            { kind: 'map', title: 'Severe TC tracks', path: '{FIG}/F8_TCs_Historical_Severe.png', sites: ['palau'],
+            { kind: 'map', title: 'Severe TC tracks', path: '{FIG}/{natfig}F8_TCs_Historical_Severe.png', sites: ['palau', 'marshall'],
               caption: 'Severe tropical cyclones (Category 3 or greater, winds above 96 kt) in the vicinity of the site since 1950.' },
-            { kind: 'plot', title: 'Severe TCs by category', path: '{FIG}/F8_TCs_Historical_bars_category_severe.png', sites: ['palau'],
+            { kind: 'plot', title: 'Severe TCs by category', path: '{FIG}/{natfig}F8_TCs_Historical_bars_category_severe.png', sites: ['palau', 'marshall'],
               caption: 'Annual count of severe TCs by category.' },
-            { kind: 'plot', title: 'Severe TCs through time', path: '{FIG}/F8_TCs_Historical_Severe_cat_time.png', sites: ['palau'],
+            { kind: 'plot', title: 'Severe TCs through time', path: '{FIG}/{natfig}F8_TCs_Historical_Severe_cat_time.png', sites: ['palau', 'marshall'],
               caption: 'Annual severe storm count and trend.' },
-            { kind: 'plot', title: 'Severe TCs & ENSO trend', path: '{FIG}/F9_TCs_severe_bars_trend.png', sites: ['palau'], enso: true,
+            { kind: 'plot', title: 'Severe TCs & ENSO trend', path: '{FIG}/{natfig}F9_TCs_severe_bars_trend.png', sites: ['palau', 'marshall'], enso: true,
               caption: 'Severe TC counts coloured by ENSO phase (ONI index).' },
-            { kind: 'map', title: 'Severe – El Niño', path: '{FIG}/F9_TCs_El Niño_SEVERE.png', sites: ['palau'], enso: true,
+            { kind: 'map', title: 'Severe – El Niño', path: '{FIG}/{natfig}F9_TCs_El Niño_SEVERE.png', sites: ['palau', 'marshall'], enso: true,
               caption: 'Severe TC tracks during El Niño years.' },
-            { kind: 'map', title: 'Severe – La Niña', path: '{FIG}/F9_TCs_La Niña_SEVERE.png', sites: ['palau'], enso: true,
+            { kind: 'map', title: 'Severe – La Niña', path: '{FIG}/{natfig}F9_TCs_La Niña_SEVERE.png', sites: ['palau', 'marshall'], enso: true,
               caption: 'Severe TC tracks during La Niña years.' },
-            { kind: 'map', title: 'Severe – Neutral', path: '{FIG}/F9_TCs_Neutral_SEVERE.png', sites: ['palau'], enso: true,
+            { kind: 'map', title: 'Severe – Neutral', path: '{FIG}/{natfig}F9_TCs_Neutral_SEVERE.png', sites: ['palau', 'marshall'], enso: true,
               caption: 'Severe TC tracks during ENSO-neutral years.' },
           ],
         },
@@ -215,15 +218,15 @@ window.CINDRA = {
           code: '4.1', name: 'Mean sea surface temperature',
           notebook: 'notebooks/historical/National/sea_surface_temperature/a_Mean_Temperature_maps',
           products: [
-            { kind: 'map', title: 'Mean SST', path: '{FIG}/SST_mean_{eez}.png',
+            { kind: 'map', title: 'Mean SST', path: '{FIG}/{natfig}SST_mean_{eez}.png',
               caption: 'Mean sea surface temperature inside the EEZ from NOAA OISST v2.1.' },
-            { kind: 'map', title: 'SST trend', path: '{FIG}/SST_trend_{eez}.png',
+            { kind: 'map', title: 'SST trend', path: '{FIG}/{natfig}SST_trend_{eez}.png',
               caption: 'Linear SST trend (°C per decade) inside the EEZ.' },
-            { kind: 'plot', title: 'Trends & anomalies', path: '{FIG}/SST_trends_anomalies_{eez}.png',
+            { kind: 'plot', title: 'Trends & anomalies', path: '{FIG}/{natfig}SST_trends_anomalies_{eez}.png',
               caption: 'EEZ-averaged SST anomalies and linear trend.' },
-            { kind: 'plot', title: 'Point time series', path: '{FIG}/SST_timeseries_{eez}.png',
+            { kind: 'plot', title: 'Point time series', path: '{FIG}/{natfig}SST_timeseries_{eez}.png',
               caption: 'SST time series at the selected point.' },
-            { kind: 'map', title: 'SST by ENSO phase', path: '{FIG}/SST_ENSO_{eez}.png', enso: true,
+            { kind: 'map', title: 'SST by ENSO phase', path: '{FIG}/{natfig}SST_ENSO_{eez}.png', enso: true,
               caption: 'SST anomalies under La Niña, Neutral and El Niño conditions.' },
           ],
         },
@@ -267,6 +270,8 @@ window.CINDRA = {
         bioNational('5.2', 'Chlorophyll concentration', 'b_chlorophyll', 'F15_chlorophyll', 'chlorophyll-a'),
         bioNational('5.3', 'Estimated phytoplankton size', 'c_phytoplankton', 'F16_phytoplankton', 'phytoplankton size'),
         bioNational('5.4', 'Subsurface oxygen (O₂)', 'd_dissolved_o2', 'F17_O2', 'dissolved oxygen'),
+        { code: '5.5', name: 'Aragonite saturation state', notebook: 'notebooks/projections/National/biochemistry/b_aragonite', products: [] },
+        { code: '5.6', name: 'Sea surface salinity', notebook: 'notebooks/projections/National/biochemistry/c_salinity', products: [] },
       ],
     },
   ],
@@ -439,6 +444,8 @@ window.CINDRA = {
         bioRegional('R5.3', 'Phytoplankton size (MD50)', 'c_phytoplankton', 'MD50', 'median phytoplankton size (MD50)'),
         bioRegional('R5.4', 'Phytoplankton biomass', 'c2_phytoplankton', 'phyc', 'phytoplankton biomass'),
         bioRegional('R5.5', 'Dissolved oxygen (O₂)', 'd_dissolved_o2', 'o2', 'dissolved oxygen'),
+        { code: 'R5.6', name: 'Aragonite saturation state', notebook: 'notebooks/projections/Regional/biochemistry/b_aragonite', products: [] },
+        { code: 'R5.7', name: 'Sea surface salinity', notebook: 'notebooks/projections/Regional/biochemistry/c_salinity', products: [] },
       ],
     },
   ],
@@ -449,14 +456,17 @@ function bioNational(code, name, nb, prefix, label) {
     code, name,
     notebook: 'notebooks/historical/National/biochemistry/' + nb,
     products: [
-      { kind: 'map', title: 'Mean', path: `{FIG}/${prefix}_mean_map.png`, sites: ['palau'],
+      { kind: 'map', title: 'Mean', path: `{FIG}/{natfig}${prefix}_mean_map.png`, sites: ['palau', 'marshall'],
         caption: `Long-term mean ${label} in the vicinity of the site.` },
-      { kind: 'map', title: 'Change', path: `{FIG}/${prefix}_mean_map_trend.png`, sites: ['palau'],
+      { kind: 'map', title: 'Change', path: `{FIG}/{natfig}${prefix}_mean_map_trend.png`, sites: ['palau', 'marshall'],
         caption: `Linear trend in ${label}.` },
-      { kind: 'interactive', title: 'Area-average time series', path: `{FIG}/${prefix}_mean_trend.html`, sites: ['palau'],
+      { kind: 'interactive', title: 'Area-average time series', path: `{FIG}/{natfig}${prefix}_mean_trend.html`, sites: ['palau', 'marshall'],
         caption: `Area-averaged ${label} time series with linear trend.` },
-      { kind: 'map', title: 'ENSO composites', path: `{FIG}/${prefix}_ENSO.png`, sites: ['palau'], enso: true,
+      { kind: 'map', title: 'ENSO composites', path: `{FIG}/{natfig}${prefix}_ENSO.png`, sites: ['palau', 'marshall'], enso: true,
         caption: `Mean ${label} under La Niña, Neutral and El Niño conditions.` },
+    ],
+    tables: [
+      { title: 'Summary table', path: `{FIG}/{natfig}${prefix}_summary_table.csv`, sites: ['palau', 'marshall'] },
     ],
   };
 }
@@ -481,3 +491,187 @@ function bioRegional(code, name, nb, v, label) {
     ],
   };
 }
+
+// ─────────────────────── NATIONAL PROJECTIONS & EXTRA TABLES ───────────────────────
+// Projection figures and tables are written by notebooks/projections/National to
+// outputs/figures/<station>/PRJ_<name>_<station>.png and outputs/tables/<station>/PRJ_<name>_<station>.csv.
+
+function prj(nb, products, tables = []) {
+  return {
+    notebook: 'notebooks/projections/National/' + nb,
+    products: products.map(([kind, title, name, caption]) => ({ kind, title, path: `{OUT}/{station}/PRJ_${name}_{station}.png`, caption })),
+    tables: [
+      ...tables.map(([title, name]) => ({ title, path: `{TAB}/{station}/PRJ_${name}_{station}.csv` })),
+      { title: 'Warming-level years (IPCC AR6)', path: '{TAB}/global/PRJ_warming_level_crossing_years_ipcc.csv' },
+    ],
+  };
+}
+
+const PRJ_SCENARIOS = ['ssp126', 'ssp245', 'ssp370', 'ssp585'];
+const GWL = 'at the year each scenario first reaches +1.5, +2.0, +2.5 and +3.0 °C of global warming; boxes show the spread across models.';
+
+(() => {
+  const byCode = Object.fromEntries(window.CINDRA.national.flatMap(g => g.indicators).map(i => [i.code, i]));
+  const addTables = (code, tables) => { byCode[code].tables = [...(byCode[code].tables || []), ...tables]; };
+
+  // Historical tables exported next to their figures
+  addTables('3.1', [
+    { title: 'Key metrics – site', path: '{FIG}/{natfig}T_TCs_key_metrics_site.csv', sites: ['palau', 'marshall'] },
+    { title: 'Key metrics – basin', path: '{FIG}/{natfig}T_TCs_key_metrics_basin.csv', sites: ['palau', 'marshall'] },
+  ]);
+  addTables('4.1', [{ title: 'Summary table', path: '{FIG}/{natfig}T_SST_summary_{eez}.csv' }]);
+  addTables('4.2', [{ title: 'Days per bleaching alert level', path: '{FIG}/F13_DHW_days_per_alert_level.csv', sites: ['palau'] }]);
+  addTables('4.3', [
+    ['EEZ events', 'T_MHW_EEZ_events'], ['EEZ trends', 'T_MHW_EEZ_trends'],
+    ['Top 10 – intensity', 'T_MHW_EEZ_top10_intensity'], ['Top 10 – duration', 'T_MHW_EEZ_top10_duration'],
+    ['Point events', 'T_MHW_point_events'], ['EEZ vs point trends', 'T_MHW_EEZ_vs_point_trends'],
+  ].map(([title, name]) => ({ title, path: `{MHW}/${name}.csv`, sites: ['palau'] })));
+
+  const P = {
+    '1.1': prj('air_temperature/a_mean_temperature', [
+      ['plot', 'Projected mean temperature', 'air_temp_mean_timeseries', 'Annual mean temperature: ensemble mean ±1σ per scenario; vertical lines mark the warming-level years.'],
+      ['plot', 'Temperature at warming levels', 'air_temp_mean_gwl', 'Local annual mean temperature ' + GWL],
+      ['plot', 'Change at warming levels', 'air_temp_change_gwl', 'Local warming relative to 1850–1900 ' + GWL],
+    ], [['Temperature at warming levels', 'air_temp_mean_gwl'], ['Change at warming levels', 'air_temp_change_gwl']]),
+    '1.2': prj('air_temperature/b_min_max_temperature', [
+      ...PRJ_SCENARIOS.map(sc => ['plot', `Anomalies – ${sc.toUpperCase()}`, `air_temp_minmax_${sc}`, `Mean, minimum and maximum temperature anomalies vs 2015–2035 under ${sc.toUpperCase()} (median, 25–75 % and 10–90 % ranges).`]),
+      ['plot', 'Tmin at warming levels', 'air_temp_tasmin_gwl', 'Annual minimum temperature ' + GWL],
+      ['plot', 'Tmax at warming levels', 'air_temp_tasmax_gwl', 'Annual maximum temperature ' + GWL],
+    ], [['Tmin / Tmax at warming levels', 'air_temp_minmax_gwl']]),
+    '1.3': prj('air_temperature/c_hot_cold_days', [
+      ['plot', 'Warm days over time', 'air_temp_warmdays_timeseries', 'Warm-day anomalies vs 2015–2035 (multi-model fan chart).'],
+      ['plot', 'Cold nights over time', 'air_temp_coldnights_timeseries', 'Cold-night anomalies vs 2015–2035 (multi-model fan chart).'],
+      ['plot', 'Warm days at warming levels', 'air_temp_warmdays_gwl', 'Warm days per year ' + GWL],
+      ['plot', 'Cold nights at warming levels', 'air_temp_coldnights_gwl', 'Cold nights per year ' + GWL],
+    ], [['Warm days & cold nights at warming levels', 'air_temp_warm_cold_gwl']]),
+    '2.1': prj('rainfall/a_Total_rainfall', [
+      ['plot', 'Projected annual rainfall', 'rain_total_timeseries', 'Annual rainfall anomalies vs 2015–2035 (multi-model fan chart).'],
+      ['plot', 'Rainfall at warming levels', 'rain_total_gwl', 'Annual rainfall ' + GWL + ' Dashed lines: 2015–2035 mean.'],
+      ['plot', 'Rainfall change at warming levels', 'rain_total_change_gwl', 'Change in annual rainfall (%) vs 2015–2035 ' + GWL],
+    ], [['Rainfall at warming levels', 'rain_total_gwl'], ['Rainfall change at warming levels', 'rain_total_change_gwl']]),
+    '2.2': prj('rainfall/b_Dry_days', [
+      ['plot', 'Dry days over time', 'rain_dry_days_timeseries', 'Dry-day anomalies vs 2015–2035 (multi-model fan chart).'],
+      ['plot', 'Dry days at warming levels', 'rain_dry_days_gwl', 'Dry days per year ' + GWL],
+    ], [['Dry days at warming levels', 'rain_dry_days_gwl']]),
+    '2.3': prj('rainfall/c_Heavy_rainfall', [
+      ['plot', 'Heavy-rainfall days over time', 'rain_heavy_days_timeseries', 'Heavy-rainfall day anomalies vs 2015–2035 (multi-model fan chart).'],
+      ['plot', 'Heavy-rainfall days at warming levels', 'rain_heavy_days_gwl', 'Heavy-rainfall days per year ' + GWL],
+      ['plot', 'Max daily rainfall over time', 'rain_yearmax_timeseries', 'Annual maximum daily rainfall anomalies vs 2015–2035 (multi-model fan chart).'],
+      ['plot', 'Max daily rainfall at warming levels', 'rain_yearmax_gwl', 'Annual maximum daily rainfall ' + GWL],
+    ], [['Heavy-rainfall days at warming levels', 'rain_heavy_days_gwl'], ['Max daily rainfall at warming levels', 'rain_yearmax_gwl']]),
+    '3.1': prj('tropical_cyclones/a_tropical_cyclones', [
+      ['map', 'Historical vs shifted tracks', 'tc_tracks', 'Historical IBTrACS tracks (left) and the same tracks shifted poleward (right), coloured by category.'],
+      ['map', 'Tracks – zoom', 'tc_tracks_zoom', 'Historical and shifted tracks within ±10° of the site.'],
+      ['plot', 'Storms by category', 'tc_categories', 'Number of storms within the search radius by category, historical and shifted.'],
+      ['map', 'Track density', 'tc_density', 'Smoothed track density, historical and shifted.'],
+    ], [['Storms by category', 'tc_categories']]),
+    '4.1': prj('sea_surface_temperature/a_Mean_Temperature', [
+      ['plot', 'Projected SST – EEZ', 'sst_eez_timeseries', 'EEZ-average annual SST: ensemble mean ±1σ per scenario.'],
+      ['plot', 'SST at warming levels – EEZ', 'sst_eez_gwl', 'EEZ-average SST ' + GWL],
+      ['plot', 'Projected SST – site', 'sst_point_timeseries', 'Annual SST at the grid cell nearest to the site.'],
+      ['plot', 'SST at warming levels – site', 'sst_point_gwl', 'SST at the site ' + GWL],
+    ], [['SST at warming levels – EEZ', 'sst_eez_gwl'], ['SST at warming levels – site', 'sst_point_gwl']]),
+    '4.3': prj('sea_surface_temperature/c_MHW', [
+      ['plot', 'MHW days by category', 'mhw_timeseries', 'EEZ-average MHW days per year by category (ensemble mean ± std), SSP1-2.6 and SSP5-8.5.'],
+      ['plot', 'MHW days – panels by category', 'mhw_timeseries_by_category', 'MHW days per year for each category, individual models and ensemble mean.'],
+      ['plot', 'Days with any MHW', 'mhw_total_days', 'MHW days per year, all categories combined.'],
+      ['plot', 'Stacked categories', 'mhw_stacked', 'Ensemble-mean MHW days per year stacked by category.'],
+      ['plot', 'Categories at warming levels', 'mhw_categories_gwl_ssp585', 'MHW days per category under SSP5-8.5 ' + GWL],
+      ['plot', 'Categories at warming levels (violins)', 'mhw_categories_violin_ssp585', 'MHW days per category under SSP5-8.5 at each warming level.'],
+    ], [['MHW categories at warming levels', 'mhw_categories_gwl']]),
+    '5.1': prj('biochemistry/a_oceanic_pH', [
+      ['plot', 'Projected pH', 'ph_timeseries', 'Surface pH (CMIP6, IPCC Atlas): ensemble mean ±1σ per scenario.'],
+      ['plot', 'pH at warming levels', 'ph_gwl', 'Surface pH ' + GWL],
+      ...PRJ_SCENARIOS.map(sc => ['plot', `pH maps – ${sc.toUpperCase()}`, `ph_maps_timeseries_${sc}`, `Decadal surface pH at the site and maps of the region under ${sc.toUpperCase()} (Jiang et al., 2023).`]),
+    ], [['pH at warming levels', 'ph_gwl'], ['pH by decade', 'ph_ocads_decadal']]),
+    '5.5': prj('biochemistry/b_aragonite',
+      PRJ_SCENARIOS.map(sc => ['plot', `Aragonite – ${sc.toUpperCase()}`, `aragonite_maps_timeseries_${sc}`, `Decadal aragonite saturation state at the site and maps of the region under ${sc.toUpperCase()} (Jiang et al., 2023).`]),
+      [['Aragonite saturation by decade', 'aragonite_ocads_decadal']]),
+    '5.6': prj('biochemistry/c_salinity',
+      PRJ_SCENARIOS.map(sc => ['plot', `Salinity – ${sc.toUpperCase()}`, `salinity_maps_timeseries_${sc}`, `Decadal sea surface salinity at the site and maps of the region under ${sc.toUpperCase()} (Jiang et al., 2023).`]),
+      [['Salinity by decade', 'salinity_ocads_decadal']]),
+  };
+  Object.entries(P).forEach(([code, p]) => { byCode[code].projections = p; });
+})();
+
+// ─────────────────────────── REGIONAL PROJECTIONS ───────────────────────────
+// Written by notebooks/projections/Regional to outputs/figures/regional_pacific/PRJ_<name>_pacific.png
+// and outputs/tables/regional_pacific/PRJ_<name>_pacific.csv.
+
+const PRJ_REGIONS = [
+  ['North Pacific Subtropical Gyre', 'north_pacific_subtropical_gyre'],
+  ['Equatorial Upwelling', 'equatorial_upwelling'],
+  ['Western Equatorial Pacific', 'western_equatorial_pacific'],
+  ['South Pacific Subtropical Gyre', 'south_pacific_subtropical_gyre'],
+];
+const RFIG = name => `{OUT}/regional_pacific/PRJ_${name}_pacific.png`;
+const RTAB = name => `{TAB}/regional_pacific/PRJ_${name}_pacific.csv`;
+
+// Trend map, warming-level map and ocean-region box plots of one indicator (`v`, `label`).
+function prjRegionalIndicator(v, label, mapScenario = 'ssp370', absolute = false) {
+  const what = absolute ? label : `Change in ${label.toLowerCase()} vs 2015–2035`;
+  return {
+    products: [
+      { kind: 'map', title: `${label} – trend by EEZ`, path: RFIG(`${v}_trend_eez`),
+        caption: `Linear trend over 2015–2100 of the multi-model median ${absolute ? '' : 'change in '}${label.toLowerCase()} in each EEZ, one panel per scenario.` },
+      { kind: 'map', title: `${label} – warming levels by EEZ`, path: RFIG(`${v}_gwl_eez_${mapScenario}`),
+        caption: `${what} in each EEZ in the year ${mapScenario.toUpperCase()} reaches +1.5, +2.0, +2.5 and +3.0 °C (multi-model median).` },
+      ...PRJ_REGIONS.map(([region, slug]) => ({ kind: 'plot', title: `${label} – ${region}`, path: RFIG(`${v}_gwl_${slug}`),
+        caption: `${what} averaged over the ${region} at each global warming level; boxes show the spread across models.` })),
+    ],
+    tables: [
+      { title: `${label} – trend by EEZ / region`, path: RTAB(`${v}_trend_regions`) },
+      { title: `${label} – warming levels by EEZ / region`, path: RTAB(`${v}_gwl_regions_${mapScenario}`) },
+      { title: `${label} – ocean regions at warming levels`, path: RTAB(`${v}_gwl_ocean_regions`) },
+    ],
+  };
+}
+
+// Decadal OCADS products (no model spread): change map and ocean-region series.
+function prjRegionalOcads(v, label) {
+  return {
+    products: [
+      { kind: 'map', title: `${label} – change 2020–2100 by EEZ`, path: RFIG(`${v}_change_eez`),
+        caption: `Change in ${label.toLowerCase()} between 2020 and 2100 in each EEZ, one panel per scenario (Jiang et al., 2023).` },
+      { kind: 'plot', title: `${label} – ocean regions`, path: RFIG(`${v}_ocean_regions`),
+        caption: `Decadal ${label.toLowerCase()} in the four ocean regions, one line per scenario (Jiang et al., 2023).` },
+    ],
+    tables: [
+      { title: `${label} – change by EEZ / region`, path: RTAB(`${v}_change_regions`) },
+      { title: `${label} – ocean regions by decade`, path: RTAB(`${v}_ocean_regions`) },
+    ],
+  };
+}
+
+function prjRegional(nb, parts) {
+  return {
+    notebook: 'notebooks/projections/Regional/' + nb,
+    products: [
+      { kind: 'map', title: 'EEZs and ocean regions', path: RFIG('regions_map'),
+        caption: 'Pacific EEZs and the four ocean regions used in the regional projection analysis.' },
+      ...parts.flatMap(p => p.products),
+    ],
+    tables: [
+      ...parts.flatMap(p => p.tables),
+      { title: 'Warming-level years (IPCC AR6)', path: '{TAB}/global/PRJ_warming_level_crossing_years_ipcc.csv' },
+    ],
+  };
+}
+
+(() => {
+  const byCode = Object.fromEntries(window.CINDRA.regional.flatMap(g => g.indicators).map(i => [i.code, i]));
+  const R = {
+    'R1.1': prjRegional('air_temperature/regional_indicators', [prjRegionalIndicator('tas', 'Mean temperature')]),
+    'R1.2': prjRegional('air_temperature/regional_indicators', [prjRegionalIndicator('tasmin', 'Minimum temperature'), prjRegionalIndicator('tasmax', 'Maximum temperature')]),
+    'R1.3': prjRegional('air_temperature/regional_indicators', [prjRegionalIndicator('warmdays', 'Warm days'), prjRegionalIndicator('coldnights', 'Cold nights')]),
+    'R2.1': prjRegional('rainfall/regional_indicators', [prjRegionalIndicator('pr', 'Annual rainfall')]),
+    'R2.2': prjRegional('rainfall/regional_indicators', [prjRegionalIndicator('dry_days', 'Dry days')]),
+    'R2.3': prjRegional('rainfall/regional_indicators', [prjRegionalIndicator('heavyraindays', 'Heavy-rainfall days'), prjRegionalIndicator('yearmax', 'Annual maximum daily rainfall')]),
+    'R4.1': prjRegional('sea_surface_temperature/regional_indicators', [prjRegionalIndicator('tos', 'Sea surface temperature')]),
+    'R4.2': prjRegional('sea_surface_temperature/mhw_regional', [prjRegionalIndicator('mhw_days', 'Marine heatwave days', 'ssp585', true)]),
+    'R5.1': prjRegional('biochemistry/a_oceanic_pH', [prjRegionalIndicator('ph', 'Surface pH'), prjRegionalOcads('pHT', 'pH')]),
+    'R5.6': prjRegional('biochemistry/b_aragonite', [prjRegionalOcads('aragonite', 'Aragonite saturation state')]),
+    'R5.7': prjRegional('biochemistry/c_salinity', [prjRegionalOcads('salinity', 'Sea surface salinity')]),
+  };
+  Object.entries(R).forEach(([code, p]) => { byCode[code].projections = p; });
+})();
