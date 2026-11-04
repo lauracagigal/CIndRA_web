@@ -1,0 +1,32 @@
+Metric,Value
+HOT DAYS (TMAX above the station 90th percentile),
+"Average hot days, 1951–2024 (% of days)",8.726
+Change in hot days since 1951 (% of days),10.054
+Rate of change in hot days (% of days/decade),1.377
+Trend p-value,< 0.001
+Trend significant at 95%,Yes
+Average hot days: 1951–1961 (% of days),4.531
+Average hot days: 2014–2024 (% of days),14.571
+Highest annual hot days (2019) (% of days),21.765
+Lowest annual hot days (1955) (% of days),1.675
+Stations in the regional average,101
+Stations per year (min–max),23–64
+Stations with a trend,79
+Stations with a significant increase,34
+Stations with a significant decrease,11
+ ,
+COLD NIGHTS (TMIN below the station 10th percentile),
+"Average cold nights, 1951–2024 (% of nights)",8.502
+Change in cold nights since 1951 (% of nights),-1.103
+Rate of change in cold nights (% of nights/decade),-0.151
+Trend p-value,0.135
+Trend significant at 95%,No
+Average cold nights: 1951–1961 (% of nights),9.072
+Average cold nights: 2014–2024 (% of nights),8.062
+Highest annual cold nights (1958) (% of nights),12.773
+Lowest annual cold nights (2011) (% of nights),5.064
+Stations in the regional average,101
+Stations per year (min–max),23–64
+Stations with a trend,79
+Stations with a significant increase,5
+Stations with a significant decrease,33

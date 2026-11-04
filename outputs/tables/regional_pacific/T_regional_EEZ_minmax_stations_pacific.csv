@@ -1,0 +1,14 @@
+EEZ,Stations,Tmin: stations with trend,Tmin: mean trend (°C / decade),Tmin: significant stations,Tmax: stations with trend,Tmax: mean trend (°C / decade),Tmax: significant stations,Diurnal range: stations with trend,Diurnal range: mean trend (°C / decade),Diurnal range: significant stations
+American Samoa,1,1,0.408,1,1,0.174,1,1,-0.234,1
+Hawaii,131,68,0.151,37,68,0.068,42,68,-0.083,49
+Johnston Atoll,1,1,0.106,1,1,0.62,1,1,0.514,1
+Marshall Islands,5,2,0.209,2,2,0.097,2,2,-0.112,1
+Micronesia,12,5,-0.026,3,5,0.121,5,5,0.147,2
+New Caledonia,2,2,0.158,2,2,0.129,1,2,-0.029,2
+Northern Mariana Islands and Guam,8,5,0.491,3,5,0.079,4,5,-0.412,1
+Palau,4,4,0.516,4,4,0.312,3,4,-0.204,1
+Papua New Guinea,2,2,0.182,2,2,0.198,2,2,0.015,0
+Phoenix Group,1,1,-0.213,0,1,0.045,0,1,0.258,0
+Pitcairn,1,1,0.195,1,1,0.127,0,1,-0.067,0
+Wake Island,1,1,0.149,1,1,0.256,1,1,0.107,1
+Wallis and Futuna,1,1,0.274,1,1,0.243,1,1,-0.031,0

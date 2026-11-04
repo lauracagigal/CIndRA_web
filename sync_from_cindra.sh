@@ -42,4 +42,7 @@ RSYNC=(rsync -a --delete --exclude .DS_Store)
 "${RSYNC[@]}" "$SRC/outputs/tables/"               "$HERE/outputs/tables/"
 "${RSYNC[@]}" "$SRC/notebooks/matrix_cc/figures/"  "$HERE/outputs/mhw/"
 
+# Bundle the CSV tables so the matrix shows them when index.html is opened from disk (file://)
+python3 "$SRC/matrix_cc/build_tables_js.py" "$HERE" figures outputs/tables outputs/mhw
+
 echo "Done. Review with: git -C \"$HERE\" status"

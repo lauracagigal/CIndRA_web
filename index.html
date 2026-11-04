@@ -521,6 +521,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="products.js"></script>
+<script src="tables.js"></script>
 <script src="eez.js"></script>
 <script>
 (() => {
@@ -723,20 +724,19 @@
     showModal();
     const cached = tableCache.get(url);
     (cached && cached.data ? Promise.resolve(cached.data)
-      : fetch(url).then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
-          .then(txt => Papa.parse(txt.trim(), { skipEmptyLines: true }).data)
+      : tableText(url).then(txt => { if (txt === '') throw new Error('unavailable'); return Papa.parse(txt.trim(), { skipEmptyLines: true }).data; })
     ).then(data => {
       const [head, ...rows] = data;
       const fmt = v => { const n = Number(v); return v !== '' && isFinite(n) && /\./.test(v) ? n.toFixed(3).replace(/\.?0+$/, '') : esc(v); };
       $('#mStage').innerHTML = `<div style="width:100%;overflow:auto;align-self:start"><table><thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
         <tbody>${rows.map(r => `<tr>${r.map(fmt).map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
     }).catch(() => {
-      $('#mStage').innerHTML = `<div class="msg">The table could not be loaded. Browsers block reading local files, so serve the repository over HTTP
+      $('#mStage').innerHTML = `<div class="msg">The table could not be loaded. Rebuild <code>tables.js</code> (<code>build_tables_js.py</code>), serve the repository over HTTP
         (for example <code>python -m http.server</code> from the repository root) or use the download button.</div>`;
     });
   }
   // Tables are only listed once their CSV has been read and holds at least one value.
-  // Each CSV is fetched once; unreadable or empty tables (or a page opened from file://) are hidden.
+  // Each CSV is read once (from tables.js, or fetched over HTTP); unreadable or empty tables are hidden.
   const tableCache = new Map();  // url -> 'pending' | { ok, data }
   let tableTimer;
   function tableOk(url) {
@@ -744,10 +744,18 @@
     if (c === undefined) probeTable(url);
     return !!(c && c !== 'pending' && c.ok);
   }
+  // CSV text: from tables.js (bundled by build_tables_js.py, works from file://) or fetched over HTTP.
+  const BUNDLED = window.CINDRA_TABLES || {};
+  function tableText(url) {
+    const key = decodeURI(url);
+    if (key in BUNDLED) return Promise.resolve(BUNDLED[key]);
+    if (location.protocol === 'file:') return Promise.resolve('');
+    return fetch(url).then(r => r.ok ? r.text() : '').catch(() => '');
+  }
   function probeTable(url) {
-    if (location.protocol === 'file:' || !window.Papa) { tableCache.set(url, { ok: false }); return; }
+    if (!window.Papa) { tableCache.set(url, { ok: false }); return; }
     tableCache.set(url, 'pending');
-    fetch(url).then(r => r.ok ? r.text() : '').catch(() => '').then(txt => {
+    tableText(url).then(txt => {
       const data = txt.trim() ? Papa.parse(txt.trim(), { skipEmptyLines: true }).data : [];
       const hasValue = v => v.trim() !== '' && !/^(nan|none|null|na)$/i.test(v.trim());
       const ok = data.length > 1 && data.slice(1).some(r => r.slice(r.length > 1 ? 1 : 0).some(hasValue));
@@ -981,9 +989,10 @@
     const src = part === 'proj' ? ind.projections : ind;
     if (!src) return [];
     if (kind === 'table') {
-      return (src.tables || []).map(t => ({ t, url: resolve(t.path, t) })).filter(x => x.url && tableOk(x.url));
+      return (src.tables || []).filter(t => !t.enso).map(t => ({ t, url: resolve(t.path, t) })).filter(x => x.url && tableOk(x.url));
     }
     return src.products
+      .filter(p => p.mx !== false && !p.enso)
       .filter(p => kind === 'plot' ? p.kind === 'plot' || p.kind === 'interactive' : p.kind === kind)
       .map(p => ({ p, url: resolve(p.path, p) })).filter(x => x.url && !missing.has(x.url));
   }

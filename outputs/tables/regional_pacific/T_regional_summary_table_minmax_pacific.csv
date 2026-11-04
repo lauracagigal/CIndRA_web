@@ -1,0 +1,51 @@
+Metric,Value
+MINIMUM TEMPERATURE,
+Anomalies relative to each station's 1961–1990 mean,
+"Average minimum temperature anomaly, 1951–2024 (°C)",0.156
+Change in minimum temperature anomaly since 1951 (°C),0.98
+Rate of change in minimum temperature anomaly (°C/decade),0.134
+Trend p-value,< 0.001
+Trend significant at 95%,Yes
+Average minimum temperature anomaly: 1951–1961 (°C),-0.196
+Average minimum temperature anomaly: 2014–2024 (°C),0.815
+Highest annual minimum temperature anomaly (2020) (°C),1.074
+Lowest annual minimum temperature anomaly (1955) (°C),-0.614
+Stations in the regional average,95
+Stations per year (min–max),22–64
+Stations with a trend,94
+Stations with a significant increase,50
+Stations with a significant decrease,8
+ ,
+MAXIMUM TEMPERATURE,
+Anomalies relative to each station's 1961–1990 mean,
+"Average maximum temperature anomaly, 1951–2024 (°C)",-0.032
+Change in maximum temperature anomaly since 1951 (°C),0.501
+Rate of change in maximum temperature anomaly (°C/decade),0.069
+Trend p-value,< 0.001
+Trend significant at 95%,Yes
+Average maximum temperature anomaly: 1951–1961 (°C),-0.407
+Average maximum temperature anomaly: 2014–2024 (°C),0.22
+Highest annual maximum temperature anomaly (1984) (°C),0.651
+Lowest annual maximum temperature anomaly (1955) (°C),-1.044
+Stations in the regional average,95
+Stations per year (min–max),22–64
+Stations with a trend,94
+Stations with a significant increase,47
+Stations with a significant decrease,16
+ ,
+DIURNAL TEMPERATURE RANGE,
+Anomalies relative to each station's 1961–1990 mean,
+"Average diurnal range anomaly, 1951–2024 (°C)",-0.188
+Change in diurnal range anomaly since 1951 (°C),-0.479
+Rate of change in diurnal range anomaly (°C/decade),-0.066
+Trend p-value,< 0.001
+Trend significant at 95%,Yes
+Average diurnal range anomaly: 1951–1961 (°C),-0.211
+Average diurnal range anomaly: 2014–2024 (°C),-0.595
+Highest annual diurnal range anomaly (1981) (°C),0.42
+Lowest annual diurnal range anomaly (2021) (°C),-0.813
+Stations in the regional average,95
+Stations per year (min–max),22–64
+Stations with a trend,94
+Stations with a significant increase,25
+Stations with a significant decrease,34

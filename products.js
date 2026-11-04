@@ -10,6 +10,8 @@
 //   {natfig}   per-site subfolder of {FIG} for TC / SST / biochemistry products ('' = {FIG} itself)
 // An indicator may carry `projections: { notebook, products, tables }` (national and regional scales);
 // these are attached by indicator code at the end of this file.
+// A product with `mx: false` is listed in the National/Regional views but hidden in the Matrix tab;
+// ENSO products and tables (`enso: true`) are hidden in the Matrix tab too.
 // A product whose path uses a token the selected site does not define is shown as "not available".
 // Missing files are detected at runtime and flagged as "not generated yet".
 
@@ -38,6 +40,7 @@ window.CINDRA = {
   ],
 
   national: [
+    co2Group('0.1'),
     // ─────────────────────────── ATMOSPHERE ───────────────────────────
     {
       domain: 'Atmosphere', variable: 'Air Temperature', icon: 'thermo',
@@ -56,7 +59,7 @@ window.CINDRA = {
             { title: 'Summary table', path: '{TAB}/{station}/T_mean_summary_table_{station}.csv' },
             { title: 'Annual series', path: '{TAB}/{station}/T_mean_annual_{station}.csv' },
             { title: 'Top-10 warmest years', path: '{TAB}/{station}/T_mean_top10_warmest_years_{station}.csv' },
-            { title: 'ENSO summary', path: '{TAB}/{station}/ENSO_temperature_summary_{station}.csv' },
+            { title: 'ENSO summary', enso: true, path: '{TAB}/{station}/ENSO_temperature_summary_{station}.csv' },
           ],
         },
         {
@@ -124,7 +127,7 @@ window.CINDRA = {
             { title: 'Top-10 wettest years', path: '{TAB}/{station}/R_top10_wettest_years_{station}.csv' },
             { title: 'Dry-season totals', path: '{TAB}/{station}/R_dry_season_annual_{station}.csv' },
             { title: 'Wet-season totals', path: '{TAB}/{station}/R_wet_season_annual_{station}.csv' },
-            { title: 'ONI annual', path: '{TAB}/{station}/R_ONI_annual_{station}.csv' },
+            { title: 'ONI annual', enso: true, path: '{TAB}/{station}/R_ONI_annual_{station}.csv' },
           ],
         },
         {
@@ -277,6 +280,7 @@ window.CINDRA = {
   ],
 
   regional: [
+    co2Group('R0.1'),
     {
       domain: 'Atmosphere', variable: 'Air Temperature', icon: 'thermo',
       page: 'notebooks/historical/Regional/air_temperature/air_temperature',
@@ -285,16 +289,21 @@ window.CINDRA = {
           code: 'R1.1', name: 'Mean temperature',
           notebook: 'notebooks/historical/Regional/air_temperature/regional_indicators',
           products: [
-            { kind: 'plot', title: 'Regional mean anomaly (stations)', path: '{OUT}/regional_pacific/T_regional_mean_anomaly_timeseries_pacific.png',
+            { kind: 'plot', mx: false, title: 'Regional mean anomaly (stations)', path: '{OUT}/regional_pacific/T_regional_mean_anomaly_timeseries_pacific.png',
               caption: 'Regional-mean annual temperature anomaly from GHCN stations inside the Pacific EEZs.' },
-            { kind: 'map', title: 'Station trends – Tmean', path: '{OUT}/regional_pacific/T_regional_tmean_annual_trend_pacific.png',
+            { kind: 'map', mx: false, title: 'Station trends – Tmean', path: '{OUT}/regional_pacific/T_regional_tmean_annual_trend_pacific.png',
               caption: 'Linear trend of annual mean temperature at each station (filled markers: significant).' },
-            { kind: 'map', title: 'ERA5 mean temperature', path: '{OUT}/regional_pacific/T_regional_tmean_annual_mean_era5_pacific.png',
+            { kind: 'map', mx: false, title: 'ERA5 mean temperature', path: '{OUT}/regional_pacific/T_regional_tmean_annual_mean_era5_pacific.png',
               caption: 'ERA5 annual mean 2 m temperature over the Pacific.' },
             { kind: 'map', title: 'ERA5 temperature trend', path: '{OUT}/regional_pacific/T_regional_tmean_annual_trend_era5_pacific.png',
               caption: 'ERA5 linear trend of annual mean 2 m temperature.' },
             { kind: 'plot', title: 'ERA5 EEZ-mean anomaly', path: '{OUT}/regional_pacific/T_regional_mean_anomaly_timeseries_era5_pacific.png',
               caption: 'ERA5 annual temperature anomaly averaged over the Pacific EEZs.' },
+          ],
+          tables: [
+            { title: 'Summary table', path: '{TAB}/regional_pacific/T_regional_summary_table_tmean_pacific.csv' },
+            { title: 'EEZ summary – stations', path: '{TAB}/regional_pacific/T_regional_EEZ_tmean_stations_pacific.csv' },
+            { title: 'EEZ summary – ERA5', path: '{TAB}/regional_pacific/T_regional_EEZ_tmean_era5_pacific.csv' },
           ],
         },
         {
@@ -308,6 +317,10 @@ window.CINDRA = {
             { kind: 'map', title: 'Station trends – diurnal range', path: '{OUT}/regional_pacific/T_regional_diff_annual_trend_pacific.png',
               caption: 'Linear trend of the diurnal temperature range (Tmax − Tmin).' },
           ],
+          tables: [
+            { title: 'Summary table', path: '{TAB}/regional_pacific/T_regional_summary_table_minmax_pacific.csv' },
+            { title: 'EEZ summary – stations', path: '{TAB}/regional_pacific/T_regional_EEZ_minmax_stations_pacific.csv' },
+          ],
         },
         {
           code: 'R1.3', name: 'Hot days & cold nights',
@@ -317,6 +330,14 @@ window.CINDRA = {
               caption: 'Trend in the percentage of hot days (TX90p) at each station.' },
             { kind: 'map', title: 'Cold nights trend', path: '{OUT}/regional_pacific/T_regional_cold_nights_pct_trend_pacific.png',
               caption: 'Trend in the percentage of cold nights (TN10p) at each station.' },
+            { kind: 'plot', title: 'Hot days – station average', path: '{OUT}/regional_pacific/T_regional_hot_days_timeseries_pacific.png',
+              caption: 'Annual percentage of hot days (TMAX above each station’s 90th percentile), averaged over the GHCN stations, with linear trend (solid: significant at 95%; dashed: not significant).' },
+            { kind: 'plot', title: 'Cold nights – station average', path: '{OUT}/regional_pacific/T_regional_cold_nights_timeseries_pacific.png',
+              caption: 'Annual percentage of cold nights (TMIN below each station’s 10th percentile), averaged over the GHCN stations, with linear trend (solid: significant at 95%; dashed: not significant).' },
+          ],
+          tables: [
+            { title: 'Summary table', path: '{TAB}/regional_pacific/T_regional_summary_table_hot_cold_pacific.csv' },
+            { title: 'EEZ summary – stations', path: '{TAB}/regional_pacific/T_regional_EEZ_hot_cold_stations_pacific.csv' },
           ],
         },
       ],
@@ -329,12 +350,17 @@ window.CINDRA = {
           code: 'R2.1', name: 'Total rainfall',
           notebook: 'notebooks/historical/Regional/rainfall/regional_indicators',
           products: [
-            { kind: 'map', title: 'Station trends – total rainfall', path: '{OUT}/regional_pacific/R_regional_total_annual_mm_trend_pacific.png',
+            { kind: 'map', mx: false, title: 'Station trends – total rainfall', path: '{OUT}/regional_pacific/R_regional_total_annual_mm_trend_pacific.png',
               caption: 'Linear trend of annual total rainfall at each station.' },
-            { kind: 'map', title: 'ERA5 mean rainfall', path: '{OUT}/regional_pacific/R_regional_total_annual_mm_mean_era5_pacific.png',
+            { kind: 'map', mx: false, title: 'ERA5 mean rainfall', path: '{OUT}/regional_pacific/R_regional_total_annual_mm_mean_era5_pacific.png',
               caption: 'ERA5 mean annual total precipitation.' },
             { kind: 'map', title: 'ERA5 rainfall trend', path: '{OUT}/regional_pacific/R_regional_total_annual_mm_trend_era5_pacific.png',
               caption: 'ERA5 linear trend of annual total precipitation.' },
+          ],
+          tables: [
+            { title: 'Summary table', path: '{TAB}/regional_pacific/R_regional_summary_table_total_pacific.csv' },
+            { title: 'EEZ summary – stations', path: '{TAB}/regional_pacific/R_regional_EEZ_total_stations_pacific.csv' },
+            { title: 'EEZ summary – ERA5', path: '{TAB}/regional_pacific/R_regional_EEZ_total_era5_pacific.csv' },
           ],
         },
         {
@@ -348,6 +374,10 @@ window.CINDRA = {
             { kind: 'map', title: 'Mean consecutive dry days', path: '{OUT}/regional_pacific/R_regional_mean_consecutive_dry_days_trend_pacific.png',
               caption: 'Trend in the mean dry-spell length.' },
           ],
+          tables: [
+            { title: 'Summary table', path: '{TAB}/regional_pacific/R_regional_summary_table_dry_pacific.csv' },
+            { title: 'EEZ summary – stations', path: '{TAB}/regional_pacific/R_regional_EEZ_dry_stations_pacific.csv' },
+          ],
         },
         {
           code: 'R2.3', name: 'Heavy rainfall',
@@ -357,6 +387,10 @@ window.CINDRA = {
               caption: 'Trend in annual wet days (above 1 mm).' },
             { kind: 'map', title: 'Heavy rainfall days trend', path: '{OUT}/regional_pacific/R_regional_heavy_days_trend_pacific.png',
               caption: 'Trend in annual heavy rainfall days (above the 95th percentile).' },
+          ],
+          tables: [
+            { title: 'Summary table', path: '{TAB}/regional_pacific/R_regional_summary_table_heavy_pacific.csv' },
+            { title: 'EEZ summary – stations', path: '{TAB}/regional_pacific/R_regional_EEZ_heavy_stations_pacific.csv' },
           ],
         },
       ],
@@ -380,6 +414,9 @@ window.CINDRA = {
             { kind: 'map', title: 'Regional activity dashboard', path: '{OUT}/regional_pacific/TC_regional_map_dashboard_pacific.png',
               caption: 'Per-subregion activity charts plotted over the Pacific map.' },
           ],
+          tables: [
+            { title: 'Summary table – storm counts', path: '{TAB}/regional_pacific/TC_regional_summary_table_counts_pacific.csv' },
+          ],
         },
         {
           code: 'R3.2', name: 'Frequency, intensity & energy',
@@ -394,6 +431,10 @@ window.CINDRA = {
             { kind: 'plot', title: 'Accumulated Cyclone Energy', path: '{OUT}/regional_pacific/TC_regional_ace_pacific.png',
               caption: 'Annual Accumulated Cyclone Energy (ACE) per subregion.' },
           ],
+          tables: [
+            { title: 'Summary table – storm counts', path: '{TAB}/regional_pacific/TC_regional_summary_table_counts_pacific.csv' },
+            { title: 'Summary table – ACE', path: '{TAB}/regional_pacific/TC_regional_summary_table_ace_pacific.csv' },
+          ],
         },
       ],
     },
@@ -405,32 +446,41 @@ window.CINDRA = {
           code: 'R4.1', name: 'Mean SST & trends',
           notebook: 'notebooks/historical/Regional/sea_surface_temperature/regional_indicators',
           products: [
-            { kind: 'map', title: 'Regional mean SST', path: '{FIG}/SST_regional_mean.png',
+            { kind: 'map', mx: false, title: 'Regional mean SST', path: '{FIG}/SST_regional_mean.png',
               caption: 'Mean sea surface temperature over the Pacific (NOAA OISST).' },
             { kind: 'map', title: 'SST trend', path: '{FIG}/F19_SST_regional_trend.png',
               caption: 'Linear SST trend over the Pacific with EEZ boundaries.' },
-            { kind: 'map', title: 'DJF 5-year anomalies', path: '{FIG}/F20_SST_DJF_5year_anomalies.png',
+            { kind: 'map', mx: false, title: 'DJF 5-year anomalies', path: '{FIG}/F20_SST_DJF_5year_anomalies.png',
               caption: 'Boreal-winter (DJF) SST anomalies by five-year period.' },
+          ],
+          tables: [
+            { title: 'Summary table', path: '{TAB}/regional_pacific/SST_regional_summary_table_pacific.csv' },
+            { title: 'EEZ summary', path: '{TAB}/regional_pacific/SST_regional_EEZ_summary_pacific.csv' },
           ],
         },
         {
           code: 'R4.2', name: 'Marine heatwaves',
           notebook: 'notebooks/historical/Regional/sea_surface_temperature/mhw_regional',
           products: [
-            { kind: 'map', title: 'Mean annual MHW days', path: '{FIG}/MHW_regional_mean_days.png',
+            { kind: 'map', mx: false, title: 'Mean annual MHW days', path: '{FIG}/MHW_regional_mean_days.png',
               caption: 'Mean number of marine-heatwave days per year in each grid cell.' },
             { kind: 'map', title: 'Trend in MHW days', path: '{FIG}/MHW_regional_days_trend.png',
               caption: 'Linear trend in annual marine-heatwave days.' },
-            { kind: 'map', title: 'Frequency, duration & intensity', path: '{FIG}/MHW_regional_frequency_duration_intensity.png',
+            { kind: 'map', mx: false, title: 'Frequency, duration & intensity', path: '{FIG}/MHW_regional_frequency_duration_intensity.png',
               caption: 'Mean MHW event frequency, duration and intensity.' },
-            { kind: 'map', title: '5-year MHW-day anomalies', path: '{FIG}/MHW_regional_5year_days_anomalies.png',
+            { kind: 'map', mx: false, title: '5-year MHW-day anomalies', path: '{FIG}/MHW_regional_5year_days_anomalies.png',
               caption: 'Recent five-year anomalies of MHW days.' },
-            { kind: 'map', title: 'Decadal summaries', path: '{FIG}/MHW_regional_decadal_summaries.png',
+            { kind: 'map', mx: false, title: 'Decadal summaries', path: '{FIG}/MHW_regional_decadal_summaries.png',
               caption: 'Decadal marine-heatwave summaries.' },
             { kind: 'plot', title: 'Annual MHW days & ENSO', path: '{FIG}/MHW_regional_annual_days_ENSO.png', enso: true,
               caption: 'Regional mean annual MHW days coloured by ENSO phase.' },
-            { kind: 'map', title: 'MHW anomalies by ENSO phase', path: '{FIG}/MHW_regional_ENSO_anomalies.png', enso: true,
+            { kind: 'map', mx: false, title: 'MHW anomalies by ENSO phase', path: '{FIG}/MHW_regional_ENSO_anomalies.png', enso: true,
               caption: 'MHW-day anomaly maps for La Niña, Neutral and El Niño.' },
+          ],
+          tables: [
+            { title: 'Summary table', path: '{TAB}/regional_pacific/MHW_regional_summary_table_pacific.csv' },
+            { title: 'EEZ summary', path: '{TAB}/regional_pacific/MHW_regional_EEZ_summary_pacific.csv' },
+            { title: 'EEZ summary by ENSO phase', enso: true, path: '{TAB}/regional_pacific/MHW_regional_EEZ_ENSO_summary_pacific.csv' },
           ],
         },
       ],
@@ -450,6 +500,39 @@ window.CINDRA = {
     },
   ],
 };
+
+// Atmospheric CO2 (NOAA Mauna Loa + CMIP6 SSP pathways): one global record, shown at both scales.
+function co2Group(code) {
+  const nb = 'notebooks/historical/Regional/greenhouse_gases/co2_mauna_loa';
+  return {
+    domain: 'Atmosphere', variable: 'Greenhouse Gases', icon: 'globe',
+    page: 'notebooks/historical/Regional/greenhouse_gases/greenhouse_gases',
+    indicators: [{
+      code, name: 'Atmospheric CO₂ (Mauna Loa)', notebook: nb,
+      products: [
+        { kind: 'plot', title: 'Monthly CO₂ at Mauna Loa', path: '{OUT}/global/GHG_co2_mauna_loa_monthly.png',
+          caption: 'Monthly mean CO₂ at NOAA’s Mauna Loa Observatory (red) and the series with the seasonal cycle removed (black).' },
+        { kind: 'plot', title: 'Annual growth rate', path: '{OUT}/global/GHG_co2_mauna_loa_growth_rate.png',
+          caption: 'Annual increase of CO₂ at Mauna Loa (bars) and decadal means (red lines).' },
+      ],
+      tables: [
+        { title: 'Summary table', path: '{TAB}/global/GHG_co2_summary_table.csv' },
+        { title: 'Growth rate by decade', path: '{TAB}/global/GHG_co2_growth_rate_by_decade.csv' },
+        { title: 'Annual means', path: '{TAB}/global/GHG_co2_mauna_loa_annual.csv' },
+      ],
+      projections: {
+        notebook: 'notebooks/projections/Regional/greenhouse_gases/co2_ssps',
+        products: [
+          { kind: 'plot', title: 'Observed CO₂ and SSP pathways', path: '{OUT}/global/GHG_co2_observed_and_ssps.png',
+            caption: 'Mauna Loa annual means with the CMIP6 global-mean CO₂ concentration of SSP1-1.9 to SSP5-8.5 (Meinshausen et al., 2020).' },
+        ],
+        tables: [
+          { title: 'SSP concentrations', path: '{TAB}/global/GHG_co2_ssp_concentrations.csv' },
+        ],
+      },
+    }],
+  };
+}
 
 function bioNational(code, name, nb, prefix, label) {
   return {
@@ -476,18 +559,22 @@ function bioRegional(code, name, nb, v, label) {
     code, name,
     notebook: 'notebooks/historical/Regional/biochemistry/' + nb,
     products: [
-      { kind: 'map', title: 'Long-term mean', path: `{FIG}/regional_${v}_mean.png`,
+      { kind: 'map', mx: false, title: 'Long-term mean', path: `{FIG}/regional_${v}_mean.png`,
         caption: `Long-term mean ${label} over the Pacific.` },
       { kind: 'map', title: 'Linear trend', path: `{FIG}/regional_${v}_trend.png`,
         caption: `Linear trend in ${label}.` },
-      { kind: 'map', title: 'Seasonal climatology', path: `{FIG}/regional_${v}_seasonal.png`,
+      { kind: 'map', mx: false, title: 'Seasonal climatology', path: `{FIG}/regional_${v}_seasonal.png`,
         caption: `Seasonal climatology of ${label}.` },
-      { kind: 'map', title: 'Seasonal anomaly', path: `{FIG}/regional_${v}_seasonal_anomaly.png`,
+      { kind: 'map', mx: false, title: 'Seasonal anomaly', path: `{FIG}/regional_${v}_seasonal_anomaly.png`,
         caption: `Seasonal anomalies of ${label} relative to the annual mean.` },
       { kind: 'interactive', title: 'Regional time series', path: `{FIG}/regional_${v}_timeseries.html`,
         caption: `Area-weighted regional ${label} time series.` },
-      { kind: 'map', title: 'ENSO anomalies', path: `{FIG}/regional_${v}_enso_anomalies.png`, enso: true,
+      { kind: 'map', mx: false, title: 'ENSO anomalies', path: `{FIG}/regional_${v}_enso_anomalies.png`, enso: true,
         caption: `${label[0].toUpperCase() + label.slice(1)} anomalies under La Niña, Neutral and El Niño conditions.` },
+    ],
+    tables: [
+      { title: 'Summary table', path: `{TAB}/regional_pacific/regional_${v}_summary_table_pacific.csv` },
+      { title: 'EEZ summary', path: `{TAB}/regional_pacific/regional_${v}_EEZ_summary_pacific.csv` },
     ],
   };
 }
@@ -518,6 +605,9 @@ const GWL = 'at the year each scenario first reaches +1.5, +2.0, +2.5 and +3.0 �
   addTables('3.1', [
     { title: 'Key metrics – site', path: '{FIG}/{natfig}T_TCs_key_metrics_site.csv', sites: ['palau', 'marshall'] },
     { title: 'Key metrics – basin', path: '{FIG}/{natfig}T_TCs_key_metrics_basin.csv', sites: ['palau', 'marshall'] },
+  ]);
+  addTables('3.2', [
+    { title: 'Summary table – severe TCs', path: '{FIG}/{natfig}T_TCs_severe_summary.csv', sites: ['palau', 'marshall'] },
   ]);
   addTables('4.1', [{ title: 'Summary table', path: '{FIG}/{natfig}T_SST_summary_{eez}.csv' }]);
   addTables('4.2', [{ title: 'Days per bleaching alert level', path: '{FIG}/F13_DHW_days_per_alert_level.csv', sites: ['palau'] }]);

@@ -1,0 +1,17 @@
+Metric,Value
+MEAN TEMPERATURE,
+Anomalies relative to each station's 1961–1990 mean,
+"Average mean temperature anomaly, 1951–2024 (°C)",0.062
+Change in mean temperature anomaly since 1951 (°C),0.74
+Rate of change in mean temperature anomaly (°C/decade),0.101
+Trend p-value,< 0.001
+Trend significant at 95%,Yes
+Average mean temperature anomaly: 1951–1961 (°C),-0.302
+Average mean temperature anomaly: 2014–2024 (°C),0.517
+Highest annual mean temperature anomaly (2019) (°C),0.7
+Lowest annual mean temperature anomaly (1955) (°C),-0.829
+Stations in the regional average,95
+Stations per year (min–max),22–64
+Stations with a trend,94
+Stations with a significant increase,53
+Stations with a significant decrease,6
