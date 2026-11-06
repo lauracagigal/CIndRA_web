@@ -1,5 +1,7 @@
 # CIndRA_web
 
+### [Open the CIndRA product matrix →](https://lauracagigal.github.io/CIndRA_web/)
+
 Interactive product matrix for the CIndRA climate indicators (national and regional scales, Pacific).
 Static site: open `index.html` or publish the repository with GitHub Pages (root of `main`).
 
