@@ -1,0 +1,13 @@
+{
+  "station": "Malakal",
+  "uhslc_id": 7,
+  "period_start": "1993-01-01",
+  "period_end": "2024-12-31",
+  "removed_trend_mm_yr": 4.373150750261303,
+  "valid_storm_years": 31,
+  "highest_storm_year": 1998,
+  "highest_storm_year_anomaly_cm": 18.546893701148353,
+  "lowest_storm_year": 2015,
+  "lowest_storm_year_anomaly_cm": -21.01253938870337,
+  "monthly_anomaly_std_cm": 11.37629310395734
+}

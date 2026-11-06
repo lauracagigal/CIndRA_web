@@ -29,6 +29,15 @@ sed \
   -e "s#{MHW}      notebooks/matrix_cc/figures #{MHW}      outputs/mhw                 #" \
   "$SRC/matrix_cc/products.js" > "$HERE/products.js"
 
+# Product records: hand-written part as is; automatic inventory with its file keys rewritten to this layout
+# (keys under ../data stay as they are: they describe the local data copies in CIndRA).
+cp "$SRC/matrix_cc/records.js" "$HERE/"
+sed \
+  -e 's#^"\.\./outputs/figures/#"outputs/figures/#' \
+  -e 's#^"\.\./outputs/tables/#"outputs/tables/#' \
+  -e 's#^"\.\./notebooks/matrix_cc/figures/#"outputs/mhw/#' \
+  "$SRC/matrix_cc/inventory.js" > "$HERE/inventory.js"
+
 if grep -q "'\.\./" "$HERE/products.js"; then
   echo "Error: products.js still has paths outside this repo (roots changed in CIndRA?):" >&2
   grep -n "'\.\./" "$HERE/products.js" >&2

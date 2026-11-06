@@ -1,0 +1,32 @@
+Metric,Value
+WARM NIGHTS (TMIN above the station 90th percentile),
+"Average warm nights, 1951–2024 (% of nights)",10.527
+Change in warm nights since 1951 (% of nights),15.738
+Rate of change in warm nights (% of nights/decade),2.156
+Trend p-value,< 0.001
+Trend significant at 95%,Yes
+Average warm nights: 1951–1961 (% of nights),6.623
+Average warm nights: 2014–2024 (% of nights),22.423
+Highest annual warm nights (2024) (% of nights),32.218
+Lowest annual warm nights (1955) (% of nights),2.47
+Stations in the regional average,101
+Stations per year (min–max),23–64
+Stations with a trend,79
+Stations with a significant increase,44
+Stations with a significant decrease,4
+ ,
+COLD DAYS (TMAX below the station 10th percentile),
+"Average cold days, 1951–2024 (% of days)",8.743
+Change in cold days since 1951 (% of days),-3.037
+Rate of change in cold days (% of days/decade),-0.416
+Trend p-value,0.002
+Trend significant at 95%,Yes
+Average cold days: 1951–1961 (% of days),11.422
+Average cold days: 2014–2024 (% of days),6.843
+Highest annual cold days (1955) (% of days),17.15
+Lowest annual cold days (1984) (% of days),3.848
+Stations in the regional average,101
+Stations per year (min–max),23–64
+Stations with a trend,79
+Stations with a significant increase,8
+Stations with a significant decrease,33

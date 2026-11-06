@@ -1,0 +1,15 @@
+{
+  "station": "Malakal",
+  "uhslc_id": 7,
+  "threshold_cm_above_mhhw": 30.0,
+  "mhhw_mm_station_datum": 2160.0,
+  "first_storm_year": 1982,
+  "last_storm_year": 2025,
+  "complete_storm_years": 44,
+  "mean_flood_days_per_year": 39.70454545454545,
+  "mean_flood_hours_per_year": 87.70454545454545,
+  "flood_days_trend_per_year": 1.2467230443974628,
+  "flood_days_trend_p": 0.0010204333687486894,
+  "flood_hours_trend_per_year": 3.068569415081043,
+  "flood_hours_trend_p": 0.0008751578904494672
+}

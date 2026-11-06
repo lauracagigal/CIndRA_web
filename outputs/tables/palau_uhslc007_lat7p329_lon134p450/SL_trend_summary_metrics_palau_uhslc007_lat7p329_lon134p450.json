@@ -1,0 +1,19 @@
+{
+  "country": "Palau",
+  "station": "Malakal",
+  "uhslc_id": 7,
+  "period_start": "1993-01-01",
+  "period_end": "2024-12-31",
+  "altimetry_cell_lat": 7.3125,
+  "altimetry_cell_lon": 134.4375,
+  "altimetry_trend_mm_yr": 5.375871972616472,
+  "tide_gauge_trend_mm_yr": 4.373150738651954,
+  "tide_gauge_trend_se_mm_yr": 0.12934561841522454,
+  "altimetry_minus_tide_gauge_mm_yr": 1.0027212339645177,
+  "altimetry_change_cm": 17.201318478841536,
+  "tide_gauge_change_cm": 13.99168775684784,
+  "eez_mean_trend_mm_yr": 5.035436204982562,
+  "eez_mean_trend_se_mm_yr": 0.5409573312034034,
+  "oni_sensitivity_cm_per_degC": -10.248308265366221,
+  "oni_r": -0.7213780899842657
+}

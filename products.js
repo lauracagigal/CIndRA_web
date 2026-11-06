@@ -8,12 +8,15 @@
 //   {station}  station slug of the selected national site
 //   {eez}      EEZ slug of the selected national site
 //   {natfig}   per-site subfolder of {FIG} for TC / SST / biochemistry products ('' = {FIG} itself)
+//   {sealevel} per-site tag of the national sea-level outputs (<country>_uhslc<id>_lat.._lon..)
 // An indicator may carry `projections: { notebook, products, tables }` (national and regional scales);
 // these are attached by indicator code at the end of this file.
 // A product with `mx: false` is listed in the National/Regional views but hidden in the Matrix tab;
 // ENSO products and tables (`enso: true`) are hidden in the Matrix tab too.
 // A product whose path uses a token the selected site does not define is shown as "not available".
 // Missing files are detected at runtime and flagged as "not generated yet".
+// Every product and table opens a "Product record" (CMPLV source of record): its written content is in records.js
+// and its automatic part (run dates, file inventory, code version) in inventory.js (build_inventory_js.py).
 
 window.CINDRA = {
   book: 'https://lauracagigal.github.io/CIndRA/',
@@ -31,16 +34,16 @@ window.CINDRA = {
   sites: [
     {
       id: 'palau', label: 'Palau', station: 'Koror (GSN 91408)', eezName: 'Palau', lat: 7.337, lon: 134.477,
-      tokens: { station: 'palau_psw00040309_lat7p337_lon134p477', eez: 'palau', ocean: 'palau', natfig: '' },
+      tokens: { station: 'palau_psw00040309_lat7p337_lon134p477', ghcn: 'PSW00040309', eez: 'palau', ocean: 'palau', natfig: '', sealevel: 'palau_uhslc007_lat7p329_lon134p450' },
     },
     {
       id: 'marshall', label: 'Marshall Islands', station: 'Majuro (GSN 91376)', eezName: 'Marshall Islands', lat: 7.065, lon: 171.272,
-      tokens: { station: 'marshall_islands_rmw00040710_lat7p065_lon171p272', eez: 'marshall_islands', natfig: 'marshall_islands_rmw00040710_lat7p065_lon171p272/' },
+      tokens: { station: 'marshall_islands_rmw00040710_lat7p065_lon171p272', ghcn: 'RMW00040710', eez: 'marshall_islands', natfig: 'marshall_islands_rmw00040710_lat7p065_lon171p272/' },
     },
   ],
 
   national: [
-    co2Group('0.1'),
+    co2Group('0.1', false),  // national matrix: Mauna Loa series only, as in the report
     // ─────────────────────────── ATMOSPHERE ───────────────────────────
     {
       domain: 'Atmosphere', variable: 'Air Temperature', icon: 'thermo',
@@ -52,7 +55,7 @@ window.CINDRA = {
           products: [
             { kind: 'plot', title: 'Anomalies & 10 warmest years', path: '{OUT}/{station}/F2_ST_Annomalies_top10_{station}.png',
               caption: 'Annual mean temperature anomalies relative to the reference period. Coloured dots mark the 10 warmest years on record; the black line is the linear trend (solid when significant, p < 0.05).' },
-            { kind: 'plot', title: 'Annual mean temperature', path: '{OUT}/{station}/F2_ST_Mean_{station}.png',
+            { kind: 'plot', mx: false, title: 'Annual mean temperature', path: '{OUT}/{station}/F2_ST_Mean_{station}.png',
               caption: 'Annual mean air temperature at the station with its linear trend.' },
           ],
           tables: [
@@ -68,9 +71,9 @@ window.CINDRA = {
           products: [
             { kind: 'interactive', title: 'Annual Tmin & Tmax', path: '{OUT}/{station}/F3_ST_min_max_{station}.html',
               caption: 'Annual maximum (red) and minimum (blue) temperature. Solid black lines: significant trends (p < 0.05); dashed: not significant.' },
-            { kind: 'interactive', title: 'Minimum temperature', path: '{OUT}/{station}/F3_ST_min_{station}.html',
+            { kind: 'interactive', mx: false, title: 'Minimum temperature', path: '{OUT}/{station}/F3_ST_min_{station}.html',
               caption: 'Annual minimum temperature (TMIN) and trend.' },
-            { kind: 'interactive', title: 'Maximum temperature', path: '{OUT}/{station}/F3_ST_max_{station}.html',
+            { kind: 'interactive', mx: false, title: 'Maximum temperature', path: '{OUT}/{station}/F3_ST_max_{station}.html',
               caption: 'Annual maximum temperature (TMAX) and trend.' },
           ],
           tables: [
@@ -79,19 +82,24 @@ window.CINDRA = {
           ],
         },
         {
-          code: '1.3', name: 'Hot days and cold nights',
+          code: '1.3', name: 'Hot and cold days and nights',
           notebook: 'notebooks/historical/National/air_temperature/c_hot_cold_days',
           products: [
             { kind: 'interactive', title: 'Hot days & cold nights (TX90p / TN10p)', path: '{OUT}/{station}/F4_ST_hot_cold_{station}.html',
               caption: 'Annual number of hot days (above the calendar-day 90th percentile) and cold nights (below the calendar-day 10th percentile) of the reference period.' },
-            { kind: 'interactive', title: 'Fixed-percentile variant', path: '{OUT}/{station}/F4_ST_hot_cold_percentiles_{station}.html',
+            { kind: 'interactive', mx: false, title: 'Fixed-percentile variant', path: '{OUT}/{station}/F4_ST_hot_cold_percentiles_{station}.html',
               caption: 'Hot days and cold nights computed with fixed percentile thresholds.' },
+            { kind: 'interactive', mx: false, title: 'Warm nights & cold days (TN90p / TX10p)', path: '{OUT}/{station}/F4_ST_warm_cold_{station}.html',
+              caption: 'Annual number of warm nights (minimum temperature above the calendar-day 90th percentile) and cold days (maximum temperature below the calendar-day 10th percentile) of the reference period.' },
           ],
           tables: [
             { title: 'ETCCDI summary', path: '{TAB}/{station}/T_hot_cold_summary_table_etccdi_{station}.csv' },
             { title: 'Percentile summary', path: '{TAB}/{station}/T_hot_cold_summary_table_percentiles_{station}.csv' },
             { title: 'Hot days per year', path: '{TAB}/{station}/T_hot_days_per_year_{station}.csv' },
             { title: 'Cold nights per year', path: '{TAB}/{station}/T_cold_nights_per_year_{station}.csv' },
+            { title: 'Warm nights & cold days summary', path: '{TAB}/{station}/T_warm_cold_summary_table_etccdi_{station}.csv' },
+            { title: 'Warm nights per year', path: '{TAB}/{station}/T_warm_nights_per_year_{station}.csv' },
+            { title: 'Cold days per year', path: '{TAB}/{station}/T_cold_days_per_year_{station}.csv' },
           ],
         },
       ],
@@ -106,11 +114,11 @@ window.CINDRA = {
           products: [
             { kind: 'plot', title: 'Anomalies & 10 wettest years', path: '{OUT}/{station}/F5_Rain_anom_top10_{station}.png',
               caption: 'Annual total rainfall anomalies relative to the reference period (mm/year). Coloured dots mark the 10 wettest years.' },
-            { kind: 'interactive', title: 'Daily precipitation', path: '{OUT}/{station}/F5_Rain_daily_{station}.html',
+            { kind: 'interactive', mx: false, title: 'Daily precipitation', path: '{OUT}/{station}/F5_Rain_daily_{station}.html',
               caption: 'Daily precipitation time series at the station.' },
-            { kind: 'interactive', title: 'Annual daily maxima', path: '{OUT}/{station}/F5_Rain_annual_max_{station}.html',
+            { kind: 'interactive', mx: false, title: 'Annual daily maxima', path: '{OUT}/{station}/F5_Rain_annual_max_{station}.html',
               caption: 'Annual maximum daily rainfall.' },
-            { kind: 'plot', title: 'Accumulated precipitation', path: '{OUT}/{station}/F5_Rain_accum_{station}.png',
+            { kind: 'plot', mx: false, title: 'Accumulated precipitation', path: '{OUT}/{station}/F5_Rain_accum_{station}.png',
               caption: 'Annual accumulated precipitation.' },
             { kind: 'plot', title: 'Dry season (Nov–Apr)', path: '{OUT}/{station}/F6a_Rain_dry_season_{station}.png',
               caption: 'Accumulated rainfall during the dry season (November–April).' },
@@ -138,9 +146,9 @@ window.CINDRA = {
               caption: 'Annual number of dry days (below 1 mm).' },
             { kind: 'plot', title: 'Max consecutive dry days', path: '{OUT}/{station}/F6b_Consecutive_dry_{station}.png',
               caption: 'Longest sequence of consecutive days with rainfall below 1 mm in each year.' },
-            { kind: 'plot', title: 'Mean consecutive dry days', path: '{OUT}/{station}/F6b_Mean_consecutive_dry_{station}.png',
+            { kind: 'plot', mx: false, title: 'Mean consecutive dry days', path: '{OUT}/{station}/F6b_Mean_consecutive_dry_{station}.png',
               caption: 'Mean length of dry spells in each year.' },
-            { kind: 'plot', title: 'Wet / dry distribution', path: '{OUT}/{station}/F6a_Wet_dry_distribution_{station}.png',
+            { kind: 'plot', mx: false, title: 'Wet / dry distribution', path: '{OUT}/{station}/F6a_Wet_dry_distribution_{station}.png',
               caption: 'Distribution of wet and dry days.' },
           ],
           tables: [
@@ -158,7 +166,7 @@ window.CINDRA = {
               caption: 'Annual number of wet days (above 1 mm).' },
             { kind: 'plot', title: 'Heavy rainfall days (> p95)', path: '{OUT}/{station}/F7b_Wet_days_95p_{station}.png',
               caption: 'Annual number of days above the 95th percentile of wet-day rainfall.' },
-            { kind: 'plot', title: 'Wet / dry distribution', path: '{OUT}/{station}/F7a_Wet_dry_distribution_{station}.png',
+            { kind: 'plot', mx: false, title: 'Wet / dry distribution', path: '{OUT}/{station}/F7a_Wet_dry_distribution_{station}.png',
               caption: 'Distribution of wet and dry days.' },
           ],
           tables: [
@@ -197,7 +205,7 @@ window.CINDRA = {
               caption: 'Severe tropical cyclones (Category 3 or greater, winds above 96 kt) in the vicinity of the site since 1950.' },
             { kind: 'plot', title: 'Severe TCs by category', path: '{FIG}/{natfig}F8_TCs_Historical_bars_category_severe.png', sites: ['palau', 'marshall'],
               caption: 'Annual count of severe TCs by category.' },
-            { kind: 'plot', title: 'Severe TCs through time', path: '{FIG}/{natfig}F8_TCs_Historical_Severe_cat_time.png', sites: ['palau', 'marshall'],
+            { kind: 'plot', mx: false, title: 'Severe TCs through time', path: '{FIG}/{natfig}F8_TCs_Historical_Severe_cat_time.png', sites: ['palau', 'marshall'],
               caption: 'Annual severe storm count and trend.' },
             { kind: 'plot', title: 'Severe TCs & ENSO trend', path: '{FIG}/{natfig}F9_TCs_severe_bars_trend.png', sites: ['palau', 'marshall'], enso: true,
               caption: 'Severe TC counts coloured by ENSO phase (ONI index).' },
@@ -277,6 +285,72 @@ window.CINDRA = {
         { code: '5.6', name: 'Sea surface salinity', notebook: 'notebooks/projections/National/biochemistry/c_salinity', products: [] },
       ],
     },
+    {
+      domain: 'Ocean', variable: 'Sea Level', icon: 'tide',
+      page: 'notebooks/historical/National/sea_level/sea_level',
+      indicators: [
+        {
+          code: '6.1', name: 'Absolute and relative sea-level change',
+          notebook: 'notebooks/historical/National/sea_level/a_sea_level_trend',
+          products: [
+            { kind: 'map', title: 'Sea-level change map', path: '{OUT}/{sealevel}/SL_magnitude_map_{sealevel}.png',
+              caption: 'Absolute sea-level change from CMEMS altimetry over the EEZ (shading) and relative change at the UHSLC tide gauge (circle), 1993–2024.' },
+            { kind: 'plot', title: 'Altimetry vs tide gauge', path: '{OUT}/{sealevel}/SL_magnitude_timeseries_{sealevel}.png',
+              caption: 'Absolute (altimetry, nearest cell) and relative (tide gauge) sea level with linear trends (solid when significant, p < 0.05).' },
+            { kind: 'plot', mx: false, title: 'EEZ-mean sea level', path: '{OUT}/{sealevel}/SL_eez_mean_timeseries_{sealevel}.png',
+              caption: 'Area-weighted monthly sea-level anomaly over the EEZ from altimetry, with linear trend.' },
+            { kind: 'plot', title: 'Sea level vs ONI', path: '{OUT}/{sealevel}/SL_ONI_scatter_{sealevel}.png', enso: true,
+              caption: 'Detrended, de-seasoned tide-gauge sea level against the Oceanic Niño Index, with the regression slope (cm per °C).' },
+          ],
+          tables: [
+            { title: 'Trend results', path: '{TAB}/{sealevel}/SL_magnitude_results_{sealevel}.csv' },
+            { title: 'ENSO influence', enso: true, path: '{TAB}/{sealevel}/ENSO_SL_influence_summary_{sealevel}.csv' },
+          ],
+        },
+        {
+          code: '6.2', name: 'Sea-level anomalies',
+          notebook: 'notebooks/historical/National/sea_level/b_sea_level_anomaly',
+          products: [
+            { kind: 'plot', title: 'Storm-year anomalies & ENSO', path: '{OUT}/{sealevel}/SL_anomaly_station_timeseries_{sealevel}.png',
+              caption: 'Detrended, de-seasoned storm-year (May–April) mean, range and monthly sea-level anomalies at the tide gauge, with El Niño / La Niña periods.' },
+            { kind: 'map', mx: false, title: 'Period-mean anomaly maps', path: '{OUT}/{sealevel}/SL_anomaly_period_maps_{sealevel}.png',
+              caption: 'Mean detrended altimetry anomaly over the EEZ for groups of storm years, with the tide-gauge anomaly on the same scale.' },
+          ],
+          tables: [
+            { title: 'Storm-year anomalies', path: '{TAB}/{sealevel}/SL_anomaly_yearly_mean_{sealevel}.csv' },
+          ],
+        },
+        {
+          code: '6.3', name: 'Minor (high-tide) flooding',
+          notebook: 'notebooks/historical/National/sea_level/c_sea_level_ff',
+          products: [
+            { kind: 'plot', title: 'Flood days & ENSO', path: '{OUT}/{sealevel}/SL_FloodFrequency_threshold_counts_days_{sealevel}.png',
+              caption: 'Days per storm year with hourly sea level more than 30 cm above MHHW, coloured by ENSO phase, with linear trend and the ONI below.' },
+            { kind: 'plot', title: 'Monthly flood-day matrix', path: '{OUT}/{sealevel}/SL_FloodFrequency_threshold_counts_heatmap_{sealevel}.png',
+              caption: 'Flood days per month and storm year, annual totals and the monthly share of all flood days.' },
+            { kind: 'plot', mx: false, title: 'Flood hours', path: '{OUT}/{sealevel}/SL_FloodFrequency_threshold_counts_hours_{sealevel}.png',
+              caption: 'Hours per storm year above the minor-flood threshold, with linear trend.' },
+          ],
+          tables: [
+            { title: 'Flood days per storm year', path: '{TAB}/{sealevel}/SL_flood_days_per_year_{sealevel}.csv' },
+            { title: 'Decadal means', path: '{TAB}/{sealevel}/SL_flood_days_decadal_{sealevel}.csv' },
+          ],
+        },
+        {
+          code: '6.4', name: 'Extreme sea-level rankings',
+          notebook: 'notebooks/historical/National/sea_level/d_sea_level_rankings',
+          products: [
+            { kind: 'plot', title: 'Top-10 extremes', path: '{OUT}/{sealevel}/SL_rankings_{sealevel}.png',
+              caption: 'Ten highest and ten lowest hourly sea levels (m above MHHW) on the monthly envelope, marked by ENSO phase.' },
+            { kind: 'interactive', mx: false, title: 'Top-10 extremes (interactive)', path: '{OUT}/{sealevel}/SL_top_10_plot_{sealevel}.html',
+              caption: 'Interactive version of the ranked extremes.' },
+          ],
+          tables: [
+            { title: 'Top-10 table', path: '{TAB}/{sealevel}/SL_top_10_table_{sealevel}.csv' },
+          ],
+        },
+      ],
+    },
   ],
 
   regional: [
@@ -323,7 +397,7 @@ window.CINDRA = {
           ],
         },
         {
-          code: 'R1.3', name: 'Hot days & cold nights',
+          code: 'R1.3', name: 'Hot & cold days and nights',
           notebook: 'notebooks/historical/Regional/air_temperature/regional_indicators',
           products: [
             { kind: 'map', title: 'Hot days trend', path: '{OUT}/regional_pacific/T_regional_hot_days_pct_trend_pacific.png',
@@ -334,10 +408,20 @@ window.CINDRA = {
               caption: 'Annual percentage of hot days (TMAX above each station’s 90th percentile), averaged over the GHCN stations, with linear trend (solid: significant at 95%; dashed: not significant).' },
             { kind: 'plot', title: 'Cold nights – station average', path: '{OUT}/regional_pacific/T_regional_cold_nights_timeseries_pacific.png',
               caption: 'Annual percentage of cold nights (TMIN below each station’s 10th percentile), averaged over the GHCN stations, with linear trend (solid: significant at 95%; dashed: not significant).' },
+            { kind: 'map', title: 'Warm nights trend', path: '{OUT}/regional_pacific/T_regional_warm_nights_pct_trend_pacific.png',
+              caption: 'Trend in the percentage of warm nights (TMIN above the station’s 90th percentile, ~TN90p) at each station.' },
+            { kind: 'map', title: 'Cold days trend', path: '{OUT}/regional_pacific/T_regional_cold_days_pct_trend_pacific.png',
+              caption: 'Trend in the percentage of cold days (TMAX below the station’s 10th percentile, ~TX10p) at each station.' },
+            { kind: 'plot', title: 'Warm nights – station average', path: '{OUT}/regional_pacific/T_regional_warm_nights_timeseries_pacific.png',
+              caption: 'Annual percentage of warm nights (TMIN above each station’s 90th percentile), averaged over the GHCN stations, with linear trend (solid: significant at 95%; dashed: not significant).' },
+            { kind: 'plot', title: 'Cold days – station average', path: '{OUT}/regional_pacific/T_regional_cold_days_timeseries_pacific.png',
+              caption: 'Annual percentage of cold days (TMAX below each station’s 10th percentile), averaged over the GHCN stations, with linear trend (solid: significant at 95%; dashed: not significant).' },
           ],
           tables: [
             { title: 'Summary table', path: '{TAB}/regional_pacific/T_regional_summary_table_hot_cold_pacific.csv' },
             { title: 'EEZ summary – stations', path: '{TAB}/regional_pacific/T_regional_EEZ_hot_cold_stations_pacific.csv' },
+            { title: 'Summary table – warm nights & cold days', path: '{TAB}/regional_pacific/T_regional_summary_table_warm_cold_pacific.csv' },
+            { title: 'EEZ summary – warm nights & cold days', path: '{TAB}/regional_pacific/T_regional_EEZ_warm_cold_stations_pacific.csv' },
           ],
         },
       ],
@@ -498,11 +582,59 @@ window.CINDRA = {
         { code: 'R5.7', name: 'Sea surface salinity', notebook: 'notebooks/projections/Regional/biochemistry/c_salinity', products: [] },
       ],
     },
+    {
+      domain: 'Ocean', variable: 'Sea Level', icon: 'tide',
+      page: 'notebooks/historical/Regional/sea_level/sea_level',
+      indicators: [
+        {
+          code: 'R6.1', name: 'Sea-level trends',
+          notebook: 'notebooks/historical/Regional/sea_level/regional_indicators',
+          products: [
+            { kind: 'map', title: 'Sea-level trend', path: '{OUT}/regional_pacific/SL_regional_trend_map_pacific.png',
+              caption: 'Linear sea-level trend 1993–2025 from CMEMS altimetry (shading) and relative trends at tide gauges near Pacific EEZs (circles).' },
+            { kind: 'map', title: 'Change with all tide gauges', path: '{OUT}/regional_pacific/SL_regional_change_map_tide_gauges_pacific.png',
+              caption: 'Absolute altimetry change (cm over 1993–2025) with the relative change at every UHSLC tide gauge in the window; open circles lack sufficient data.' },
+            { kind: 'plot', title: 'Regional mean sea level', path: '{OUT}/regional_pacific/SL_regional_mean_timeseries_pacific.png',
+              caption: 'Area-weighted monthly sea-level anomaly over the Pacific window with linear trend.' },
+            { kind: 'plot', mx: false, title: 'Station trends', path: '{OUT}/regional_pacific/SL_regional_station_trends_pacific.png',
+              caption: 'Tide-gauge (relative) and nearest-cell altimetry (absolute) trends computed on the same valid months.' },
+          ],
+          tables: [
+            { title: 'Station trends', path: '{TAB}/regional_pacific/SL_regional_station_trends_pacific.csv' },
+            { title: 'Window station changes', path: '{TAB}/regional_pacific/SL_regional_window_station_changes_pacific.csv' },
+          ],
+        },
+        {
+          code: 'R6.2', name: 'Sea-level anomalies & ENSO',
+          notebook: 'notebooks/historical/Regional/sea_level/regional_indicators',
+          products: [
+            { kind: 'map', title: '5-year anomalies', path: '{OUT}/regional_pacific/SL_regional_5yr_anomalies_pacific.png',
+              caption: 'Five-year mean sea-level anomalies relative to 1993–2012 (not detrended).' },
+            { kind: 'map', title: 'Regression on ONI', path: '{OUT}/regional_pacific/SL_regional_ENSO_regression_pacific.png', enso: true,
+              caption: 'Regression of detrended, de-seasoned monthly sea level on the Oceanic Niño Index (cm per °C).' },
+          ],
+        },
+        {
+          code: 'R6.3', name: 'Minor (high-tide) flooding',
+          notebook: 'notebooks/historical/Regional/sea_level/regional_indicators',
+          products: [
+            { kind: 'plot', title: 'Station–year flood matrix', path: '{OUT}/regional_pacific/SL_regional_flood_station_year_matrix_pacific.png',
+              caption: 'Days per storm year above 30 cm over MHHW at 24 long-record tide gauges (north to south), 1983–2025, with the regional total below.' },
+            { kind: 'plot', mx: false, title: 'Flood days, all gauges', path: '{OUT}/regional_pacific/SL_regional_flood_days_pacific.png',
+              caption: 'Minor-flood days per storm year at every tide gauge passing the completeness requirement, 1993–2025.' },
+          ],
+          tables: [
+            { title: 'Station–year matrix', path: '{TAB}/regional_pacific/SL_regional_flood_station_year_matrix_pacific.csv' },
+            { title: 'Flood summary', path: '{TAB}/regional_pacific/SL_regional_flood_summary_pacific.csv' },
+          ],
+        },
+      ],
+    },
   ],
 };
 
 // Atmospheric CO2 (NOAA Mauna Loa + CMIP6 SSP pathways): one global record, shown at both scales.
-function co2Group(code) {
+function co2Group(code, mxGrowth = true) {
   const nb = 'notebooks/historical/Regional/greenhouse_gases/co2_mauna_loa';
   return {
     domain: 'Atmosphere', variable: 'Greenhouse Gases', icon: 'globe',
@@ -512,7 +644,7 @@ function co2Group(code) {
       products: [
         { kind: 'plot', title: 'Monthly CO₂ at Mauna Loa', path: '{OUT}/global/GHG_co2_mauna_loa_monthly.png',
           caption: 'Monthly mean CO₂ at NOAA’s Mauna Loa Observatory (red) and the series with the seasonal cycle removed (black).' },
-        { kind: 'plot', title: 'Annual growth rate', path: '{OUT}/global/GHG_co2_mauna_loa_growth_rate.png',
+        { kind: 'plot', mx: mxGrowth, title: 'Annual growth rate', path: '{OUT}/global/GHG_co2_mauna_loa_growth_rate.png',
           caption: 'Annual increase of CO₂ at Mauna Loa (bars) and decadal means (red lines).' },
       ],
       tables: [

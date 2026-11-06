@@ -1,0 +1,32 @@
+{
+  "site_name": "palau_PSW00040309",
+  "ghcn_station_id": "PSW00040309",
+  "ghcn_station_name": "PW KOROR GSN 91408",
+  "country": "Palau",
+  "data_source": "GHCN-Daily",
+  "period": {
+    "start": 1951,
+    "end": 2026
+  },
+  "etccdi": {
+    "threshold_definition": "TN90p / TX10p (1961-1990 base period)",
+    "warm_nights_per_year_stats": {
+      "n": 73,
+      "mean": 38.24657534246575,
+      "min": 3.0,
+      "max": 187.0,
+      "std": 35.9644040151423
+    },
+    "cold_days_per_year_stats": {
+      "n": 73,
+      "mean": 32.56164383561644,
+      "min": 10.0,
+      "max": 240.0,
+      "std": 29.064576712598036
+    },
+    "slope_warm_nights_per_year": 1.921,
+    "p_value_warm_nights": 1.8872952414148175e-11,
+    "slope_cold_days_per_year": 0.476,
+    "p_value_cold_days": 0.048302516658353285
+  }
+}

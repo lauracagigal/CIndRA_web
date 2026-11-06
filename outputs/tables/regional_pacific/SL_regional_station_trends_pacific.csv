@@ -1,0 +1,70 @@
+uhslc_id,name,country,eez,lon,lat,first_valid_month,last_valid_month,valid_fraction,qc_pass,tg_trend_mm_yr,tg_trend_se_mm_yr,alt_trend_mm_yr,alt_minus_tg_mm_yr
+1,Pohnpei,"Micronesia, Federated States of",Micronesia,158.2,6.98,2002-01,2025-12,0.64,False,5.43,0.73,4.59,-0.84
+2,Tarawa,Kiribati,Kiribati,172.93,1.36,1993-04,2025-12,0.94,True,3.48,0.36,3.78,0.29
+4,Nauru,Nauru,Nauru,166.91,-0.53,1993-07,2025-12,0.88,True,4.79,0.45,4.19,-0.59
+5,Majuro,Marshall Islands,Marshall Islands,171.37,7.11,1993-06,2025-12,0.94,True,4.3,0.39,4.13,-0.17
+7,Malakal,Palau,Palau,134.45,7.33,1993-01,2025-12,0.98,True,4.53,0.66,5.65,1.12
+8,Yap,"Micronesia, Federated States of",Micronesia,138.12,9.51,1993-01,2025-12,0.85,True,5.92,0.71,5.57,-0.35
+9,Honiara,Solomon Islands,Solomon Islands,159.96,-9.42,1994-08,2025-12,0.92,True,5.27,0.59,5.43,0.16
+10,Rabaul,Papua New Guinea,Papua New Guinea,152.18,-4.2,1993-01,2003-02,0.3,False,24.43,3.06,9.15,-15.29
+11,Christmas,Kiribati,Line Group,202.51,2.01,1993-01,2025-11,0.89,True,2.05,0.45,2.52,0.47
+13,Kanton,Kiribati,Phoenix Group,188.29,-2.81,1993-01,2023-12,0.74,True,3.13,0.39,3.22,0.09
+14,French Frigate Shoals,United States of America,Hawaii,193.71,23.87,2019-06,2025-12,0.17,False,7.88,4.03,11.63,3.75
+15,Papeete,French Polynesia,French Polynesia,210.43,-17.53,1993-01,2025-12,0.97,True,2.68,0.23,2.92,0.23
+16,Rikitea,French Polynesia,French Polynesia,225.05,-23.12,1993-01,2025-12,0.93,True,3.59,0.3,3.47,-0.11
+17,Hiva Oa,French Polynesia,French Polynesia,220.96,-9.8,2010-09,2025-12,0.45,False,0.53,1.85,4.15,3.62
+18,Suva,Fiji,Fiji,178.43,-18.13,1998-02,2025-12,0.83,True,8.78,0.39,4.86,-3.92
+19,Noumea,New Caledonia,New Caledonia,166.42,-22.24,1993-01,2025-10,0.91,True,3.16,0.33,3.84,0.68
+23,Rarotonga,Cook Islands,Cook Islands,200.21,-21.2,1993-03,2025-12,0.97,True,4.19,0.32,3.54,-0.64
+24,Penrhyn,Cook Islands,Cook Islands,201.95,-8.98,1993-01,2025-12,0.96,True,2.87,0.34,3.02,0.15
+25,Funafuti,Tuvalu,Tuvalu,179.21,-8.5,1993-06,2025-12,0.94,True,4.38,0.45,4.49,0.11
+28,Saipan,Northern Mariana Islands,Northern Mariana Islands and Guam,145.74,15.23,1993-01,2025-12,0.86,True,4.0,0.48,3.89,-0.11
+29,Kapingamarangi,"Micronesia, Federated States of",Micronesia,154.81,1.08,1993-01,2025-12,0.72,True,4.44,0.44,4.45,0.02
+31,Nuku Hiva,French Polynesia,French Polynesia,219.9,-8.91,1993-01,2025-12,0.76,True,3.42,0.31,2.15,-1.27
+38,Nuku'alofa,Tonga,Tonga,184.82,-21.14,1993-01,2025-12,0.98,True,6.86,0.34,4.59,-2.27
+43,Palmyra Island,United States Minor Outlying Islands,Palmyra Atoll,197.91,5.89,2012-12,2025-12,0.36,False,4.38,1.97,2.71,-1.67
+46,Port Vila,Vanuatu,Vanuatu,168.29,-17.76,1993-02,2025-12,0.96,True,1.71,0.38,3.41,1.7
+50,Midway,United States Minor Outlying Islands,Hawaii,182.63,28.22,1993-01,2025-12,0.98,True,3.46,0.36,4.15,0.69
+51,Wake,United States Minor Outlying Islands,Wake Island,166.62,19.28,1993-01,2025-12,0.98,True,2.32,0.43,2.23,-0.08
+52,Johnston,United States Minor Outlying Islands,Johnston Atoll,190.47,16.74,1993-01,2025-12,0.83,True,2.09,0.43,2.99,0.9
+53,Apra Harbor,Guam,Northern Mariana Islands and Guam,144.65,13.43,1993-01,2025-12,0.92,True,4.13,0.51,4.44,0.31
+54,Chuuk,"Micronesia, Federated States of",Micronesia,151.9,7.45,2020-08,2025-12,0.14,False,-5.47,5.8,-6.48,-1.02
+55,Kwajalein,Marshall Islands,Marshall Islands,167.73,8.73,1993-01,2025-12,0.98,True,3.43,0.35,4.61,1.18
+56,Pago Pago,American Samoa,American Samoa,189.32,-14.28,1993-01,2025-11,0.92,True,11.3,0.36,3.4,-7.91
+57,Honolulu,United States of America,Hawaii,202.13,21.31,1993-01,2025-12,1.0,True,2.73,0.31,2.84,0.11
+58,Nawiliwili,United States of America,Hawaii,200.65,21.97,1993-01,2025-12,0.98,True,3.28,0.33,2.77,-0.51
+59,Kahului,United States of America,Hawaii,203.53,20.9,1993-01,2025-12,1.0,True,2.81,0.3,2.83,0.02
+60,Hilo,United States of America,Hawaii,204.93,19.73,1993-01,2025-12,0.99,True,3.45,0.33,2.98,-0.47
+61,Mokuoloe,United States of America,Hawaii,202.2,21.43,1993-01,2025-12,0.99,True,3.12,0.31,2.84,-0.28
+400,Lombrum,Papua New Guinea,Papua New Guinea,147.38,-2.04,1994-10,2025-11,0.84,True,5.9,0.45,4.46,-1.44
+401,Apia,Samoa,Samoa,188.24,-13.82,1993-03,2025-12,0.95,True,9.7,0.35,4.05,-5.65
+402,Lautoka,Fiji,Fiji,177.44,-17.6,1993-01,2025-12,0.98,True,3.7,0.29,4.54,0.84
+404,Auasi,American Samoa,American Samoa,189.43,-14.27,2023-06,2025-12,0.07,False,14.35,12.19,7.68,-6.67
+407,Aunuu,American Samoa,American Samoa,189.44,-14.28,2023-06,2025-12,0.04,False,,,,
+408,Tau,American Samoa,American Samoa,190.49,-14.24,2023-06,2025-12,0.07,False,11.75,14.17,11.14,-0.6
+409,Ofu,American Samoa,American Samoa,190.32,-14.16,2023-06,2025-12,0.08,False,15.56,12.19,12.46,-3.1
+421,Ala Wai,United States of America,Hawaii,202.16,21.28,2023-06,2025-12,0.08,False,16.51,14.75,17.5,0.99
+422,Haleiwa,United States of America,Hawaii,201.89,21.59,2023-06,2025-12,0.08,False,17.56,14.84,20.34,2.78
+423,Heeia,United States of America,Hawaii,202.19,21.44,2023-06,2025-11,0.08,False,22.67,15.3,20.35,-2.32
+424,Keehi,United States of America,Hawaii,202.11,21.32,2023-06,2025-12,0.07,False,22.45,15.67,22.36,-0.09
+425,Waianae,United States of America,Hawaii,201.8,21.45,2023-06,2025-12,0.08,False,16.54,14.96,17.78,1.24
+426,Lahaina,United States of America,Hawaii,203.32,20.87,2025-11,2025-12,0.0,False,,,,
+428,Kaunakakai,United States of America,Hawaii,202.97,21.08,2024-07,2025-12,0.04,False,,,,
+429,Manele Bay,United States of America,Hawaii,203.11,20.74,2024-06,2025-12,0.05,False,,,,
+430,Honokohau,United States of America,Hawaii,203.98,19.67,2024-09,2025-12,0.04,False,,,,
+431,Milolii,United States of America,Hawaii,204.09,19.19,2024-10,2025-12,0.02,False,,,,
+432,Hanalei,United States of America,Hawaii,200.5,22.21,2024-08,2025-12,0.03,False,,,,
+434,Pearl Harbor,United States of America,Hawaii,202.04,21.37,2024-07,2025-12,0.04,False,,,,
+436,Kamesang,Palau,Palau,134.49,7.5,2025-09,2025-12,0.01,False,,,,
+437,Peleliu,Palau,Palau,134.27,7.05,2025-09,2025-12,0.01,False,,,,
+438,Imekang,Palau,Palau,134.62,7.54,2025-09,2025-12,0.01,False,,,,
+453,Leava,Wallis and Futuna,Wallis and Futuna,181.84,-14.29,2019-05,2025-04,0.13,False,-13.87,4.5,-11.1,2.77
+454,Makemo,French Polynesia,French Polynesia,216.34,-16.6,2019-01,2025-12,0.21,False,-18.67,4.7,0.88,19.55
+455,Rangiroa Atoll,French Polynesia,French Polynesia,212.29,-14.94,2019-01,2025-12,0.15,False,1.78,2.01,1.13,-0.65
+456,Tubuai,French Polynesia,French Polynesia,210.52,-23.34,2019-03,2025-12,0.21,False,4.12,4.01,-0.17,-4.28
+547,Barbers Point,United States of America,Hawaii,201.88,21.32,2009-06,2025-12,0.46,False,6.22,0.88,6.39,0.17
+548,Kaumalapau,United States of America,Hawaii,203.1,20.78,2007-08,2015-02,0.22,False,2.56,2.34,0.18,-2.38
+552,Kawaihae,United States of America,Hawaii,204.17,20.03,1993-02,2025-12,0.96,True,4.42,0.34,2.97,-1.45
+553,Port Allen,United States of America,Hawaii,200.41,21.9,2024-08,2025-12,0.04,False,,,,
+598,Alofi,Niue,Niue,190.08,-19.05,2015-08,2025-12,0.19,False,4.9,1.74,2.05,-2.85
+698,Tinian,Northern Mariana Islands,Northern Mariana Islands and Guam,145.62,14.96,1993-01,1997-07,0.12,False,-4.35,9.9,-1.83,2.53

@@ -1,0 +1,18 @@
+{
+  "period": "1993–2025",
+  "extent": [
+    125,
+    245,
+    -35,
+    35
+  ],
+  "altimetry_regional_mean_trend_mm_yr": 3.3572451637472476,
+  "altimetry_regional_mean_trend_se_mm_yr": 0.04830495709313935,
+  "stations_inside_eez": 69,
+  "stations_qc_pass": 35,
+  "median_tide_gauge_trend_mm_yr": 3.58522732999099,
+  "median_altimetry_trend_at_gauges_mm_yr": 3.778584180713728,
+  "median_alt_minus_tg_mm_yr": 0.015162057185820303,
+  "flood_threshold_cm_above_mhhw": 30,
+  "median_change_flood_days_2016_2025_vs_1993_2002": 15.6
+}
