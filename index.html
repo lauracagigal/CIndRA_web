@@ -630,8 +630,19 @@
   // scale is null until the user picks National or Regional on the start page.
   // mScale is the National/Regional toggle inside the Matrix tab.
   const state = { scale: null, mScale: 'national', site: C.sites[0].id, dom: 'all', kind: 'all', q: '' };
+  // Hash: #<scale>[/<site>] or #matrix/<national|regional>[/<site>], optionally followed by
+  // ?product=<path>, ?table=<path> or ?record=<path> (path of the file) so an open window can be shared.
+  let pendingOpen = null;  // { type, path } read from the hash, opened once the view has been drawn
   function readHash() {
-    let [hScale, hSite, hSite2] = location.hash.slice(1).split('/');
+    const raw = location.hash.slice(1);
+    if (/^var-/.test(raw)) return;  // sidebar anchors only scroll the page
+    const [view, query] = raw.split('?');
+    pendingOpen = null;
+    if (query) {
+      const m = query.match(/^(product|table|record)=(.+)$/);
+      if (m) { try { pendingOpen = { type: m[1], path: decodeURIComponent(m[2]) }; } catch (e) { pendingOpen = null; } }
+    }
+    let [hScale, hSite, hSite2] = view.split('/');
     if (hScale === 'matrix') {
       state.mScale = hSite === 'regional' ? 'regional' : 'national';
       hSite = hSite2;
@@ -795,7 +806,9 @@
     lastView = { type: 'product', i };
     $('#mCount').textContent = `${i + 1} / ${viewList.length}`;
     $('#mPrev').style.visibility = $('#mNext').style.visibility = '';
+    $('#mActs').insertAdjacentHTML('beforeend', linkBtn());
     showModal();
+    setOpenHash('product', url);
   }
   function openTable(url, title) {
     cur = -1;
@@ -806,8 +819,10 @@
     $('#mActs').innerHTML = `<a class="btn" href="${url}" download>${ICONS.dl}Download CSV</a>
       ${ctx.has(url) ? `<button type="button" class="btn ghost" data-rec="${url}">${ICONS.doc}Product record</button>` : ''}`;
     lastView = { type: 'table', url, title };
+    $('#mActs').insertAdjacentHTML('beforeend', linkBtn());
     $('#mStage').innerHTML = '<div class="msg">Loading…</div>';
     showModal();
+    setOpenHash('table', url);
     const cached = tableCache.get(url);
     (cached && cached.data ? Promise.resolve(cached.data)
       : tableText(url).then(txt => { if (txt === '') throw new Error('unavailable'); return Papa.parse(txt.trim(), { skipEmptyLines: true }).data; })
@@ -1066,14 +1081,16 @@
     $('#mActs').innerHTML = `
       ${lastView ? `<button type="button" class="btn ghost" data-rec-back>${lastView.type === 'table' ? ICONS.table + 'Back to table' : ICONS.chart + 'Back to product'}</button>` : ''}
       <button type="button" class="btn" data-rec-dl="md">${ICONS.dl}Record (.md)</button>
-      <button type="button" class="btn ghost" data-rec-dl="json">${ICONS.dl}Record (.json)</button>`;
+      <button type="button" class="btn ghost" data-rec-dl="json">${ICONS.dl}Record (.json)</button>${linkBtn()}`;
     $('#mStage').innerHTML = recordHtml(r);
     $('#mStage').scrollTop = 0;
     showModal();
+    setOpenHash('record', url);
   }
   $('#mActs').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     if (b.dataset.rec) return openRecord(b.dataset.rec);
+    if ('copyLink' in b.dataset) return copyLink(b);
     if ('recBack' in b.dataset && lastView) return lastView.type === 'table' ? openTable(lastView.url, lastView.title) : openProduct(lastView.i);
     if (b.dataset.recDl && curRecord) {
       const name = curRecord.productId;
@@ -1083,7 +1100,45 @@
   });
 
   function showModal() { modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
-  function closeModal() { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; $('#mStage').innerHTML = ''; }
+  function closeModal() { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; $('#mStage').innerHTML = ''; setOpenHash(null); }
+
+  // ── Shareable links ──
+  // The address reflects the open product, table or record (replaceState: no extra history entries).
+  function setOpenHash(type, url) {
+    if (!state.scale) return;
+    const q = type ? `?${type}=${encodeURIComponent(decodeURI(url))}` : '';
+    history.replaceState(null, '', hashFor() + q);
+  }
+  const linkBtn = () => `<button type="button" class="btn ghost" data-copy-link title="Copy a link that opens this window">${ICONS.ext}Copy link</button>`;
+  function copyLink(b) {
+    const url = location.href;
+    const done = () => { const t = b.innerHTML; b.textContent = 'Link copied ✓'; setTimeout(() => { b.innerHTML = t; }, 1600); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(done, () => prompt('Copy this link:', url));
+    else prompt('Copy this link:', url);
+  }
+  // Open the product / table / record named in the hash once the view (and its tables) has been drawn.
+  function restoreOpen(tries = 0) {
+    if (!pendingOpen || !state.scale) return;
+    const { type, path } = pendingOpen;
+    const url = encodeURI(path);
+    const c = ctx.get(url);
+    if (!c) {
+      if (tries < 25) return setTimeout(() => restoreOpen(tries + 1), 200);  // tables are read asynchronously
+      pendingOpen = null;
+      return setOpenHash(null);
+    }
+    pendingOpen = null;
+    const nb = c.part === 'proj' && c.ind.projections ? c.ind.projections.notebook : c.ind.notebook;
+    const showProduct = () => {
+      let i = viewList.findIndex(v => v.url === url);
+      if (i < 0) { viewList = [{ p: c.item, url, g: c.g, ind: c.ind, nb }]; i = 0; }
+      openProduct(i);
+    };
+    const showTable = () => openTable(url, c.ind.name + ' — ' + c.item.title);
+    if (type === 'record') { (c.isTable ? showTable : showProduct)(); openRecord(url); }
+    else if (c.isTable) showTable();
+    else showProduct();
+  }
 
   // ── Events ──
   $('#main').addEventListener('click', e => {
@@ -1125,7 +1180,10 @@
     else if (state.scale) { drawMap(); render(); }
     if (push || state.scale) window.scrollTo({ top: 0 });
   }
-  window.addEventListener('popstate', () => { readHash(); update(); });
+  window.addEventListener('popstate', () => {
+    if (/^#var-/.test(location.hash)) return;
+    readHash(); modal.classList.remove('open'); document.body.style.overflow = ''; update(); restoreOpen();
+  });
   $('#homeBtn').onclick = $('#backBtn').onclick = () => { if (state.scale) { state.scale = null; update(true); } };
   function selectSite(id) { if (id !== state.site) { state.site = id; update(); } }
   $('#scaleTabs').addEventListener('click', e => {
@@ -1388,6 +1446,7 @@
   $('#mxSite').addEventListener('change', e => { state.site = e.target.value; update(); });
 
   update();
+  restoreOpen();
 })();
 </script>
 </body>
