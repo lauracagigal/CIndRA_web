@@ -1385,7 +1385,12 @@
     groups.forEach(g => { domRows[g.domain] = (domRows[g.domain] || 0) + g.indicators.length; });
     const seenDom = new Set();
     let rows = '';
-    groups.forEach((g, gi) => g.indicators.forEach((ind, ii) => {
+    // Matrix display order: Sea Level goes before Sea Surface Temperature (gi keeps the C[ms] index for clicks).
+    const order = groups.map((g, gi) => ({ g, gi }));
+    const iSL = order.findIndex(o => o.g.variable === 'Sea Level');
+    const iSST = order.findIndex(o => o.g.variable === 'Sea Surface Temperature');
+    if (iSL > iSST && iSST >= 0) order.splice(iSST, 0, ...order.splice(iSL, 1));
+    order.forEach(({ g, gi }) => g.indicators.forEach((ind, ii) => {
       let tr = '<tr>';
       if (!seenDom.has(g.domain)) {
         seenDom.add(g.domain);
