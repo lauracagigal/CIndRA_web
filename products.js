@@ -38,7 +38,7 @@ window.CINDRA = {
     },
     {
       id: 'marshall', label: 'Marshall Islands', station: 'Majuro (GSN 91376)', eezName: 'Marshall Islands', lat: 7.065, lon: 171.272,
-      tokens: { station: 'marshall_islands_rmw00040710_lat7p065_lon171p272', ghcn: 'RMW00040710', eez: 'marshall_islands', natfig: 'marshall_islands_rmw00040710_lat7p065_lon171p272/' },
+      tokens: { station: 'marshall_islands_rmw00040710_lat7p065_lon171p272', ghcn: 'RMW00040710', eez: 'marshall_islands', natfig: 'marshall_islands_rmw00040710_lat7p065_lon171p272/', sealevel: 'marshall_islands_uhslc005_lat7p108_lon171p372' },
     },
   ],
 
@@ -628,6 +628,8 @@ window.CINDRA = {
             { title: 'Flood summary', path: '{TAB}/regional_pacific/SL_regional_flood_summary_pacific.csv' },
           ],
         },
+        { code: 'R6.4', name: 'Sea-level rise at tide gauges', notebook: 'notebooks/projections/Regional/sea_level/station_projections', products: [] },
+        { code: 'R6.5', name: 'Sea-level rise: grid and tide gauges', notebook: 'notebooks/projections/Regional/sea_level/regional_maps_with_stations', products: [] },
       ],
     },
   ],
@@ -813,6 +815,40 @@ const GWL = 'at the year each scenario first reaches +1.5, +2.0, +2.5 and +3.0 �
       PRJ_SCENARIOS.map(sc => ['plot', `Salinity – ${sc.toUpperCase()}`, `salinity_maps_timeseries_${sc}`, `Decadal sea surface salinity at the site and maps of the region under ${sc.toUpperCase()} (Jiang et al., 2023).`]),
       [['Salinity by decade', 'salinity_ocads_decadal']]),
   };
+  // Sea level: AR6 relative sea-level projections at the national UHSLC tide gauge ({sealevel} outputs)
+  const slPrj = (nb, products, tables) => ({
+    notebook: 'notebooks/projections/National/sea_level/' + nb,
+    products: products.map(([kind, title, name, caption]) => ({ kind, title, path: `{OUT}/{sealevel}/PRJ_${name}_{sealevel}.png`, caption })),
+    tables: [
+      ...tables.map(([title, name]) => ({ title, path: `{TAB}/{sealevel}/PRJ_${name}_{sealevel}.csv` })),
+      { title: 'Warming-level years (IPCC AR6)', path: '{TAB}/global/PRJ_warming_level_crossing_years_ipcc.csv' },
+    ],
+  });
+  P['6.1'] = slPrj('a_sea_level_projections', [
+    ['plot', 'Relative sea level at the tide gauge', 'SL_station_projection_ssp',
+      'Observed annual mean sea level at the UHSLC gauge and AR6 relative sea-level projections (with vertical land motion) for the four SSPs, relative to 1995–2014: median and likely (17–83 %) range; markers show the year each scenario reaches +1.5, +2.0, +2.5 and +3.0 °C.'],
+  ], [
+    ['Change at warming levels', 'SL_station_projection_summary'],
+    ['Change at warming levels – all quantiles', 'SL_station_projection_warming_levels'],
+    ['Vertical land motion contribution', 'SL_station_vlm_contribution'],
+    ['Annual projection 2020–2150', 'SL_station_projection_annual'],
+  ]);
+  P['6.3'] = slPrj('b_sea_level_flooding', [
+    ['plot', 'Flood days at warming levels', 'SL_flood_days_warming_levels',
+      'Days per year above 30 cm over MHHW in the year each SSP reaches +1.5, +2.0, +2.5 and +3.0 °C: very likely (5–95 %) and likely (17–83 %) spread across the 19 base years at the median projected sea-level rise; year and rise above each box.'],
+    ['plot', 'Projected flood days', 'SL_projected_flood_days_ssp',
+      'Observed flood days per storm year and projected median with the likely range of sea-level rise, four SSPs.'],
+    ['plot', 'Projected flood days by scenario', 'SL_projected_flood_days_bars',
+      'Observed and projected flood days per year for each SSP (median; whiskers: likely range of sea-level rise).'],
+    ['plot', 'Flood days vs sea-level rise', 'SL_flood_days_response_curve',
+      'Flood days per year as a function of sea-level rise above 2005, from the observed hourly variability of the last 19 complete storm years.'],
+  ], [
+    ['Flood days at warming levels', 'SL_flood_days_warming_levels_summary'],
+    ['Flood days at warming levels – detail', 'SL_flood_days_warming_levels'],
+    ['Flooding milestones', 'SL_projected_flood_milestones'],
+    ['Annual projected flood days', 'SL_projected_flood_days_annual'],
+    ['Response to sea-level rise', 'SL_flood_days_response_curve'],
+  ]);
   Object.entries(P).forEach(([code, p]) => { byCode[code].projections = p; });
 })();
 
@@ -895,5 +931,55 @@ function prjRegional(nb, parts) {
     'R5.6': prjRegional('biochemistry/b_aragonite', [prjRegionalOcads('aragonite', 'Aragonite saturation state')]),
     'R5.7': prjRegional('biochemistry/c_salinity', [prjRegionalOcads('salinity', 'Sea surface salinity')]),
   };
+  // Sea level: IPCC AR6 projections (Garner et al., 2021), all four SSPs on every figure
+  const slR = (nb, products, tables) => ({
+    notebook: 'notebooks/projections/Regional/sea_level/' + nb,
+    products: products.map(([kind, title, path, caption]) => ({ kind, title, path, caption })),
+    tables: [...tables.map(([title, path]) => ({ title, path })),
+      { title: 'Warming-level years (IPCC AR6)', path: '{TAB}/global/PRJ_warming_level_crossing_years_ipcc.csv' }],
+  });
+  const noVlm = 'AR6 medium confidence, without vertical land motion (absolute sea level)';
+  R['R6.1'] = slR('regional_indicators', [
+    ['map', 'Global context – trend 2020–2100', '{OUT}/regional_pacific/PRJ_SL_trend_global_context_ar6_novlm.png',
+      `Median sea-level trend 2020–2100 worldwide with the Pacific analysis window outlined, one panel per SSP (${noVlm}).`],
+    ['map', 'Change by 2050', RFIG('SL_change_2050_ar6_novlm'),
+      `Median sea-level change by 2050 relative to 1995–2014, one panel per SSP, with the area-weighted mean and likely range (${noVlm}).`],
+    ['map', 'Change by 2100', RFIG('SL_change_2100_ar6_novlm'),
+      `Median sea-level change by 2100 relative to 1995–2014, one panel per SSP, with the area-weighted mean and likely range (${noVlm}).`],
+    ['map', 'Rates of rise 2050 and 2100', RFIG('SL_rates_ar6_novlm'),
+      `AR6 decadal rate of sea-level rise around 2050 and 2100 for each SSP (${noVlm}).`],
+    ['map', 'Trend 2020–2100', RFIG('SL_trend_2020_2100_ar6_novlm'),
+      `Least-squares trend of the decadal median change 2020–2100, one panel per SSP (${noVlm}).`],
+    ['plot', 'Regional mean change', RFIG('SL_regional_mean_change_ar6_novlm'),
+      'Area-weighted mean sea-level change over the Pacific window to 2150: median and likely (17–83 %) range per SSP.'],
+    ['plot', 'Regional mean rate', RFIG('SL_regional_mean_rate_ar6_novlm'),
+      'Area-weighted mean rate of sea-level rise over the Pacific window to 2150: median and likely range per SSP.'],
+  ], [
+    ['Regional mean change and rate', RTAB('SL_regional_mean_ar6_novlm')],
+    ['Change by EEZ / region', RTAB('SL_eez_change_ar6_novlm')],
+    ['Rate by EEZ / region', RTAB('SL_eez_rate_ar6_novlm')],
+  ]);
+  R['R6.4'] = slR('station_projections', [
+    ['map', 'Change by 2100 at tide gauges', RFIG('SL_stations_change_2100_ar6_vlm'),
+      'Median relative sea-level change by 2100 at every UHSLC tide gauge in the Pacific EEZs, one panel per SSP (AR6 with vertical land motion).'],
+    ['plot', 'Median and likely range per station', RFIG('SL_stations_ranges_2100_ar6_vlm'),
+      'Relative sea-level change by 2100 at each tide gauge, west to east: median and likely range for each SSP.'],
+    ['map', 'Vertical land motion contribution', RFIG('SL_stations_vlm_contribution_2100'),
+      'Change with minus without vertical land motion at each tide gauge by 2100 (SSP2-4.5): positive values are subsidence.'],
+  ], [
+    ['Stations – SSPs', RTAB('SL_stations_summary_ssp')],
+    ['Stations – warming levels', RTAB('SL_stations_summary_gwl')],
+    ['Stations – all values', RTAB('SL_stations_ar6_vlm')],
+  ]);
+  R['R6.5'] = slR('regional_maps_with_stations', [
+    ['map', 'Change by 2050: grid and gauges', RFIG('SL_change_2050_grid_and_stations'),
+      'Absolute change on the grid (no vertical land motion) and relative change at tide gauges (with vertical land motion) by 2050, same colour scale, one panel per SSP.'],
+    ['map', 'Change by 2100: grid and gauges', RFIG('SL_change_2100_grid_and_stations'),
+      'Absolute change on the grid (no vertical land motion) and relative change at tide gauges (with vertical land motion) by 2100, same colour scale, one panel per SSP.'],
+    ['map', 'Trend 2020–2100: grid and gauges', RFIG('SL_trend_2020_2100_grid_and_stations'),
+      'Trend 2020–2100 on the grid (absolute) and at tide gauges (relative), same colour scale, one panel per SSP.'],
+  ], [
+    ['Stations vs grid by 2100', RTAB('SL_stations_vs_grid_2100')],
+  ]);
   Object.entries(R).forEach(([code, p]) => { byCode[code].projections = p; });
 })();

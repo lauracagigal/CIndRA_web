@@ -1,0 +1,70 @@
+station,ar6_kind,SSP1-2.6 relative (cm),SSP1-2.6 absolute (cm),SSP1-2.6 difference (cm),SSP2-4.5 relative (cm),SSP2-4.5 absolute (cm),SSP2-4.5 difference (cm),SSP3-7.0 relative (cm),SSP3-7.0 absolute (cm),SSP3-7.0 difference (cm),SSP5-8.5 relative (cm),SSP5-8.5 absolute (cm),SSP5-8.5 difference (cm)
+Pago Pago (American Samoa),tide gauge,61.2,47.4,13.8,75.0,61.2,13.8,85.6,71.8,13.8,96.6,82.8,13.8
+Aunuu (American Samoa),tide gauge,61.2,47.4,13.8,75.0,61.2,13.8,85.6,71.8,13.8,96.6,82.8,13.8
+Auasi (American Samoa),tide gauge,61.2,47.4,13.8,75.0,61.2,13.8,85.6,71.8,13.8,96.6,82.8,13.8
+Apia (Samoa),tide gauge,61.0,47.6,13.4,74.6,61.3,13.3,85.4,72.0,13.4,96.4,83.0,13.4
+Ofu (American Samoa),grid cell,60.1,47.4,12.7,73.9,61.3,12.6,84.4,71.8,12.6,95.4,82.8,12.6
+Tau (American Samoa),grid cell,60.1,47.4,12.7,73.9,61.3,12.6,84.4,71.8,12.6,95.4,82.8,12.6
+Hilo (Hawaii),tide gauge,62.6,50.4,12.2,76.7,64.6,12.1,90.4,78.3,12.1,101.2,89.2,12.0
+Milolii (Hawaii),grid cell,61.8,50.1,11.7,75.9,64.3,11.6,90.2,78.5,11.7,101.0,89.2,11.8
+Kawaihae (Hawaii),tide gauge,61.4,50.4,11.0,75.7,64.8,10.9,89.2,78.2,11.0,100.3,89.2,11.1
+Honokohau (Hawaii),grid cell,61.2,50.4,10.8,75.5,64.8,10.7,89.1,78.3,10.8,100.1,89.4,10.7
+Kahului (Hawaii),tide gauge,56.8,50.4,6.4,71.4,65.1,6.3,84.8,78.4,6.4,95.9,89.6,6.3
+Lahaina (Hawaii),tide gauge,56.8,50.4,6.4,71.4,65.1,6.3,84.8,78.4,6.4,95.9,89.6,6.3
+Majuro (Marshall Islands),tide gauge,55.8,50.4,5.4,67.0,61.5,5.5,80.0,74.5,5.5,90.3,84.8,5.5
+Pohnpei (Micronesia),tide gauge,56.1,50.7,5.4,66.2,61.0,5.2,78.9,73.4,5.5,89.3,83.8,5.5
+Manele Bay (Hawaii),grid cell,54.6,50.4,4.2,69.2,65.0,4.2,82.6,78.3,4.3,93.7,89.5,4.2
+Kaunakakai (Hawaii),grid cell,54.6,50.4,4.2,69.2,65.0,4.2,82.6,78.3,4.3,93.7,89.5,4.2
+Kaumalapau (Hawaii),grid cell,54.6,50.4,4.2,69.2,65.0,4.2,82.6,78.3,4.3,93.7,89.5,4.2
+Alofi (Niue),grid cell,49.9,46.6,3.3,63.0,59.8,3.2,75.0,71.8,3.2,85.6,82.4,3.2
+Funafuti (Tuvalu),tide gauge,52.8,49.6,3.2,64.8,61.7,3.1,73.0,69.8,3.2,83.2,80.1,3.1
+Nuku'alofa (Tonga),tide gauge,50.0,47.2,2.8,62.6,59.8,2.8,77.2,74.4,2.8,86.6,83.8,2.8
+Leava (Wallis and Futuna),grid cell,50.2,48.0,2.2,63.8,61.8,2.0,74.9,72.9,2.0,86.2,84.2,2.0
+Wake (Wake Island),tide gauge,52.0,50.0,2.0,66.1,64.2,1.9,79.8,77.8,2.0,90.8,88.8,2.0
+Tarawa (Kiribati),tide gauge,51.0,49.4,1.6,62.8,61.0,1.8,74.0,72.3,1.7,82.6,81.0,1.6
+Kwajalein (Marshall Islands),tide gauge,52.1,50.6,1.5,64.4,62.8,1.6,77.4,75.8,1.6,87.4,85.6,1.8
+Waianae (Hawaii),grid cell,51.8,50.2,1.6,66.4,64.9,1.5,80.0,78.4,1.6,91.2,89.6,1.6
+Nauru (Nauru),tide gauge,50.7,49.4,1.3,62.3,60.8,1.5,73.4,72.0,1.4,82.4,81.2,1.2
+Ala Wai (Hawaii),tide gauge,51.4,50.3,1.1,66.0,65.0,1.0,79.4,78.4,1.0,90.6,89.6,1.0
+Barbers Point (Hawaii),tide gauge,51.4,50.3,1.1,66.0,65.0,1.0,79.4,78.4,1.0,90.6,89.6,1.0
+Keehi (Hawaii),tide gauge,51.4,50.3,1.1,66.0,65.0,1.0,79.4,78.4,1.0,90.6,89.6,1.0
+Pearl Harbor (Hawaii),tide gauge,51.4,50.3,1.1,66.0,65.0,1.0,79.4,78.4,1.0,90.6,89.6,1.0
+Honolulu (Hawaii),tide gauge,51.4,50.3,1.1,66.0,65.0,1.0,79.4,78.4,1.0,90.6,89.6,1.0
+Heeia (Hawaii),tide gauge,51.2,50.4,0.8,65.9,65.0,0.9,79.2,78.4,0.8,90.5,89.7,0.8
+Mokuoloe (Hawaii),tide gauge,51.2,50.4,0.8,65.9,65.0,0.9,79.2,78.4,0.8,90.5,89.7,0.8
+Suva (Fiji),tide gauge,48.2,47.4,0.8,60.4,59.6,0.8,73.6,72.8,0.8,84.2,83.4,0.8
+Peleliu (Palau),grid cell,50.4,50.0,0.4,60.3,59.9,0.4,72.5,72.2,0.3,83.0,82.6,0.4
+Lautoka (Fiji),tide gauge,47.8,47.4,0.4,60.0,59.7,0.3,73.1,72.8,0.3,83.9,83.6,0.3
+Imekang (Palau),tide gauge,50.2,50.0,0.2,60.5,60.3,0.2,72.5,72.3,0.2,82.9,82.6,0.3
+Kamesang (Palau),tide gauge,50.2,50.0,0.2,60.5,60.3,0.2,72.5,72.3,0.2,82.9,82.6,0.3
+Malakal (Palau),tide gauge,50.2,50.0,0.2,60.5,60.3,0.2,72.5,72.3,0.2,82.9,82.6,0.3
+Lombrum (Papua New Guinea),tide gauge,48.8,48.7,0.1,60.0,59.8,0.2,70.1,69.9,0.2,80.8,80.6,0.2
+Papeete (French Polynesia),tide gauge,45.2,45.2,0.0,57.0,56.8,0.2,68.4,68.2,0.2,77.6,77.4,0.2
+Haleiwa (Hawaii),grid cell,50.2,50.6,-0.4,64.8,65.2,-0.4,78.2,78.5,-0.3,89.6,89.9,-0.3
+Yap (Micronesia),grid cell,49.4,49.8,-0.4,62.5,63.0,-0.5,72.6,73.1,-0.5,82.6,83.0,-0.4
+Midway (Hawaii),tide gauge,52.8,53.4,-0.6,65.8,66.4,-0.6,81.8,82.2,-0.4,91.8,92.3,-0.5
+Rarotonga (Cook Islands),tide gauge,45.5,46.0,-0.5,58.2,58.9,-0.7,70.4,70.8,-0.4,81.2,81.8,-0.6
+Rangiroa Atoll (French Polynesia),grid cell,45.7,46.4,-0.7,57.6,58.3,-0.7,69.0,69.4,-0.4,77.0,77.5,-0.5
+Rikitea (French Polynesia),tide gauge,44.0,44.5,-0.5,54.4,55.0,-0.6,66.4,66.9,-0.5,73.9,74.6,-0.7
+Palmyra Island (Palmyra Atoll),grid cell,49.3,50.0,-0.7,59.8,60.4,-0.6,72.2,72.6,-0.4,80.7,81.4,-0.7
+Port Allen (Hawaii),tide gauge,49.8,50.6,-0.8,64.4,65.2,-0.8,77.6,78.5,-0.9,89.0,89.8,-0.8
+Hanalei (Hawaii),grid cell,49.8,50.6,-0.8,64.5,65.4,-0.9,77.8,78.6,-0.8,89.1,89.9,-0.8
+Nawiliwili (Hawaii),tide gauge,49.8,50.6,-0.8,64.4,65.2,-0.8,77.6,78.5,-0.9,89.0,89.8,-0.8
+Hiva Oa (French Polynesia),grid cell,46.9,47.9,-1.0,58.6,59.5,-0.9,70.0,70.8,-0.8,77.0,77.8,-0.8
+Christmas (Line Group),tide gauge,48.4,49.4,-1.0,59.2,60.2,-1.0,72.4,73.3,-0.9,79.4,80.3,-0.9
+Nuku Hiva (French Polynesia),grid cell,46.9,48.0,-1.1,58.2,59.2,-1.0,69.5,70.3,-0.8,76.8,77.7,-0.9
+Penrhyn (Cook Islands),tide gauge,47.6,48.6,-1.0,59.1,60.2,-1.1,68.4,69.4,-1.0,76.9,77.9,-1.0
+Kapingamarangi (Micronesia),tide gauge,48.4,49.5,-1.1,59.5,60.6,-1.1,70.2,71.2,-1.0,80.4,81.5,-1.1
+Makemo (French Polynesia),grid cell,44.3,45.5,-1.2,55.6,56.6,-1.0,66.8,67.8,-1.0,75.2,76.3,-1.1
+Apra Harbor (Northern Mariana Islands and Guam),tide gauge,47.7,48.8,-1.1,63.1,64.2,-1.1,71.6,72.7,-1.1,82.0,83.2,-1.2
+Chuuk (Micronesia),tide gauge,49.6,50.7,-1.1,60.1,61.2,-1.1,72.2,73.4,-1.2,82.9,84.0,-1.1
+Tubuai (French Polynesia),grid cell,44.2,45.2,-1.0,56.5,57.8,-1.3,68.9,70.0,-1.1,78.5,79.7,-1.2
+French Frigate Shoals (Hawaii),tide gauge,50.4,51.8,-1.4,64.0,65.5,-1.5,77.2,78.6,-1.4,90.0,91.6,-1.6
+Port Vila (Vanuatu),tide gauge,46.0,48.8,-2.8,56.2,59.2,-3.0,71.0,73.8,-2.8,82.3,85.2,-2.9
+Johnston (Johnston Atoll),tide gauge,46.8,50.2,-3.4,61.4,64.8,-3.4,74.6,77.8,-3.2,85.2,88.4,-3.2
+Noumea (New Caledonia),tide gauge,44.4,47.8,-3.4,56.0,59.4,-3.4,72.6,76.0,-3.4,81.5,84.8,-3.3
+Tinian (Northern Mariana Islands and Guam),grid cell,45.2,48.8,-3.6,60.6,64.3,-3.7,69.3,73.0,-3.7,80.0,83.8,-3.8
+Saipan (Northern Mariana Islands and Guam),tide gauge,45.1,48.8,-3.7,60.5,64.3,-3.8,69.3,73.1,-3.8,80.0,83.8,-3.8
+Kanton (Phoenix Group),tide gauge,44.4,48.8,-4.4,56.0,60.2,-4.2,67.6,71.8,-4.2,75.0,79.3,-4.3
+Honiara (Solomon Islands),tide gauge,44.4,49.4,-5.0,54.7,59.6,-4.9,65.6,70.6,-5.0,76.6,81.4,-4.8
+Rabaul (Papua New Guinea),tide gauge,42.8,48.2,-5.4,53.7,59.2,-5.5,63.2,68.6,-5.4,74.3,79.7,-5.4

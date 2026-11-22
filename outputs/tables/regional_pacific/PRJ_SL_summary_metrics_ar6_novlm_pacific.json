@@ -1,0 +1,64 @@
+{
+  "source": "IPCC AR6 sea-level projections, Garner et al. (2021), Zenodo 10.5281/zenodo.6382554",
+  "product": "regional_novlm total, medium confidence",
+  "vertical_land_motion": "excluded",
+  "reference_period": "1995–2014",
+  "extent": [
+    125,
+    245,
+    -35,
+    35
+  ],
+  "ssp126_2050_change_cm_median": 20.4,
+  "ssp126_2050_change_cm_likely": [
+    15.1,
+    28.0
+  ],
+  "ssp126_2050_rate_mm_yr_median": 5.4,
+  "ssp126_2100_change_cm_median": 48.7,
+  "ssp126_2100_change_cm_likely": [
+    32.8,
+    71.0
+  ],
+  "ssp126_2100_rate_mm_yr_median": 6.1,
+  "ssp126_trend_2020_2100_mm_yr_median": 5.48,
+  "ssp245_2050_change_cm_median": 21.9,
+  "ssp245_2050_change_cm_likely": [
+    16.6,
+    29.6
+  ],
+  "ssp245_2050_rate_mm_yr_median": 6.3,
+  "ssp245_2100_change_cm_median": 61.1,
+  "ssp245_2100_change_cm_likely": [
+    44.3,
+    86.3
+  ],
+  "ssp245_2100_rate_mm_yr_median": 8.8,
+  "ssp245_trend_2020_2100_mm_yr_median": 7.01,
+  "ssp370_2050_change_cm_median": 22.9,
+  "ssp370_2050_change_cm_likely": [
+    17.6,
+    30.7
+  ],
+  "ssp370_2050_rate_mm_yr_median": 7.0,
+  "ssp370_2100_change_cm_median": 73.8,
+  "ssp370_2100_change_cm_likely": [
+    55.1,
+    101.7
+  ],
+  "ssp370_2100_rate_mm_yr_median": 12.2,
+  "ssp370_trend_2020_2100_mm_yr_median": 8.51,
+  "ssp585_2050_change_cm_median": 25.0,
+  "ssp585_2050_change_cm_likely": [
+    19.3,
+    33.3
+  ],
+  "ssp585_2050_rate_mm_yr_median": 7.8,
+  "ssp585_2100_change_cm_median": 83.4,
+  "ssp585_2100_change_cm_likely": [
+    63.2,
+    115.1
+  ],
+  "ssp585_2100_rate_mm_yr_median": 14.0,
+  "ssp585_trend_2020_2100_mm_yr_median": 9.67
+}

@@ -1,0 +1,27 @@
+{
+  "source": "IPCC AR6 sea-level projections, Garner et al. (2021), Zenodo 10.5281/zenodo.6382554",
+  "product": "regional total, medium confidence",
+  "vertical_land_motion": "included",
+  "stations": 69,
+  "matched_to_tide_gauge": 48,
+  "ssp126_2100_station_median_range_cm": [
+    42.8,
+    50.2,
+    62.6
+  ],
+  "ssp245_2100_station_median_range_cm": [
+    53.7,
+    63.8,
+    76.7
+  ],
+  "ssp370_2100_station_median_range_cm": [
+    63.2,
+    75.0,
+    90.4
+  ],
+  "ssp585_2100_station_median_range_cm": [
+    73.9,
+    86.2,
+    101.2
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "station": "Majuro",
+  "uhslc_id": 5,
+  "threshold_cm_above_mhhw": 30.0,
+  "mhhw_mm_station_datum": 1747.0,
+  "base_storm_years": [
+    2006,
+    2025
+  ],
+  "observed_trend_removed_mm_yr": 3.94,
+  "flood_days_at_2005_sea_level": 29.3,
+  "ar6_location": 1838,
+  "ar6_distance_km": 0.3,
+  "ssp126_gwl1.5_2032_flood_days_median": 77.5,
+  "ssp245_gwl1.5_2030_flood_days_median": 72.8,
+  "ssp245_gwl2_2052_flood_days_median": 152.5,
+  "ssp245_gwl2.5_2079_flood_days_median": 248.5,
+  "ssp370_gwl1.5_2030_flood_days_median": 71.8,
+  "ssp370_gwl2_2046_flood_days_median": 133.7,
+  "ssp370_gwl2.5_2061_flood_days_median": 191.0,
+  "ssp370_gwl3_2075_flood_days_median": 250.0,
+  "ssp585_gwl1.5_2027_flood_days_median": 70.2,
+  "ssp585_gwl2_2041_flood_days_median": 119.7,
+  "ssp585_gwl2.5_2053_flood_days_median": 172.1,
+  "ssp585_gwl3_2064_flood_days_median": 218.9
+}

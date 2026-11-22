@@ -76,6 +76,19 @@ window.CINDRA_RECORDS = {
       citation: 'E.U. Copernicus Marine Service Information (CMEMS). Global Ocean Gridded L4 Sea Surface Heights And Derived Variables Reprocessed. doi:10.48670/moi-00148',
       copy: ['../data/sea_level/cmems_L4_SSH_0.125deg_1993_2025.nc', '../data/regional/sea_level/cmems_L4_SLA_monthly_0.25deg_pacific_1993_2025.nc'],
     },
+    ar6_sl: {
+      dataset: 'IPCC AR6 sea-level projections (total, medium confidence): ar6-regional-confidence (with vertical land motion) and ar6-regional_novlm-confidence (without)',
+      provider: 'IPCC AR6 WGI / NASA Sea Level Change Team (Garner et al., 2021)',
+      version: 'Zenodo record 6382554, version 20210809', url: 'https://doi.org/10.5281/zenodo.6382554',
+      citation: 'Garner, G.G., et al. (2021). IPCC AR6 Sea Level Projections. Zenodo. doi:10.5281/zenodo.6382554; Fox-Kemper, B., et al. (2021). Ocean, Cryosphere and Sea Level Change. In: Climate Change 2021: The Physical Science Basis (IPCC AR6 WGI), Ch. 9.',
+      copy: ['../data/projections/regional/sl_ar6_vlm_medium_locations.nc', '../data/projections/regional/sl_ar6_novlm_medium_pacific.nc', '../data/projections/regional/sl_ar6_novlm_medium_global_median.nc'],
+    },
+    warming_levels: {
+      dataset: 'Global warming-level crossing years (IPCC AR6 SYR Figure SPM.4 multi-model mean)', provider: 'IPCC AR6 Synthesis Report',
+      version: 'SPM.4 panel (a) data', url: 'https://www.ipcc.ch/report/ar6/syr/',
+      citation: 'IPCC (2023). Climate Change 2023: Synthesis Report, Figure SPM.4.',
+      copy: ['../data/projections/warming_levels_ipcc_ar6.pkl'],
+    },
   },
 
   indicators: {},
@@ -302,6 +315,71 @@ window.CINDRA_RECORDS = {
     sources: ['uhslc'], parameters: { ...R.indicators['6.3'].parameters, 'Matrix period': '1983–2025' },
     units: 'days/year', spatial: slRegSpatial, qc: slQC, review: pending,
   };
+
+  // ── Sea-level projections (IPCC AR6) ──
+  const slPrjLimits = [
+    'Medium-confidence projections exclude low-likelihood, high-impact ice-sheet processes; the upper tail could be substantially higher, especially after 2100.',
+    'Vertical land motion is extrapolated linearly from observed rates; it is uncertain where motion is episodic (e.g. post-seismic subsidence).',
+    'AR6 values are decadal; annual values are interpolated between decades and anchored at 0 cm in 2005 (centre of 1995–2014).',
+  ];
+  const slMatch = 'Each UHSLC gauge is matched to the nearest AR6 (PSMSL) tide-gauge location within 30 km, otherwise to the nearest ocean grid cell (flagged).';
+  const gwlText = 'Values are read in the year each SSP first reaches +1.5, +2.0, +2.5 and +3.0 °C (IPCC AR6 multi-model mean global surface temperature), as in the other projection notebooks.';
+  R.indicators['6.1'].projections = {
+    methodId: 'CIndRA-M-SL-P01',
+    methods: 'IPCC AR6 relative sea-level projections with vertical land motion (ar6-regional-confidence, total, medium confidence) at the national '
+      + 'tide gauge, for SSP1-2.6, SSP2-4.5, SSP3-7.0 and SSP5-8.5, relative to 1995–2014. ' + slMatch + ' ' + gwlText
+      + ' The observed annual mean (≥ 75 % of days) is referenced to its own 1995–2014 mean. The VLM contribution is the difference with the '
+      + 'no-VLM product at the same AR6 location.',
+    limitations: slPrjLimits, sources: ['ar6_sl', 'uhslc', 'warming_levels'],
+    parameters: { 'Product': 'AR6 total, medium confidence, with VLM', 'Reference': '1995–2014', 'Quantiles': '17th, 50th, 83rd (likely range)', 'Match radius': '30 km' },
+    units: 'cm', spatial: 'UHSLC tide gauge {sealevel} (nearest AR6 tide-gauge location).', qc: 'Source quantiles used as published; matching distance reported in the notebook.', review: pending,
+  };
+  R.indicators['6.3'].projections = {
+    methodId: 'CIndRA-M-SL-P03',
+    methods: 'Hourly gauge sea level above the UHSLC MHHW datum of the last 19 complete storm years (one nodal cycle) is detrended to the 2005 '
+      + 'mean sea level; for each sea-level offset the days with an hourly value more than 30 cm above MHHW are counted in every base year, '
+      + 'giving a response curve. Projected flood days apply the AR6 relative sea-level projection (with VLM) at the gauge to that curve. '
+      + gwlText + ' Simplification of Thompson et al. (2021), the method of the NASA Pacific Flooding Analysis Tool.',
+    limitations: [...slPrjLimits,
+      'Tidal nodal modulation and monthly sea-level variability are replayed from observed years rather than projected statistically.',
+      'Curve ranges reflect the likely range of sea-level rise; warming-level boxes reflect interannual variability at the median rise.',
+      'The 30 cm threshold is a regional proxy; local impact thresholds, waves and drainage are not considered.'],
+    sources: ['ar6_sl', 'uhslc', 'warming_levels'],
+    parameters: { 'Threshold': '30 cm above MHHW', 'Base years': 'last 19 complete storm years', 'Reference sea level': '2005 (centre of 1995–2014)' },
+    units: 'days/year', spatial: 'UHSLC tide gauge {sealevel}.', qc: slQC, review: pending,
+  };
+  const slPrjRegSpatial = 'Pacific window 125° E–115° W, 35° S–35° N (1° grid, land masked with Natural Earth); UHSLC gauges within 0.5° of a Pacific EEZ.';
+  R.indicators['R6.1'].projections = {
+    methodId: 'CIndRA-M-SL-PR01',
+    methods: 'IPCC AR6 sea-level projections without vertical land motion (ar6-regional_novlm-confidence, total, medium confidence) on the global '
+      + '1° grid, relative to 1995–2014, for the four SSPs: change by 2050 and 2100, AR6 decadal rates around 2050 and 2100, and the least-squares '
+      + 'trend of the decadal medians over 2020–2100. Cells whose centre is on land or Antarctic ice shelves are masked. Regional and EEZ means '
+      + 'are cos(latitude)-weighted averages of each quantile.',
+    limitations: [...slPrjLimits, 'Absolute sea level: excludes vertical land motion, so it differs from what tide gauges record.',
+      'Averaging quantiles cell by cell approximates the uncertainty of area means.'],
+    sources: ['ar6_sl'],
+    parameters: { 'Product': 'AR6 total, medium confidence, no VLM', 'Reference': '1995–2014', 'Horizons': '2050, 2100', 'Trend period': '2020–2100' },
+    units: 'cm (change), mm/yr (rate, trend)', spatial: slPrjRegSpatial, qc: 'Source quantiles used as published.', review: pending,
+  };
+  R.indicators['R6.4'] = { projections: {
+    methodId: 'CIndRA-M-SL-PR04',
+    methods: 'IPCC AR6 relative sea-level projections with vertical land motion (ar6-regional-confidence) at every UHSLC tide gauge within 0.5° '
+      + 'of a Pacific EEZ, for the four SSPs and the end-of-century warming levels. ' + slMatch + ' The VLM contribution is the difference with '
+      + 'the no-VLM product at the same location.',
+    limitations: slPrjLimits, sources: ['ar6_sl', 'uhslc'],
+    parameters: { 'Product': 'AR6 total, medium confidence, with VLM', 'Reference': '1995–2014', 'Horizons': '2050, 2100', 'Match radius': '30 km' },
+    units: 'cm', spatial: slPrjRegSpatial, qc: 'Source quantiles used as published; matching distance per station in the tables.', review: pending,
+  } };
+  R.indicators['R6.5'] = { projections: {
+    methodId: 'CIndRA-M-SL-PR05',
+    methods: 'The gridded AR6 projections without vertical land motion (R6.1) and the tide-gauge projections with vertical land motion (R6.4) drawn '
+      + 'on the same colour scale for 2050, 2100 and the 2020–2100 trend; the table gives, per station and scenario, the relative minus the '
+      + 'absolute change at the same AR6 location (the vertical land motion contribution).',
+    limitations: [...slPrjLimits, 'Grid and circles are different quantities (absolute vs relative sea level).'],
+    sources: ['ar6_sl', 'uhslc'],
+    parameters: { 'Products': 'AR6 total, medium confidence, with and without VLM', 'Reference': '1995–2014' },
+    units: 'cm (change), mm/yr (trend)', spatial: slPrjRegSpatial, qc: 'Source quantiles used as published.', review: pending,
+  } };
 
   // Issue log --------------------------------------------------------------------------------------------
   R.issues['ISS-001'] = {

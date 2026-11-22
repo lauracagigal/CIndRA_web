@@ -1,0 +1,26 @@
+{
+  "station": "Malakal",
+  "uhslc_id": 7,
+  "threshold_cm_above_mhhw": 30.0,
+  "mhhw_mm_station_datum": 2160.0,
+  "base_storm_years": [
+    2007,
+    2025
+  ],
+  "observed_trend_removed_mm_yr": 2.54,
+  "flood_days_at_2005_sea_level": 46.4,
+  "ar6_location": 1252,
+  "ar6_distance_km": 2.2,
+  "ssp126_gwl1.5_2032_flood_days_median": 101.2,
+  "ssp245_gwl1.5_2030_flood_days_median": 97.6,
+  "ssp245_gwl2_2052_flood_days_median": 183.6,
+  "ssp245_gwl2.5_2079_flood_days_median": 304.7,
+  "ssp370_gwl1.5_2030_flood_days_median": 95.9,
+  "ssp370_gwl2_2046_flood_days_median": 163.8,
+  "ssp370_gwl2.5_2061_flood_days_median": 234.7,
+  "ssp370_gwl3_2075_flood_days_median": 305.9,
+  "ssp585_gwl1.5_2027_flood_days_median": 92.7,
+  "ssp585_gwl2_2041_flood_days_median": 150.2,
+  "ssp585_gwl2.5_2053_flood_days_median": 211.5,
+  "ssp585_gwl3_2064_flood_days_median": 271.2
+}
