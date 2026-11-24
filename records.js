@@ -1,5 +1,5 @@
 // CIndRA product records: the hand-written "source-of-record" content shown with every product of the
-// matrix (CIndRA CMPLV description, 11.01.26). index.html combines it with products.js (captions, paths) and
+// matrix (CIndRA CMPLV description). index.html combines it with products.js (captions, paths) and
 // inventory.js (run dates, file inventory, code version, data copies; built by build_inventory_js.py) to
 // assemble the record and its validation checks.
 //
@@ -25,7 +25,7 @@
 // validation check passes (CMPLV: human scientific review, complete provenance, successful validation).
 
 window.CINDRA_RECORDS = {
-  workflow: 'CIndRA matrix workflow v1 · CMPLV product record (11.01.26)',
+  workflow: 'CIndRA matrix workflow v1 · CMPLV product record',
 
   sources: {
     ghcn_temp: {
