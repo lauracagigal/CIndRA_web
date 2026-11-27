@@ -1,0 +1,10 @@
+Tracker,Model,Future 2020–2050 (TCs/yr),Present 1980–2010 (TCs/yr),Change (%)
+TRACK,CMCC-CM2-VHR4,1.06,1.48,-28.26
+TRACK,CNRM-CM6-1-HR,0.13,0.58,-77.78
+TRACK,EC-Earth3P-HR,0.0,0.08,-100.0
+TRACK,HadGEM3-GC31-HM,0.61,1.12,-45.19
+TempestExtremes,CNRM-CM6-1-HR,0.16,0.42,-61.54
+TempestExtremes,EC-Earth3P-HR,0.0,0.04,-100.0
+TempestExtremes,HadGEM3-GC31-HM,0.71,1.28,-44.54
+TRACK,Multi-model mean,0.45,0.81,-44.55
+TempestExtremes,Multi-model mean,0.29,0.58,-50.0

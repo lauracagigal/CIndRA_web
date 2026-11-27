@@ -1,0 +1,8 @@
+tracker,model,Members 1980–2010,Members 2020–2050,Removed: over land (%),Removed: too poleward (%)
+TRACK,CMCC-CM2-VHR4,1,1,6.8,14.6
+TRACK,CNRM-CM6-1-HR,1,1,4.6,25.6
+TRACK,EC-Earth3P-HR,3,3,3.1,28.3
+TRACK,HadGEM3-GC31-HM,3,3,4.3,15.8
+TempExt,CNRM-CM6-1-HR,1,1,4.1,9.4
+TempExt,EC-Earth3P-HR,3,2,1.5,4.3
+TempExt,HadGEM3-GC31-HM,3,3,3.4,5.8

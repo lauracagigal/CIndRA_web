@@ -1,0 +1,9 @@
+Region,Tracker,Observed 1980–2010 (TCs/yr),Present 1980–2010 (TCs/yr),Future 2020–2050 (TCs/yr),Change (%),Model range (%),Models with decrease
+Western North Pacific,TRACK,20.2,22.6,21.1,-6.6,-14 to -3,4/4
+Central North Pacific,TRACK,1.2,2.7,1.9,-30.1,-44 to -17,4/4
+Western South Pacific,TRACK,6.7,12.4,12.4,-0.3,-16 to +8,2/4
+Central South Pacific,TRACK,3.4,11.3,9.7,-14.0,-19 to -3,4/4
+Western North Pacific,TempestExtremes,20.2,20.3,18.4,-9.1,-15 to -6,3/3
+Central North Pacific,TempestExtremes,1.2,1.7,1.3,-22.5,-58 to -21,3/3
+Western South Pacific,TempestExtremes,6.7,7.7,7.5,-2.6,-21 to +7,2/3
+Central South Pacific,TempestExtremes,3.4,5.7,4.7,-18.5,-32 to -9,3/3

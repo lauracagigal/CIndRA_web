@@ -953,7 +953,7 @@
     });
   }
   // ── Product records (CIndRA CMPLV "source of record") ──
-  // Hand-written content: records.js (methods, limitations, sources, review). Automatic part: inventory.js
+  // Hand-written content: records.js (methods, limitations, sources). Automatic part: inventory.js
   // (run dates, file inventory, code version, local data copies; build_inventory_js.py). The context of every
   // product / table drawn on the page (indicator, historical or projection, scale, site) is kept in `ctx`.
   const REC = window.CINDRA_RECORDS || { sources: {}, indicators: {}, issues: {} };
@@ -1009,7 +1009,6 @@
     const productId = `${packageId}-${key.split('/').pop().replace(/\.[^.]+$/, '')}`;
     const issues = Object.entries(REC.issues || {}).filter(([, x]) =>
       (!x.codes || x.codes.includes(code)) && (!x.sites || (national && x.sites.includes(site.id)))).map(([id, x]) => ({ id, ...x }));
-    const review = meta.review || { status: 'pending', notes: 'No review recorded.' };
     const repo = INV && INV.repo || {};
 
     // Validation record.
@@ -1027,11 +1026,6 @@
     const open = issues.filter(x => x.status !== 'closed');
     chk(open.length ? 'flag' : 'pass', 'Issue log', open.length ? `Open: ${open.map(x => x.id).join(', ')}` : 'No open issues.');
     const worst = checks.some(x => x.status === 'fail') ? 'fail' : checks.some(x => x.status === 'flag') ? 'flag' : 'pass';
-    const statusLabel = review.status === 'approved' && worst === 'pass' ? ['pass', 'Approved for report use']
-      : review.status === 'approved' ? ['fail', 'Approval on hold: validation not passed']
-      : review.status === 'in-review' ? ['info', 'In scientific review']
-      : worst === 'fail' ? ['fail', 'Draft: validation failed']
-      : !meta.methods || !(meta.limitations || []).length ? ['flag', 'Draft: record incomplete'] : ['flag', 'Generated: pending scientific review'];
 
     return {
       productId, packageId, title: item.title, kind: isTable ? 'Table (CSV)' : (KIND_LABEL[item.kind] || item.kind),
@@ -1040,7 +1034,7 @@
       spatial: tok(meta.spatial) || (national ? `${site.label} (${site.station})` : 'Pacific basin'),
       period, units: pmeta.units || meta.units || '', runDate: file && file.modified,
       caption: item.caption || '', methodId: meta.methodId || '', methods: meta.methods || '', limitations: meta.limitations || [],
-      parameters: meta.parameters || {}, qc: meta.qc || '', sources, issues, review, statusLabel, worst, checks,
+      parameters: meta.parameters || {}, qc: meta.qc || '', sources, issues, worst, checks,
       notebook: nb, notebookUrl: nb ? bookUrl(nb) : '', repo, workflow: REC.workflow || '', inventoryDate: INV && INV.generated,
       url, key, file, tables,
       outputs: [{ title: item.title, key, file }, ...tables.filter(t => !t.current).map(t => ({ title: t.title, key: t.key, file: t.file }))],
@@ -1052,8 +1046,7 @@
     const repoLink = r.repo.commit ? `<a href="${esc(r.repo.remote)}/commit/${r.repo.commit}" target="_blank" rel="noopener">${esc(r.repo.short)}</a> (${esc(r.repo.branch)}, ${esc(fmtDate(r.repo.commitDate))})${r.repo.dirty ? ' · <span class="rstat flag">uncommitted changes</span>' : ''}` : '—';
     return `<div class="rec">
       <div class="cover">
-        <div class="cover-head"><b>${esc(r.title)}<span class="muted" style="display:block;font-size:13px;font-weight:500">${esc(r.indicator)} · ${esc(r.variable)}</span></b>
-          <span class="rstat ${r.statusLabel[0]}">${esc(r.statusLabel[1])}</span></div>
+        <div class="cover-head"><b>${esc(r.title)}<span class="muted" style="display:block;font-size:13px;font-weight:500">${esc(r.indicator)} · ${esc(r.variable)}</span></b></div>
         <table>
           ${row('Product ID', `<code>${esc(r.productId)}</code>`)}
           ${row('Package ID', `<code>${esc(r.packageId)}</code>`)}
@@ -1062,7 +1055,6 @@
           ${row('Period', r.period ? `${r.period[0]}–${r.period[1]}` : '<span class="muted">Not identified</span>')}
           ${row('Units', r.units ? esc(r.units) : '<span class="muted">Not declared</span>')}
           ${row('Run date', esc(fmtDate(r.runDate)) + ' <span class="muted">(product file generated)</span>')}
-          ${row('Review status', `${esc(r.statusLabel[1])}${r.review.notes ? ` <span class="muted">— ${esc(r.review.notes)}</span>` : ''}`)}
         </table>
       </div>
 
@@ -1109,10 +1101,10 @@
 
   function recordMarkdown(r) {
     const L = [];
-    L.push(`# Product record: ${r.title}`, '', `**${r.statusLabel[1]}**`, '');
+    L.push(`# Product record: ${r.title}`, '');
     [['Product ID', r.productId], ['Package ID', r.packageId], ['Indicator', r.indicator], ['Variable', r.variable],
      ['Product profile', `${r.profile} · ${r.kind}`], ['Spatial scope', r.spatial], ['Period', r.period ? `${r.period[0]}–${r.period[1]}` : 'not identified'],
-     ['Units', r.units || 'not declared'], ['Run date', fmtDate(r.runDate)], ['Review', `${r.review.status}${r.review.by ? ', ' + r.review.by : ''}${r.review.date ? ', ' + r.review.date : ''}${r.review.notes ? ' — ' + r.review.notes : ''}`]]
+     ['Units', r.units || 'not declared'], ['Run date', fmtDate(r.runDate)]]
       .forEach(([k, v]) => L.push(`- **${k}:** ${v}`));
     L.push('', `## Methods note${r.methodId ? ` (${r.methodId})` : ''}`, '', r.methods || '_Not documented._', '');
     Object.entries(r.parameters).forEach(([k, v]) => L.push(`- **${k}:** ${v}`));

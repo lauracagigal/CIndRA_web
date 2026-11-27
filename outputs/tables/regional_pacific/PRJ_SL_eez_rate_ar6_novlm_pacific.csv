@@ -28,10 +28,7 @@ Tuvalu,SSP1-2.6,2050,2.8,3.6,5.2,7.7,9.8
 Vanuatu,SSP1-2.6,2050,3.2,3.9,5.4,7.8,9.8
 Wake Island,SSP1-2.6,2050,3.2,4.0,5.6,8.2,10.3
 Wallis and Futuna,SSP1-2.6,2050,2.6,3.5,5.2,7.7,9.9
-North Pacific Subtropical Gyre,SSP1-2.6,2050,3.3,4.0,5.7,8.2,10.4
-Equatorial Upwelling,SSP1-2.6,2050,3.1,3.8,5.4,7.9,10.1
-Western Equatorial Pacific,SSP1-2.6,2050,3.1,3.8,5.3,7.8,9.8
-South Pacific Subtropical Gyre,SSP1-2.6,2050,2.9,3.6,5.0,7.3,9.2
+All Pacific EEZs,SSP1-2.6,2050,3.1,3.8,5.4,7.8,9.9
 American Samoa,SSP1-2.6,2100,-0.5,1.7,5.7,10.3,13.6
 Cook Islands,SSP1-2.6,2100,0.1,2.1,5.8,10.2,13.3
 Fiji,SSP1-2.6,2100,0.3,2.3,6.0,10.3,13.4
@@ -61,10 +58,7 @@ Tuvalu,SSP1-2.6,2100,-3.3,0.5,6.6,13.1,17.6
 Vanuatu,SSP1-2.6,2100,0.4,2.4,6.0,10.4,13.4
 Wake Island,SSP1-2.6,2100,1.1,2.8,6.2,10.3,13.4
 Wallis and Futuna,SSP1-2.6,2100,-1.3,1.4,6.0,11.1,14.7
-North Pacific Subtropical Gyre,SSP1-2.6,2100,0.6,2.5,6.1,10.4,13.6
-Equatorial Upwelling,SSP1-2.6,2100,-1.8,1.2,6.2,11.8,15.6
-Western Equatorial Pacific,SSP1-2.6,2100,-1.2,1.6,6.4,11.7,15.4
-South Pacific Subtropical Gyre,SSP1-2.6,2100,1.5,2.8,5.6,9.1,11.7
+All Pacific EEZs,SSP1-2.6,2100,0.0,2.2,6.2,10.9,14.2
 American Samoa,SSP2-4.5,2050,3.6,4.4,6.1,8.6,10.8
 Cook Islands,SSP2-4.5,2050,3.6,4.4,6.1,8.6,10.8
 Fiji,SSP2-4.5,2050,3.7,4.5,6.1,8.6,10.7
@@ -94,10 +88,7 @@ Tuvalu,SSP2-4.5,2050,3.4,4.2,6.1,8.8,11.0
 Vanuatu,SSP2-4.5,2050,3.9,4.6,6.2,8.7,10.8
 Wake Island,SSP2-4.5,2050,3.9,4.7,6.3,9.0,11.2
 Wallis and Futuna,SSP2-4.5,2050,3.6,4.4,6.1,8.7,10.9
-North Pacific Subtropical Gyre,SSP2-4.5,2050,4.1,4.9,6.7,9.3,11.6
-Equatorial Upwelling,SSP2-4.5,2050,3.9,4.6,6.3,8.9,11.2
-Western Equatorial Pacific,SSP2-4.5,2050,3.6,4.4,6.1,8.7,10.9
-South Pacific Subtropical Gyre,SSP2-4.5,2050,3.5,4.2,5.9,8.3,10.3
+All Pacific EEZs,SSP2-4.5,2050,3.7,4.5,6.2,8.8,11.0
 American Samoa,SSP2-4.5,2100,3.9,5.5,9.1,14.0,17.7
 Cook Islands,SSP2-4.5,2100,3.3,5.1,8.9,13.8,17.5
 Fiji,SSP2-4.5,2100,2.7,4.6,8.5,13.5,17.2
@@ -127,10 +118,7 @@ Tuvalu,SSP2-4.5,2100,4.4,5.9,9.4,14.2,17.9
 Vanuatu,SSP2-4.5,2100,1.8,3.9,8.0,13.2,17.0
 Wake Island,SSP2-4.5,2100,3.4,5.4,9.5,14.8,18.7
 Wallis and Futuna,SSP2-4.5,2100,4.1,5.7,9.4,14.2,17.9
-North Pacific Subtropical Gyre,SSP2-4.5,2100,3.6,5.4,9.3,14.4,18.3
-Equatorial Upwelling,SSP2-4.5,2100,1.7,3.9,8.3,13.8,17.9
-Western Equatorial Pacific,SSP2-4.5,2100,2.5,4.5,8.5,13.6,17.4
-South Pacific Subtropical Gyre,SSP2-4.5,2100,3.2,4.9,8.4,13.0,16.5
+All Pacific EEZs,SSP2-4.5,2100,3.0,4.9,8.8,13.8,17.6
 American Samoa,SSP3-7.0,2050,4.1,4.9,6.6,9.1,11.4
 Cook Islands,SSP3-7.0,2050,4.0,4.8,6.6,9.1,11.4
 Fiji,SSP3-7.0,2050,4.4,5.2,6.9,9.3,11.6
@@ -160,10 +148,7 @@ Tuvalu,SSP3-7.0,2050,3.5,4.5,6.6,9.3,11.8
 Vanuatu,SSP3-7.0,2050,4.5,5.2,7.0,9.4,11.7
 Wake Island,SSP3-7.0,2050,4.6,5.4,7.3,10.0,12.4
 Wallis and Futuna,SSP3-7.0,2050,4.1,4.9,6.8,9.2,11.6
-North Pacific Subtropical Gyre,SSP3-7.0,2050,4.5,5.4,7.4,10.1,12.5
-Equatorial Upwelling,SSP3-7.0,2050,4.2,5.0,6.8,9.4,11.8
-Western Equatorial Pacific,SSP3-7.0,2050,3.8,4.7,6.6,9.2,11.5
-South Pacific Subtropical Gyre,SSP3-7.0,2050,4.2,4.9,6.6,8.8,11.0
+All Pacific EEZs,SSP3-7.0,2050,4.1,5.0,6.8,9.4,11.8
 American Samoa,SSP3-7.0,2100,4.0,6.3,11.3,17.5,22.1
 Cook Islands,SSP3-7.0,2100,4.6,6.6,11.1,16.9,21.4
 Fiji,SSP3-7.0,2100,3.9,6.6,12.1,18.8,23.7
@@ -193,10 +178,7 @@ Tuvalu,SSP3-7.0,2100,2.8,5.5,10.9,17.4,22.2
 Vanuatu,SSP3-7.0,2100,4.5,6.9,12.0,18.6,23.5
 Wake Island,SSP3-7.0,2100,7.0,8.9,13.2,19.1,23.7
 Wallis and Futuna,SSP3-7.0,2100,3.5,6.1,11.6,18.2,23.1
-North Pacific Subtropical Gyre,SSP3-7.0,2100,6.0,8.1,12.9,19.0,23.7
-Equatorial Upwelling,SSP3-7.0,2100,3.5,6.4,12.0,18.8,23.8
-Western Equatorial Pacific,SSP3-7.0,2100,2.8,5.6,11.2,18.0,22.8
-South Pacific Subtropical Gyre,SSP3-7.0,2100,5.6,7.3,11.4,16.7,20.9
+All Pacific EEZs,SSP3-7.0,2100,4.4,6.8,11.8,18.1,22.8
 American Samoa,SSP5-8.5,2050,4.5,5.5,7.7,10.7,13.3
 Cook Islands,SSP5-8.5,2050,4.8,5.7,7.6,10.5,13.0
 Fiji,SSP5-8.5,2050,4.5,5.5,7.6,10.6,13.2
@@ -226,10 +208,7 @@ Tuvalu,SSP5-8.5,2050,4.3,5.3,7.6,10.7,13.4
 Vanuatu,SSP5-8.5,2050,4.4,5.5,7.6,10.6,13.2
 Wake Island,SSP5-8.5,2050,5.1,6.1,8.2,11.3,13.9
 Wallis and Futuna,SSP5-8.5,2050,4.1,5.3,7.7,11.0,13.6
-North Pacific Subtropical Gyre,SSP5-8.5,2050,5.0,6.0,8.2,11.3,14.0
-Equatorial Upwelling,SSP5-8.5,2050,4.7,5.6,7.6,10.6,13.2
-Western Equatorial Pacific,SSP5-8.5,2050,4.5,5.4,7.4,10.3,12.9
-South Pacific Subtropical Gyre,SSP5-8.5,2050,4.8,5.6,7.3,10.0,12.3
+All Pacific EEZs,SSP5-8.5,2050,4.7,5.6,7.6,10.6,13.2
 American Samoa,SSP5-8.5,2100,6.8,8.9,13.9,21.1,26.6
 Cook Islands,SSP5-8.5,2100,5.9,8.2,13.5,20.8,26.3
 Fiji,SSP5-8.5,2100,6.3,8.8,14.3,21.6,27.1
@@ -259,7 +238,4 @@ Tuvalu,SSP5-8.5,2100,4.4,7.4,13.6,21.6,27.5
 Vanuatu,SSP5-8.5,2100,6.1,8.9,14.7,22.3,27.9
 Wake Island,SSP5-8.5,2100,8.9,10.8,15.5,22.7,28.3
 Wallis and Futuna,SSP5-8.5,2100,5.8,8.5,14.2,21.9,27.5
-North Pacific Subtropical Gyre,SSP5-8.5,2100,7.3,9.4,14.6,22.0,27.7
-Equatorial Upwelling,SSP5-8.5,2100,2.3,5.9,12.9,21.6,27.9
-Western Equatorial Pacific,SSP5-8.5,2100,4.7,7.9,14.3,22.4,28.3
-South Pacific Subtropical Gyre,SSP5-8.5,2100,6.8,8.7,13.3,19.9,25.0
+All Pacific EEZs,SSP5-8.5,2100,5.6,8.2,13.9,21.6,27.3

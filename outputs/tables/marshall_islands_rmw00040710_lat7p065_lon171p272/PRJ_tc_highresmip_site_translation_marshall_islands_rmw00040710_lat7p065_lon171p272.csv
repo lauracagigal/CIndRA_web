@@ -1,0 +1,11 @@
+Tracker,Model,Projected (models),Translation 0.5°,Translation 1.13°,Translation 1.5°
+TRACK,CMCC-CM2-VHR4,-28.3,-8.7,-23.9,-26.1
+TRACK,CNRM-CM6-1-HR,-77.8,-11.1,0.0,0.0
+TRACK,EC-Earth3P-HR,-100.0,14.3,0.0,0.0
+TRACK,HadGEM3-GC31-HM,-45.2,-4.8,-24.0,-29.8
+TempestExtremes,CNRM-CM6-1-HR,-61.5,0.0,-15.4,-23.1
+TempestExtremes,EC-Earth3P-HR,-100.0,0.0,0.0,0.0
+TempestExtremes,HadGEM3-GC31-HM,-44.5,-9.2,-23.5,-28.6
+TRACK,Multi-model mean,-62.8,-2.6,-12.0,-14.0
+TempestExtremes,Multi-model mean,-68.7,-3.1,-13.0,-17.2
+IBTrACS,Observed 1980–2010,,0.0,-15.4,-30.8

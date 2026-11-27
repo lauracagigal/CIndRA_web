@@ -1,0 +1,17 @@
+Region,Scenario,Warming level,Year,Models,Median,P10,P90,Min,Max
+All Pacific EEZs,SSP126,+1.5°C,2032,30,-1.4,-10.9,6.56,-21.35,8.44
+All Pacific EEZs,SSP126,+2.0°C,,0,,,,,
+All Pacific EEZs,SSP126,+2.5°C,,0,,,,,
+All Pacific EEZs,SSP126,+3.0°C,,0,,,,,
+All Pacific EEZs,SSP245,+1.5°C,2030,30,-1.77,-10.64,9.91,-21.32,14.68
+All Pacific EEZs,SSP245,+2.0°C,2052,30,5.19,-6.2,17.92,-12.0,25.87
+All Pacific EEZs,SSP245,+2.5°C,2079,30,6.66,-1.08,26.64,-9.15,52.7
+All Pacific EEZs,SSP245,+3.0°C,,0,,,,,
+All Pacific EEZs,SSP370,+1.5°C,2030,30,-1.07,-9.95,5.14,-24.58,19.68
+All Pacific EEZs,SSP370,+2.0°C,2046,30,6.73,-4.67,14.08,-24.6,19.43
+All Pacific EEZs,SSP370,+2.5°C,2061,30,7.36,-1.5,17.55,-13.89,37.57
+All Pacific EEZs,SSP370,+3.0°C,2075,30,15.75,1.26,24.75,-13.09,53.18
+All Pacific EEZs,SSP585,+1.5°C,2027,30,2.11,-10.72,9.03,-13.11,23.97
+All Pacific EEZs,SSP585,+2.0°C,2041,30,4.17,-3.96,10.29,-10.59,37.44
+All Pacific EEZs,SSP585,+2.5°C,2053,30,8.8,-5.07,19.99,-13.51,32.76
+All Pacific EEZs,SSP585,+3.0°C,2064,30,10.06,-6.17,20.42,-12.75,26.23
